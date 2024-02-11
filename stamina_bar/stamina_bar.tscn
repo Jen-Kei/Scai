@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://hn6ishxcqfys"]
 
-[ext_resource type="Texture2D" uid="uid://dww4ct57i8kpb" path="res://objects/stamina_bar/assets/healthbarUnder.png" id="1_kf5qf"]
-[ext_resource type="Texture2D" uid="uid://cf1kmu3gn8ecy" path="res://objects/stamina_bar/assets/healthbarProgress.png" id="2_7tvb8"]
-[ext_resource type="Script" path="res://objects/stamina_bar/texture_progress_bar.gd" id="3_wrilg"]
+[ext_resource type="Texture2D" uid="uid://dww4ct57i8kpb" path="res://stamina_bar/assets/healthbarUnder.png" id="1_kf5qf"]
+[ext_resource type="Texture2D" uid="uid://cf1kmu3gn8ecy" path="res://stamina_bar/assets/healthbarProgress.png" id="2_7tvb8"]
+[ext_resource type="Script" path="res://stamina_bar/texture_progress_bar.gd" id="3_wrilg"]
 
 [node name="StaminaBar" type="CanvasLayer"]
 
