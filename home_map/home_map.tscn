@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://d27f7nptke6rd"]
 
-[ext_resource type="Texture2D" uid="uid://0tt8sh16jpgp" path="res://objects/home_map/assets/Grass.png" id="3_mimgw"]
-[ext_resource type="Texture2D" uid="uid://ciihx3wg5axe7" path="res://objects/home_map/assets/Basic_Grass_Biom_things.png" id="4_asjm6"]
-[ext_resource type="Texture2D" uid="uid://bkix4o4mi588n" path="res://objects/home_map/assets/Hills.png" id="4_tkkha"]
-[ext_resource type="Texture2D" uid="uid://chwepjbuko7es" path="res://objects/home_map/assets/Water.png" id="5_l462o"]
-[ext_resource type="PackedScene" uid="uid://d8aw26qy6rh0" path="res://objects/player/player.tscn" id="5_xy7si"]
+[ext_resource type="Texture2D" uid="uid://0tt8sh16jpgp" path="res://home_map/assets/Grass.png" id="3_mimgw"]
+[ext_resource type="Texture2D" uid="uid://ciihx3wg5axe7" path="res://home_map/assets/Basic_Grass_Biom_things.png" id="4_asjm6"]
+[ext_resource type="Texture2D" uid="uid://bkix4o4mi588n" path="res://home_map/assets/Hills.png" id="4_tkkha"]
+[ext_resource type="Texture2D" uid="uid://chwepjbuko7es" path="res://home_map/assets/Water.png" id="5_l462o"]
+[ext_resource type="PackedScene" uid="uid://d8aw26qy6rh0" path="res://Player/player.tscn" id="5_xy7si"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w4vo5"]
 texture = ExtResource("3_mimgw")
