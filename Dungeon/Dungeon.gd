@@ -1,7 +1,7 @@
 extends Node2D
 
 # LOAD SCENES
-var Room = preload("res://Room/Room.tscn")
+var room = preload("res://Room/Room.gd")
 
 # VARIABLES
 @export var tileSize = 16
@@ -24,10 +24,14 @@ func _process(delta):
 # FUNCTIONS
 # Randomly generate rooms
 func make_rooms():
-	# For every room, 
+	# Generate all rooms and give them their position, room number, width and height
 	for i in range(numRooms):
 		var pos = Vector2(0,0)
-		var r = Room.instantiate()
-		var w = min_size + randi() % (max_size - min_size)
+		var roomNo = room.instantiate()
+		var width = minSize + randi() % (maxSize - minSize)
+		var height = minSize + randi() % (maxSize - minSize)
+		roomNo.make_room(pos, Vector2(width, height) * tileSize) # call function to generate room
+		$Rooms.add_child(roomNo) # add newly generated room to rooms container
+
 	
 
