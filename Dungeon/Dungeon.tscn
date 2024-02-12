@@ -324,4 +324,4 @@ layer_0/tile_data = PackedInt32Array(1900549, 0, 4, 1900550, 262144, 4, 1900551,
 [node name="Rooms" type="Node" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(10, 10)
+zoom = Vector2(0.4, 0.4)

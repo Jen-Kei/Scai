@@ -39,3 +39,8 @@ func _draw():
 		draw_rect(Rect2(room.position - room.size, room.size * 2), Color(32, 228, 0), false)
 
 
+func _input(event):
+	if event.is_action_pressed("ui_select"):
+		for room in $Rooms.get_children():
+			room.queue_free()
+		make_rooms()

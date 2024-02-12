@@ -1,11 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfybsmk8avtaw"]
+[gd_scene load_steps=2 format=3 uid="uid://con84gyf7cg2e"]
 
-[ext_resource type="Script" path="res://Room/Room.gd" id="1_qhqyu"]
+[ext_resource type="Script" path="res://Dungeon/Room/Room.gd" id="1_1jg0y"]
 
-[node name="Node2D" type="Node2D"]
-
-[node name="Room" type="RigidBody2D" parent="."]
+[node name="Room" type="RigidBody2D"]
 lock_rotation = true
-script = ExtResource("1_qhqyu")
+script = ExtResource("1_1jg0y")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
