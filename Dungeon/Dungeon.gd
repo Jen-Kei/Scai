@@ -1,7 +1,7 @@
 extends Node2D
 
 # LOAD SCENES
-var room = preload("res://Room/Room.gd")
+var room = preload("Room/Room.tscn")
 
 # VARIABLES
 @export var tileSize = 16
