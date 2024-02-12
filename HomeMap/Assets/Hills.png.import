@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgcp2dvcsxrlm"
-path="res://.godot/imported/player.png-15d8b428f941c765409c4f99bfc422db.ctex"
+uid="uid://bkix4o4mi588n"
+path="res://.godot/imported/Hills.png-c3f53c5d8241303c560562be5259249e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Assets/player.png"
-dest_files=["res://.godot/imported/player.png-15d8b428f941c765409c4f99bfc422db.ctex"]
+source_file="res://HomeMap/Assets/Hills.png"
+dest_files=["res://.godot/imported/Hills.png-c3f53c5d8241303c560562be5259249e.ctex"]
 
 [params]
 
