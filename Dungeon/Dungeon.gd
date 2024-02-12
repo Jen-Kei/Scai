@@ -1,7 +1,7 @@
 extends Node2D
 
 # LOAD SCENES
-var room = preload("Room/Room.tscn")
+var Room = preload("Room/Room.tscn")
 
 # VARIABLES
 @export var tileSize = 16
@@ -18,20 +18,24 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	queue_redraw() # call draw()
 
 
 # FUNCTIONS
 # Randomly generate rooms
 func make_rooms():
-	# Generate all rooms and give them their position, room number, width and height
+	# Generate all rooms' collission shapes and give them their position, room number, width and height
 	for i in range(numRooms):
 		var pos = Vector2(0,0)
-		var roomNo = room.instantiate()
+		var roomNo = Room.instantiate()
 		var width = minSize + randi() % (maxSize - minSize)
 		var height = minSize + randi() % (maxSize - minSize)
 		roomNo.make_room(pos, Vector2(width, height) * tileSize) # call function to generate room
 		$Rooms.add_child(roomNo) # add newly generated room to rooms container
-
 	
+func _draw():
+	# Draw the outline for the rooms
+	for room in $Rooms.get_children():
+		draw_rect(Rect2(room.position - room.size, room.size * 2), Color(32, 228, 0), false)
+
 
