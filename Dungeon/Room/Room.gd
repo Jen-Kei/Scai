@@ -18,9 +18,10 @@ func _process(delta):
 func make_room(_pos, _size):
 	# VARIABLES
 	var s = 0
-
 	position = _pos
 	size = _size
+
+	# Genrate collision shapes for the rooms
 	s = RectangleShape2D.new()
 	s.extents = size
 	$CollisionShape2D.shape = s
