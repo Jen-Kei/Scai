@@ -8,6 +8,7 @@ var Room = preload("Room/Room.tscn")
 @export var numRooms = 50
 @export var minSize = 4
 @export var maxSize = 10
+@export var horizontalSpread = 100 
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,7 +27,7 @@ func _process(delta):
 func make_rooms():
 	# Generate all rooms' collission shapes and give them their position, room number, width and height
 	for i in range(numRooms):
-		var pos = Vector2(0,0)
+		var pos = Vector2(randf_range(-horizontalSpread, horizontalSpread), 0)
 		var roomNo = Room.instantiate()
 		var width = minSize + randi() % (maxSize - minSize)
 		var height = minSize + randi() % (maxSize - minSize)
