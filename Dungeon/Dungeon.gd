@@ -39,8 +39,12 @@ func _draw():
 		draw_rect(Rect2(room.position - room.size, room.size * 2), Color(32, 228, 0), false)
 
 
+# Delete the rooms and make new rooms
 func _input(event):
+	# Check if user presses select key
 	if event.is_action_pressed("ui_select"):
+		# Loop thru every child in the room container and delete them
 		for room in $Rooms.get_children():
 			room.queue_free()
+		# Generate new rooms
 		make_rooms()
