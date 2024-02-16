@@ -161,5 +161,18 @@ func make_map():
 
 	for x in range(topLeftPos.x, bottomRightPos.x):
 		for y in range(topLeftPos.y, bottomRightPos.y):
-			Map.set_cell(0, Vector2i(x, y), 1, Vector2i(2, 0), 0)
+			Map.set_cell(0, Vector2i(x, y), 1, Vector2i(8, 7), 0)
 			
+	
+	# Carve the rooms
+	# For each room, get the size of the room 
+	for room in $Rooms.get_children():
+		var s = (room.size / tileSize).floor()
+		var pos = Map.local_to_map(room.position)
+		var ul = (room.position / tileSize).floor() - s
+
+		# Start at 2 to get border
+		for x in range(2, s.x * 2 - 1):
+			for y in range(2, s.y * 2 - 1):
+				Map.set_cell(0, Vector2i(ul.x + x, ul.y + y), 0, Vector2i(2, 2), 0)
+	
