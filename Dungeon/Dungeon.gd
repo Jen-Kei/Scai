@@ -3,7 +3,7 @@ extends Node2D
 # LOAD SCENES
 var Room = preload("Room/Room.tscn")
 
-# VARIABLES
+# VARIABLES FOR ROOM GENERATION
 var tileSize = 16
 var numRooms = 30
 var minSize = 4
@@ -11,6 +11,10 @@ var maxSize = 10
 var horizontalSpread = 	0 
 var filter = 0.45 # filter var to delete a certain amount of generated rooms
 var roomsFiltered = 0
+
+# VARIABLES FOR CORRIDOR GENERATION
+var path # AStar2d pathfinding object
+var roomPositions = []
 
 
 # Called when the node enters the scene tree for the first time.
@@ -27,9 +31,12 @@ func _process(delta):
 # FUNCTIONS
 # Randomly generate rooms
 func make_rooms():
+	# Reset variable values
+	roomsFiltered = 0
+	roomPositions = []
+
 	# Generate all rooms' collision shapes and give them their position, room number, width and height
 	# Adds the rooms as children to the Room node (container)
-	roomsFiltered = 0
 	for i in range(numRooms):
 		var pos = Vector2(randf_range(-horizontalSpread, horizontalSpread), 0)
 		var roomNo = Room.instantiate()
@@ -39,13 +46,11 @@ func make_rooms():
 		$Rooms.add_child(roomNo) # add newly generated room to rooms container
 	
 	# wait for physics engine to stop spreading apart the rooms
-	await(get_tree().create_timer(1.1).timeout) 
+	await(get_tree().create_timer(1.1).timeout) # delay
 
 
 
-	# Loop through every child in the room container
-	# and if randomly gen number is less then filter number
-	# Delete child
+	# Filter the rooms and delete a few while leaving a minimum amount of rooms (makes them less cluttered)
 	for room in $Rooms.get_children():
 		# Check if we've already deleted half the trees
 		if roomsFiltered >= numRooms/2.0:
@@ -56,13 +61,22 @@ func make_rooms():
 			room.queue_free()
 		else:
 			room.freeze = true # Change child so it can't be moved anymore
-		print(roomsFiltered)
+			roomPositions.append(Vector3(room.position.x, room.position.y, 0))
+
+		print("roomsFiltered = ", roomsFiltered)
+
+	# delay so the rooms and positions generate fully
+	await(get_tree().create_timer(1.1).timeout) 
+
+	# generate a mininmum spanning tree connecting the rooms
+	path = find_mst(roomPositions)
 
 func _draw():
 	# Draw the outline for the rooms
 	for room in $Rooms.get_children():
 		draw_rect(Rect2(room.position - room.size, room.size * 2), Color(32, 228, 0), false)
 
+	
 
 # Delete the rooms and make new rooms
 func _input(event):
@@ -73,3 +87,41 @@ func _input(event):
 			room.queue_free()
 		# Generate new rooms
 		make_rooms()
+
+# Input parameter: an array containing Vector3's - the positions of each room
+# Using AStar2D object, generate a minimum spanning tree with Prim-Dijkstra's algorithm
+func find_mst(nodes):
+	# VARIABLES
+	path = AStar2D.new()
+	var minDistance # Minimum distance so far
+	var minPosition # Position of that node
+	var currPosition # Current position
+	var nextId # point ID
+
+
+	# Add a point to the AStar2D object by popping an element from an array of nodes
+	path.add_point(path.get_available_point_id(), nodes.pop_front) # AStar2D needs an id and vector3
+
+	# Repeat until no more nodes remain (array returns false if empty)
+	while nodes:
+		minDistance = INF # Min distance so far	
+		minPosition = null
+		currPosition = null
+		
+
+		# Loop through all points in path
+		for pointA in path.get_points():
+			pointA = path.get_point_position(pointA)
+
+			# Loop through the remaining nodes
+			for pointB in nodes:
+				if pointA.distance_to(pointB) < minDistance:
+					minDistance = pointA.distance_to(pointB)
+					minPosition = pointB
+					currPosition = pointA
+			
+		nextId = path.get_available_point_id()
+		path.add_point(nextId, minPosition)
+		path.connect_points(path.get_closest_point(currPosition), nextId)
+		nodes.erase(minPosition)
+	return path
