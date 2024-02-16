@@ -73,6 +73,7 @@ func make_rooms():
 	path = find_mst(roomPositions)
 
 func _draw():
+	'''
 	# Draw the outline for the rooms
 	for room in $Rooms.get_children():
 		draw_rect(Rect2(room.position - room.size, room.size * 2), Color(32, 228, 0), false)
@@ -84,6 +85,7 @@ func _draw():
 				var tempPointA = path.get_point_position(pointA)
 				var tempPointB = path.get_point_position(pointB)
 				draw_line(tempPointA, tempPointB, Color(1, 1, 0), 15, true)
+	'''
 				
 
 
@@ -164,15 +166,57 @@ func make_map():
 			Map.set_cell(0, Vector2i(x, y), 1, Vector2i(8, 7), 0)
 			
 	
-	# Carve the rooms
+	# Carve the rooms & corridors
 	# For each room, get the size of the room 
+	var corridors = [] # Keep track of corridors created so only one corridor per connection
+	var p
 	for room in $Rooms.get_children():
 		var s = (room.size / tileSize).floor()
 		var pos = Map.local_to_map(room.position)
 		var ul = (room.position / tileSize).floor() - s
+		var start
+		var end
 
 		# Start at 2 to get border
 		for x in range(2, s.x * 2 - 1):
 			for y in range(2, s.y * 2 - 1):
 				Map.set_cell(0, Vector2i(ul.x + x, ul.y + y), 0, Vector2i(2, 2), 0)
+		
+		# Carve connecting corridor
+		p = path.get_closest_point(room.position)
+
+		for conn in path.get_point_connections(p):
+			if not conn in corridors:
+				start = Map.local_to_map(Vector2(path.get_point_position(p).x, path.get_point_position(p).y))
+				end = Map.local_to_map(Vector2(path.get_point_position(conn).x, path.get_point_position(conn).y))
 	
+		# Carve a path from start to end
+		carve_path(start, end)
+	corridors.append(p)
+
+func carve_path(start, end):
+	print(start,end)
+	var difference_x = sign(end.x - start.x)
+	var difference_y = sign(end.y - start.y)
+	
+	if difference_x == 0:
+		difference_x = pow(-1.0, randi() % 2)
+	if difference_y == 0:
+		difference_y = pow(-1.0, randi() % 2)
+		
+	var x_over_y = start
+	var y_over_x = end
+	
+	if randi() % 2 > 0:
+		x_over_y = end
+		y_over_x = start
+
+	print("start")
+	for x in range(start.x, end.x, difference_x):
+		Map.set_cell(0, Vector2i(x, x_over_y.y), 0, Vector2i(2, 2), 0)
+		print("hey")
+		print(x, x_over_y.y)
+	for y in range(start.y, end.y, difference_y):
+		Map.set_cell(0, Vector2i(y_over_x.x, y), 0, Vector2i(2, 2), 0)
+		print(y_over_x.x, y)
+	print("reached carve_path")

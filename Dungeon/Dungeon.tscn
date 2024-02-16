@@ -36,3 +36,4 @@ zoom = Vector2(0.4, 0.4)
 show_behind_parent = true
 tile_set = SubResource("TileSet_far0k")
 format = 2
+layer_1/tile_data = PackedInt32Array()
