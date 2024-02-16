@@ -161,5 +161,5 @@ func make_map():
 
 	for x in range(topLeftPos.x, bottomRightPos.x):
 		for y in range(topLeftPos.y, bottomRightPos.y):
-			Map.set_cell(0, Vector2i(x, y), 1, Vector2i(0, 0), 0)
+			Map.set_cell(0, Vector2i(x, y), 1, Vector2i(2, 0), 0)
 			
