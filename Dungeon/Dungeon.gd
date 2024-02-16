@@ -8,14 +8,14 @@ var tileSize = 16
 var numRooms = 30
 var minSize = 4
 var maxSize = 10
-var horizontalSpread = 	0 
+var horizontalSpread = 	10
 var filter = 0.45 # filter var to delete a certain amount of generated rooms
 var roomsFiltered = 0
 
 # VARIABLES FOR CORRIDOR GENERATION
 var path # AStar2d pathfinding object
 var roomPositions = []
-
+@onready var Map = $TileMap
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -97,6 +97,10 @@ func _input(event):
 		# Generate new rooms
 		make_rooms()
 
+	# Check if user presses next key
+	if event.is_action_pressed("ui_focus_next"):
+		make_map()
+
 # Input parameter: an array containing Vector3's - the positions of each room
 # Using AStar2D object, generate a minimum spanning tree with Prim-Dijkstra's algorithm
 func find_mst(nodes):
@@ -134,3 +138,26 @@ func find_mst(nodes):
 		path.connect_points(path.get_closest_point(currPosition), nextId)
 		nodes.erase(minPosition)
 	return path
+
+
+# Create a tilemap from the generated rooms and paths
+func make_map():
+	# VARIABLES
+	var fullRect = Rect2()
+	var r
+	var topLeftPos # of rect
+	var bottomRightPos
+
+	Map.clear() # Clear any existing tiles so we can regenerate
+
+	# Fill tilemap with unwalkable area, then carve empty rooms
+	for room in $Rooms.get_children():
+		r = Rect2(room.position - room.size, room.get_node("CollisionShape2D").shape.extents*2)
+		fullRect = fullRect.merge(r)
+	topLeftPos = Map.local_to_map(fullRect.position)
+	bottomRightPos = Map.local_to_map(fullRect.end)
+
+	for x in range(topLeftPos.x, bottomRightPos.x):
+		for y in range(topLeftPos.y, bottomRightPos.y):
+			Map.set_cell(x, y, 1)
+
