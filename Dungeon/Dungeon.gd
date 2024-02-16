@@ -61,7 +61,7 @@ func make_rooms():
 			room.queue_free()
 		else:
 			room.freeze = true # Change child so it can't be moved anymore
-			roomPositions.append(Vector3(room.position.x, room.position.y, 0))
+			roomPositions.append(Vector2(room.position.x, room.position.y))
 
 		print("roomsFiltered = ", roomsFiltered)
 
@@ -75,6 +75,15 @@ func _draw():
 	# Draw the outline for the rooms
 	for room in $Rooms.get_children():
 		draw_rect(Rect2(room.position - room.size, room.size * 2), Color(32, 228, 0), false)
+
+	# Draw the path
+	if path:
+		for pointA in path.get_point_ids():
+			for pointB in path.get_point_connections(pointA):
+				var tempPointA = path.get_point_position(pointA)
+				var tempPointB = path.get_point_position(pointB)
+				draw_line(tempPointA, tempPointB, Color(1, 1, 0), 15, true)
+
 
 	
 
@@ -100,7 +109,7 @@ func find_mst(nodes):
 
 
 	# Add a point to the AStar2D object by popping an element from an array of nodes
-	path.add_point(path.get_available_point_id(), nodes.pop_front) # AStar2D needs an id and vector3
+	path.add_point(path.get_available_point_id(), nodes.pop_front()) # AStar2D needs an id and vector3
 
 	# Repeat until no more nodes remain (array returns false if empty)
 	while nodes:
@@ -110,7 +119,7 @@ func find_mst(nodes):
 		
 
 		# Loop through all points in path
-		for pointA in path.get_points():
+		for pointA in path.get_point_ids():
 			pointA = path.get_point_position(pointA)
 
 			# Loop through the remaining nodes
