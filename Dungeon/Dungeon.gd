@@ -21,6 +21,7 @@ var roomPositions = []
 func _ready():
 	randomize()	# initialise random number generator
 	make_rooms()
+	print(Map)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -83,6 +84,7 @@ func _draw():
 				var tempPointA = path.get_point_position(pointA)
 				var tempPointB = path.get_point_position(pointB)
 				draw_line(tempPointA, tempPointB, Color(1, 1, 0), 15, true)
+				
 
 
 	
@@ -98,7 +100,7 @@ func _input(event):
 		make_rooms()
 
 	# Check if user presses next key
-	if event.is_action_pressed("ui_focus_next"):
+	if event.is_action_pressed("ui_make_map"):
 		make_map()
 
 # Input parameter: an array containing Vector3's - the positions of each room
@@ -143,21 +145,21 @@ func find_mst(nodes):
 # Create a tilemap from the generated rooms and paths
 func make_map():
 	# VARIABLES
-	var fullRect = Rect2()
-	var r
-	var topLeftPos # of rect
-	var bottomRightPos
 
 	Map.clear() # Clear any existing tiles so we can regenerate
 
+	# Find out how big to make rect to cover all the rooms
 	# Fill tilemap with unwalkable area, then carve empty rooms
+
+	var fullRect = Rect2()
+
 	for room in $Rooms.get_children():
-		r = Rect2(room.position - room.size, room.get_node("CollisionShape2D").shape.extents*2)
+		var r = Rect2(room.position - room.size, room.get_node("CollisionShape2D").shape.extents*2)
 		fullRect = fullRect.merge(r)
-	topLeftPos = Map.local_to_map(fullRect.position)
-	bottomRightPos = Map.local_to_map(fullRect.end)
+	var topLeftPos = Map.local_to_map(fullRect.position)
+	var bottomRightPos = Map.local_to_map(fullRect.end)
 
 	for x in range(topLeftPos.x, bottomRightPos.x):
 		for y in range(topLeftPos.y, bottomRightPos.y):
-			Map.set_cell(x, y, 1)
-
+			Map.set_cell(0, Vector2i(x, y), 1, Vector2i(0, 0), 0)
+			
