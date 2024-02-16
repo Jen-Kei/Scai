@@ -3,26 +3,21 @@ extends RigidBody2D
 # VARIABLES
 var size	# size of the room 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 # FUNCTIONS
-# Generate a room
+'''
+# Input parameters: Room position and size to generate a room
+# Generates a RectangleShape2D node, and then generates a collision shape with that rectangle2D node
+'''
 func make_room(_pos, _size):
 	# VARIABLES
-	var s = 0
+	var shape = 0
 	position = _pos
 	size = _size
 
-	# Genrate collision shapes for the rooms
-	s = RectangleShape2D.new()
-	s.extents = size
-	$CollisionShape2D.shape = s
+	# Make a rectagle shape 
+	shape = RectangleShape2D.new()
+	shape.custom_solver_bias = 0.75 # make the rooms spread apart from each other faster
+	shape.extents = size
+	$CollisionShape2D.shape = shape
 	

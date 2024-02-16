@@ -4,12 +4,13 @@ extends Node2D
 var Room = preload("Room/Room.tscn")
 
 # VARIABLES
-@export var tileSize = 16
-@export var numRooms = 30
-@export var minSize = 4
-@export var maxSize = 10
-@export var horizontalSpread = 50 
-@export var filter = 0.5 # filter var to delete a certain amount of generated rooms
+var tileSize = 16
+var numRooms = 30
+var minSize = 4
+var maxSize = 10
+var horizontalSpread = 	0 
+var filter = 0.45 # filter var to delete a certain amount of generated rooms
+var roomsFiltered = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,7 +27,9 @@ func _process(delta):
 # FUNCTIONS
 # Randomly generate rooms
 func make_rooms():
-	# Generate all rooms' collission shapes and give them their position, room number, width and height
+	# Generate all rooms' collision shapes and give them their position, room number, width and height
+	# Adds the rooms as children to the Room node (container)
+	roomsFiltered = 0
 	for i in range(numRooms):
 		var pos = Vector2(randf_range(-horizontalSpread, horizontalSpread), 0)
 		var roomNo = Room.instantiate()
@@ -35,15 +38,25 @@ func make_rooms():
 		roomNo.make_room(pos, Vector2(width, height) * tileSize) # call function to generate room
 		$Rooms.add_child(roomNo) # add newly generated room to rooms container
 	
-		# wait for physics engine to stop spreading apart the rooms
-		await(get_tree().create_timer(1.1).timeout) 
-		# Loop through every child in the room container and if randomly gen number is less then filter number
-		# Delete child
-		for room in $Rooms.get_children():
-			if randf() < filter:
-				room.queue_free()
-			else:
-				room.freeze = true # Change child so it can't be moved anymore
+	# wait for physics engine to stop spreading apart the rooms
+	await(get_tree().create_timer(1.1).timeout) 
+
+
+
+	# Loop through every child in the room container
+	# and if randomly gen number is less then filter number
+	# Delete child
+	for room in $Rooms.get_children():
+		# Check if we've already deleted half the trees
+		if roomsFiltered >= numRooms/2.0:
+			return
+
+		if randf() < filter:
+			roomsFiltered += 1
+			room.queue_free()
+		else:
+			room.freeze = true # Change child so it can't be moved anymore
+		print(roomsFiltered)
 
 func _draw():
 	# Draw the outline for the rooms
