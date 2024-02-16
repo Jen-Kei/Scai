@@ -1,0 +1,62 @@
+{
+	"Items":
+	{
+		"Rock":
+		{
+			"Name": "Rock",
+			"Description": "A small rock.",
+			"Sprite": "Rock.png",
+			"Weight": 30,
+			"Value": 12,
+
+			"StaminaCapacity": 1,
+			"StaminaGain": 1,
+			"StaminaPerSecond": 1,
+
+			"HealthCapacity": 1,
+			"HealthGain": 1,
+
+			"weightCapacity": 1,
+
+			"fireRate": 1
+		},
+		"Watch":
+		{
+			"Name": "Watch",
+			"Description": "Increases your fire rate by 10% for 5 minutes.",
+			"Sprite": "Watch.png",
+			"Weight": 30,
+			"Value": 12,
+
+			"StaminaCapacity": 1,
+			"StaminaGain": 1,
+			"StaminaPerSecond": 1,
+
+			"HealthCapacity": 1,
+			"HealthGain": 1,
+
+			"weightCapacity": 1,
+
+			"fireRate": 1.2
+		},
+		"Blue Potion":
+		{
+			"Name": "Blue Potion",
+			"Description": "Increases all your stats by 20%",
+			"Sprite": "bluePotion.png",
+			"Weight": 30,
+			"Value": 12,
+
+			"StaminaCapacity": 1.2,
+			"StaminaGain": 1.2,
+			"StaminaPerSecond": 1.2,
+
+			"HealthCapacity": 1.2,
+			"HealthGain": 1.2,
+
+			"weightCapacity": 1.2,
+
+			"fireRate": 1.2
+		}
+	}
+}
