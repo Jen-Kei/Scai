@@ -1,8 +1,9 @@
-[gd_scene load_steps=57 format=3 uid="uid://d8aw26qy6rh0"]
+[gd_scene load_steps=58 format=3 uid="uid://d8aw26qy6rh0"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_bldul"]
-[ext_resource type="Texture2D" uid="uid://cgcp2dvcsxrlm" path="res://Player/Assets/player.png" id="2_h38iv"]
+[ext_resource type="Texture2D" uid="uid://cgcp2dvcsxrlm" path="res://Player/assets/player.png" id="2_h38iv"]
 [ext_resource type="PackedScene" uid="uid://hn6ishxcqfys" path="res://StaminaBar/StaminaBar.tscn" id="3_dpee4"]
+[ext_resource type="Script" path="res://Player/StatBank.gd" id="4_c4t1w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wivu1"]
 atlas = ExtResource("2_h38iv")
@@ -421,6 +422,11 @@ radius = 5.0
 y_sort_enabled = true
 position = Vector2(244, 339)
 script = ExtResource("1_bldul")
+
+[node name="StatBank" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-1, 0)
+script = ExtResource("4_c4t1w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true

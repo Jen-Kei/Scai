@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgcp2dvcsxrlm"
-path="res://.godot/imported/player.png-c42de87dd640a60ac6e787651b648d57.ctex"
+uid="uid://6okwnb3c26rs"
+path="res://.godot/imported/Angry.jpg-70226905f7d3a216af6be9fbfb94ce15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/assets/player.png"
-dest_files=["res://.godot/imported/player.png-c42de87dd640a60ac6e787651b648d57.ctex"]
+source_file="res://UIPopup/Assets/Angry.jpg"
+dest_files=["res://.godot/imported/Angry.jpg-70226905f7d3a216af6be9fbfb94ce15.ctex"]
 
 [params]
 
