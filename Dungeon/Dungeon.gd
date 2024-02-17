@@ -11,6 +11,7 @@ var maxSize = 10
 var horizontalSpread = 	10
 var filter = 0.45 # filter var to delete a certain amount of generated rooms
 var roomsFiltered = 0
+var fin
 
 # VARIABLES FOR CORRIDOR GENERATION
 var path # AStar2d pathfinding object
@@ -21,7 +22,9 @@ var roomPositions = []
 func _ready():
 	randomize()	# initialise random number generator
 	make_rooms()
-	print(Map)
+		
+	
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,6 +38,11 @@ func make_rooms():
 	# Reset variable values
 	roomsFiltered = 0
 	roomPositions = []
+	fin = false
+
+	# Delete previously generated rooms before generating new rooms
+	for room in $Rooms.get_children():
+		room.queue_free()
 
 	# Generate all rooms' collision shapes and give them their position, room number, width and height
 	# Adds the rooms as children to the Room node (container)
@@ -71,6 +79,12 @@ func make_rooms():
 
 	# generate a mininmum spanning tree connecting the rooms
 	path = find_mst(roomPositions)
+	
+	fin = true
+	if fin == true && path:
+		make_map()
+	else:
+		make_rooms()
 
 func _draw():
 	'''
@@ -85,7 +99,8 @@ func _draw():
 				var tempPointA = path.get_point_position(pointA)
 				var tempPointB = path.get_point_position(pointB)
 				draw_line(tempPointA, tempPointB, Color(1, 1, 0), 15, true)
-	'''
+		'''
+	
 				
 
 
@@ -95,15 +110,21 @@ func _draw():
 func _input(event):
 	# Check if user presses select key
 	if event.is_action_pressed("ui_select"):
-		# Loop thru every child in the room container and delete them
-		for room in $Rooms.get_children():
-			room.queue_free()
-		# Generate new rooms
-		make_rooms()
 
+		make_rooms()
+		await(get_tree().create_timer(1.1).timeout) # delay
+		# Check if the path was generated so that we can make the map
+		# Else, regenerate the map
+		if path:
+			make_map()
+		else:
+			make_rooms()
+
+'''
 	# Check if user presses next key
 	if event.is_action_pressed("ui_make_map"):
 		make_map()
+'''
 
 # Input parameter: an array containing Vector3's - the positions of each room
 # Using AStar2D object, generate a minimum spanning tree with Prim-Dijkstra's algorithm
