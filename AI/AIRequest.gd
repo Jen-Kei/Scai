@@ -1,5 +1,7 @@
 extends HTTPRequest
 
+signal chat_response_recieved(response: String)
+
 var api_key = FileAccess.open('AI/token', FileAccess.READ).get_as_text()
 
 
@@ -46,5 +48,6 @@ func _on_request_completed(result, response_code, headers, body):
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
 	# Will print the user agent string used by the HTTPRequest node (as recognized by httpbin.org).
-	print(response["choices"][0]["message"]["content"])
+	var chat_response = response["choices"][0]["message"]["content"]
+	chat_response_recieved.emit(chat_response)
 
