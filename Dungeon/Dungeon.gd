@@ -57,8 +57,6 @@ func make_rooms():
 	# wait for physics engine to stop spreading apart the rooms
 	await(get_tree().create_timer(1.1).timeout) # delay
 
-
-
 	# Filter the rooms and delete a few while leaving a minimum amount of rooms (makes them less cluttered)
 	for room in $Rooms.get_children():
 		# Check if we've already deleted half the trees
@@ -112,14 +110,6 @@ func _input(event):
 	if event.is_action_pressed("ui_select"):
 
 		make_rooms()
-		await(get_tree().create_timer(1.1).timeout) # delay
-		# Check if the path was generated so that we can make the map
-		# Else, regenerate the map
-		if path:
-			make_map()
-		else:
-			make_rooms()
-
 '''
 	# Check if user presses next key
 	if event.is_action_pressed("ui_make_map"):
@@ -193,7 +183,7 @@ func make_map():
 	var p
 	for room in $Rooms.get_children():
 		var s = (room.size / tileSize).floor()
-		var pos = Map.local_to_map(room.position)
+		var _pos = Map.local_to_map(room.position)
 		var ul = (room.position / tileSize).floor() - s
 		var start
 		var end
@@ -204,7 +194,7 @@ func make_map():
 				Map.set_cell(0, Vector2i(ul.x + x, ul.y + y), 0, Vector2i(2, 2), 0)
 		
 		# Carve connecting corridor
-		p = path.get_closest_point(room.position)
+		p = path.get_closest_point(room.position) # !!THIS LINE IS  A PROBLEM I THINK!
 
 		for conn in path.get_point_connections(p):
 			if not conn in corridors:
@@ -215,8 +205,8 @@ func make_map():
 		carve_path(start, end)
 	corridors.append(p)
 
+# carve_path IS being called on every connection
 func carve_path(start, end):
-	print(start,end)
 	var difference_x = sign(end.x - start.x)
 	var difference_y = sign(end.y - start.y)
 	
@@ -232,12 +222,9 @@ func carve_path(start, end):
 		x_over_y = end
 		y_over_x = start
 
-	print("start")
-	for x in range(start.x, end.x, difference_x):
+	# Carving path
+	print("Carving path")
+	for x in range(start.x, end.x + difference_x, difference_x):
 		Map.set_cell(0, Vector2i(x, x_over_y.y), 0, Vector2i(2, 2), 0)
-		print("hey")
-		print(x, x_over_y.y)
-	for y in range(start.y, end.y, difference_y):
+	for y in range(start.y, end.y + difference_y, difference_y):
 		Map.set_cell(0, Vector2i(y_over_x.x, y), 0, Vector2i(2, 2), 0)
-		print(y_over_x.x, y)
-	print("reached carve_path")
