@@ -7,12 +7,23 @@ signal stamina_increase
 
 
 # Initialise vars 
-var speed = 100.0
-var normal_speed = 100.0
-var extra_speed = 200.0
-@export var stamina = 500
-var current_direction = "none"
-var running = false
+@onready var speed = %StatBank.speed
+@onready var normal_speed = %StatBank.normal_speed
+@onready var extra_speed = %StatBank.extra_speed
+@onready var stamina = %StatBank.stamina
+@onready var stamina_gain = %StatBank.stamina_gain
+
+@onready var health_capacity = %StatBank.health_capacity
+@onready var health_gain = %StatBank.health_gain
+@onready var health = %StatBank.health
+
+@onready var current_direction = "none"
+@onready var running = false
+
+var can_run_over = 10 # The amount of stamina the player can run over
+
+var running_anim_scale = 3
+var walking_anim_scale = 1
 
 
 
@@ -74,7 +85,7 @@ func player_movement(delta):
 
 # Change the player's speed and update the stamina meter 
 func player_speed():
-	if Input.is_action_pressed("ui_run") && stamina > 10:
+	if Input.is_action_pressed("ui_run") && stamina > can_run_over:
 		speed = extra_speed
 		running = true
 		stamina_decrease.emit()
@@ -96,9 +107,9 @@ func player_animation(movement):
 		animation.flip_h = true
 		if movement == 1:
 			if running == true:
-				animation.speed_scale = 3
+				animation.speed_scale = running_anim_scale
 			else:
-				animation.speed_scale = 1
+				animation.speed_scale = walking_anim_scale
 			animation.play("side_walk")
 		elif movement == 0:
 			animation.play("side_idle")
@@ -107,9 +118,9 @@ func player_animation(movement):
 		animation.flip_h = false
 		if movement == 1:
 			if running == true:
-				animation.speed_scale = 3
+				animation.speed_scale = running_anim_scale
 			else:
-				animation.speed_scale = 1
+				animation.speed_scale = walking_anim_scale
 			animation.play("side_walk")
 		elif movement == 0:
 			animation.play("side_idle")
@@ -118,9 +129,9 @@ func player_animation(movement):
 		animation.flip_h = false
 		if movement == 1:
 			if running == true:
-				animation.speed_scale = 3
+				animation.speed_scale = running_anim_scale
 			else:
-				animation.speed_scale = 1
+				animation.speed_scale = walking_anim_scale
 			animation.play("back_walk")
 		elif movement == 0:
 			animation.play("back_idle")
@@ -129,9 +140,9 @@ func player_animation(movement):
 		animation.flip_h = false
 		if movement == 1:
 			if running == true:
-				animation.speed_scale = 3
+				animation.speed_scale = running_anim_scale
 			else:
-				animation.speed_scale = 1
+				animation.speed_scale = walking_anim_scale
 			animation.play("front_walk")
 		elif movement == 0:
 			animation.play("front_idle")
