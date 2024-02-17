@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://7iy1h31jexn7"]
+[gd_scene load_steps=4 format=3 uid="uid://c28qeso7ruaod"]
 
 [sub_resource type="Animation" id="Animation_jgmfv"]
 length = 0.001
@@ -61,15 +61,17 @@ scale = Vector2(4, 3.64)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="pickupPanel"]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 1.09891
-offset_right = 607.0
-offset_bottom = 141.099
+offset_left = 7.25
+offset_top = 0.642665
+offset_right = 607.25
+offset_bottom = 140.643
 scale = Vector2(0.05, 0.05)
 theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
 text = "'E' to pickup"
 scroll_active = false
 autowrap_mode = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="pickupPanel"]
 libraries = {
