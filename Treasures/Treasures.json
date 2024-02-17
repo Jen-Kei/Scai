@@ -6,8 +6,6 @@
 			"Common":
 			{
 
-			
-		
 				"Rock":
 				{
 					"Name": "Rock",
@@ -23,9 +21,9 @@
 					"HealthCapacity": 1,
 					"HealthGain": 1,
 
-					"weightCapacity": 1,
+					"WeightCapacity": 1,
 
-					"fireRate": 1
+					"FireRate": 1
 				},
 				"Watch":
 				{
@@ -42,9 +40,9 @@
 					"HealthCapacity": 1,
 					"HealthGain": 1,
 
-					"weightCapacity": 1,
+					"WeightCapacity": 1,
 
-					"fireRate": 1.2
+					"FireRate": 1.2
 				}
 			},
 
@@ -65,9 +63,9 @@
 					"HealthCapacity": 1.2,
 					"HealthGain": 1.2,
 
-					"weightCapacity": 1.2,
+					"WeightCapacity": 1.2,
 
-					"fireRate": 1.2
+					"FireRate": 1.2
 				}
 			},
 
@@ -88,9 +86,9 @@
 					"HealthCapacity": 1.5,
 					"HealthGain": 1.5,
 
-					"weightCapacity": 1.5,
+					"WeightCapacity": 1.5,
 
-					"fireRate": 1.5
+					"FireRate": 1.5
 				}
 			},
 
@@ -111,9 +109,9 @@
 					"HealthCapacity": 2,
 					"HealthGain": 2,
 
-					"weightCapacity": 2,
+					"WeightCapacity": 2,
 
-					"fireRate": 2
+					"FireRate": 2
 				}
 			}
 		}
