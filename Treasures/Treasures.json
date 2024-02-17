@@ -1,62 +1,121 @@
 {
 	"Items":
 	{
-		"Rock":
+		"Rarity":
 		{
-			"Name": "Rock",
-			"Description": "A small rock.",
-			"Sprite": "Rock.png",
-			"Weight": 30,
-			"Value": 12,
+			"Common":
+			{
 
-			"StaminaCapacity": 1,
-			"StaminaGain": 1,
-			"StaminaPerSecond": 1,
+			
+		
+				"Rock":
+				{
+					"Name": "Rock",
+					"Description": "A small rock.",
+					"Sprite": "Rock.png",
+					"Weight": 30,
+					"Value": 12,
 
-			"HealthCapacity": 1,
-			"HealthGain": 1,
+					"StaminaCapacity": 1,
+					"StaminaGain": 1,
+					"StaminaPerSecond": 1,
 
-			"weightCapacity": 1,
+					"HealthCapacity": 1,
+					"HealthGain": 1,
 
-			"fireRate": 1
-		},
-		"Watch":
-		{
-			"Name": "Watch",
-			"Description": "Increases your fire rate by 10% for 5 minutes.",
-			"Sprite": "Watch.png",
-			"Weight": 30,
-			"Value": 12,
+					"weightCapacity": 1,
 
-			"StaminaCapacity": 1,
-			"StaminaGain": 1,
-			"StaminaPerSecond": 1,
+					"fireRate": 1
+				},
+				"Watch":
+				{
+					"Name": "Watch",
+					"Description": "Increases your fire rate by 10% for 5 minutes.",
+					"Sprite": "Watch.png",
+					"Weight": 30,
+					"Value": 12,
 
-			"HealthCapacity": 1,
-			"HealthGain": 1,
+					"StaminaCapacity": 1,
+					"StaminaGain": 1,
+					"StaminaPerSecond": 1,
 
-			"weightCapacity": 1,
+					"HealthCapacity": 1,
+					"HealthGain": 1,
 
-			"fireRate": 1.2
-		},
-		"Blue Potion":
-		{
-			"Name": "Blue Potion",
-			"Description": "Increases all your stats by 20%",
-			"Sprite": "bluePotion.png",
-			"Weight": 30,
-			"Value": 12,
+					"weightCapacity": 1,
 
-			"StaminaCapacity": 1.2,
-			"StaminaGain": 1.2,
-			"StaminaPerSecond": 1.2,
+					"fireRate": 1.2
+				}
+			},
 
-			"HealthCapacity": 1.2,
-			"HealthGain": 1.2,
+			"Uncommon":
+			{
+				"Blue Potion":
+				{
+					"Name": "Blue Potion",
+					"Description": "Increases all your stats by 20%",
+					"Sprite": "bluePotion.png",
+					"Weight": 30,
+					"Value": 12,
 
-			"weightCapacity": 1.2,
+					"StaminaCapacity": 1.2,
+					"StaminaGain": 1.2,
+					"StaminaPerSecond": 1.2,
 
-			"fireRate": 1.2
+					"HealthCapacity": 1.2,
+					"HealthGain": 1.2,
+
+					"weightCapacity": 1.2,
+
+					"fireRate": 1.2
+				}
+			},
+
+			"Rare":
+			{
+				"Red Potion":
+				{
+					"Name": "Red Potion",
+					"Description": "Increases all your stats by 50%",
+					"Sprite": "redPotion.png",
+					"Weight": 30,
+					"Value": 12,
+
+					"StaminaCapacity": 1.5,
+					"StaminaGain": 1.5,
+					"StaminaPerSecond": 1.5,
+
+					"HealthCapacity": 1.5,
+					"HealthGain": 1.5,
+
+					"weightCapacity": 1.5,
+
+					"fireRate": 1.5
+				}
+			},
+
+			"Epic":
+			{
+				"Green Potion":
+				{
+					"Name": "Green Potion",
+					"Description": "Increases all your stats by 100%",
+					"Sprite": "greenPotion.png",
+					"Weight": 30,
+					"Value": 12,
+
+					"StaminaCapacity": 2,
+					"StaminaGain": 2,
+					"StaminaPerSecond": 2,
+
+					"HealthCapacity": 2,
+					"HealthGain": 2,
+
+					"weightCapacity": 2,
+
+					"fireRate": 2
+				}
+			}
 		}
 	}
 }
