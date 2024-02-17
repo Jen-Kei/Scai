@@ -12,7 +12,7 @@ var normal_speed = 100.0
 var extra_speed = 200.0
 @export var stamina = 500
 var current_direction = "none"
-var running = "false"
+var running = false
 
 
 
@@ -76,11 +76,11 @@ func player_movement(delta):
 func player_speed():
 	if Input.is_action_pressed("ui_run") && stamina > 10:
 		speed = extra_speed
-		running = "true"
+		running = true
 		stamina_decrease.emit()
 	else:
 		speed = normal_speed
-		running = "false"
+		running = false
 		stamina_increase.emit()
 
 	print("stamina: ", stamina)
@@ -95,7 +95,7 @@ func player_animation(movement):
 	if direction == "left":
 		animation.flip_h = true
 		if movement == 1:
-			if running == "true":
+			if running == true:
 				animation.speed_scale = 3
 			else:
 				animation.speed_scale = 1
@@ -106,7 +106,7 @@ func player_animation(movement):
 	if direction == "right":
 		animation.flip_h = false
 		if movement == 1:
-			if running == "true":
+			if running == true:
 				animation.speed_scale = 3
 			else:
 				animation.speed_scale = 1
@@ -117,7 +117,7 @@ func player_animation(movement):
 	if direction == "up":
 		animation.flip_h = false
 		if movement == 1:
-			if running == "true":
+			if running == true:
 				animation.speed_scale = 3
 			else:
 				animation.speed_scale = 1
@@ -128,7 +128,7 @@ func player_animation(movement):
 	if direction == "down":
 		animation.flip_h = false
 		if movement == 1:
-			if running == "true":
+			if running == true:
 				animation.speed_scale = 3
 			else:
 				animation.speed_scale = 1
