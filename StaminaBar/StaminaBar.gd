@@ -7,7 +7,7 @@ extends TextureProgressBar
 func _ready():
 	player.stamina_decrease.connect(_on_player_stamina_decrease)
 	player.stamina_increase.connect(_on_player_stamina_increase)
-	value = player.stamina
+	#value = player.stamina
 
 # Update stamina value
 func _on_player_stamina_decrease():
