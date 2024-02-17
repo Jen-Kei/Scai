@@ -32,14 +32,14 @@ func _ready():
 	# Load treasure
 	var treasure = initTreasure()
 
-	$pickUpObj.visible = false
-	$pickUpObj/pickupPanel/AnimationPlayer.play('floating')
-	$pickUpObj/pickupPanel/RichTextLabel.text = '[center]'+item_name
+	$pickUpObj.visible = false # Hide the pickup object
+	$pickUpObj/pickupPanel/AnimationPlayer.play('floating') # Play the floating animation
+	$pickUpObj/pickupPanel/RichTextLabel.text = '[center]'+item_name # Center the item name
 
 
-	$Sprite2D.scale.x = 0.05
-	$Sprite2D.scale.y = 0.05
-	$Sprite2D.texture = load("res://Treasures/Assets/" + item_sprite)
+	$Sprite2D.scale.x = 0.05 # Set the scale of the item
+	$Sprite2D.scale.y = 0.05 # Set the scale of the item
+	$Sprite2D.texture = load("res://Treasures/Assets/" + item_sprite) # Set the item sprite
 
 	# Set the item name
 
@@ -48,14 +48,14 @@ func _ready():
 func _process(delta):
 	if player.position.distance_to(self.position) < 100:
 		print("Close to gun")
-		$pickUpObj.visible = true
+		$pickUpObj.visible = true # Show the pickup object
 		closeToItem = true
 		if Input.is_key_pressed(KEY_E):
 			print("E")
 			pass # add to player
 	else:
 		print("Not close to gun")
-		$pickUpObj.visible = false
+		$pickUpObj.visible = false # Hide the pickup object
 		closeToItem = false # make thing disapear
 	return # End function right here
 
@@ -70,9 +70,9 @@ func initTreasure():
 
 	# Access the item based on rarity
 	var items = final["Items"]["Rarity"][rarity]
-	var itemKeys = items.keys()
-	var randomKey = itemKeys[randi() % itemKeys.size()]
-	var itemDetails = items[randomKey]
+	var itemKeys = items.keys() # Get the keys of the item list
+	var randomKey = itemKeys[randi() % itemKeys.size()] # Get a random key from the item list
+	var itemDetails = items[randomKey] # Get the details of the item
 
 	print("Item Details: ", itemDetails)
 
