@@ -45,17 +45,18 @@ func _process(delta):
 		$pickUpObj.visible = true # Show the pickup object
 		closeToItem = true
 		if Input.is_action_just_pressed("interact"):
-			print("E")
+			print("Pressed E")
 			pickedUp = true
 			for i in (player.get_node("Inventory").get_node("Slots").get_children()):
-				if i.get_children().size() > 0:
+				if i.get_children().size() == 1:
 					print(i.name, " is empty")
 					var me: Node = duplicate()
-					print("Adding to inventory: ",me.name)
+					print("Adding to inventory: ",me.name, ' In ', i.name)
 					i.add_child(me)
 					i.get_child(1).initTreasure(_itemDetails)
 					self.queue_free()
 					return
+				print(i.name, " is full")
 	else: # If the player is not close to the gun
 		#print("Not close to gun")
 		$pickUpObj.visible = false # Hide the pickup object
@@ -63,7 +64,7 @@ func _process(delta):
 	return # End function right here
 
 func initTreasure(args = {}):
-	var itemDetails = args
+	_itemDetails = args
 	if args.size() == 0:
 		var file = FileAccess.open(jFile, FileAccess.READ)
 		var content = file.get_as_text()
@@ -77,27 +78,28 @@ func initTreasure(args = {}):
 		var items = final["Items"]["Rarity"][rarity]
 		var itemKeys = items.keys() # Get the keys of the item list
 		var randomKey = itemKeys[randi() % itemKeys.size()] # Get a random key from the item list
-		itemDetails = items[randomKey] # Get the details of the item
+		_itemDetails = items[randomKey] # Get the details of the item
 
-		print("Item Details: ", itemDetails)
+		print("Normal Item Spawned")#, _itemDetails)
 	else:
-		print("OVERRIDE Item Details: ", itemDetails)
+		pickedUp = true
+		print("OVERRIDDEN Item Spawned")#, _itemDetails)
 
-	item_name = itemDetails["Name"]
-	item_desc = itemDetails["Description"]
-	item_sprite = itemDetails["Sprite"]
+	item_name = _itemDetails["Name"]
+	item_desc = _itemDetails["Description"]
+	item_sprite = _itemDetails["Sprite"]
 
-	item_weight = itemDetails["Weight"]
-	item_value = itemDetails["Value"]
+	item_weight = _itemDetails["Weight"]
+	item_value = _itemDetails["Value"]
 
-	item_stamina_capacity = itemDetails["StaminaCapacity"]
-	item_stamina_gain = itemDetails["StaminaGain"]
+	item_stamina_capacity = _itemDetails["StaminaCapacity"]
+	item_stamina_gain = _itemDetails["StaminaGain"]
 
-	item_health_capacity = itemDetails["HealthCapacity"]
-	item_health_gain = itemDetails["HealthGain"]
+	item_health_capacity = _itemDetails["HealthCapacity"]
+	item_health_gain = _itemDetails["HealthGain"]
 
-	item_weight_capacity = itemDetails["WeightCapacity"]
-	item_firerate = itemDetails["FireRate"]
+	item_weight_capacity = _itemDetails["WeightCapacity"]
+	item_firerate = _itemDetails["FireRate"]
 
 	$pickUpObj.visible = false # Hide the pickup object
 	$pickUpObj/pickupPanel/AnimationPlayer.play('floating') # Play the floating animation
@@ -109,7 +111,7 @@ func initTreasure(args = {}):
 	$Sprite2D.texture = load("res://Treasures/Assets/" + item_sprite) # Set the item sprite
 	self.name = item_name
 
-	return itemDetails
+	return _itemDetails
 
 	
 
