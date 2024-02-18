@@ -7,12 +7,12 @@ signal stamina_increase
 
 
 # Initialise vars 
-var speed = %StatBank.speed
-var normal_speed = %StatBank.normal_speed
-var extra_speed = %StatBank.extra_speed
-var stamina = %StatBank.stamina
-var current_direction = "none"
-var running = false
+@onready var speed = %StatBank.speed
+@onready var normal_speed = %StatBank.normal_speed
+@onready var extra_speed = %StatBank.extra_speed
+@onready var stamina = %StatBank.stamina
+@onready var current_direction = "none"
+@onready var running = false
 
 
 
@@ -83,7 +83,7 @@ func player_speed():
 		running = false
 		stamina_increase.emit()
 
-	print("stamina: ", stamina)
+	#print("stamina: ", stamina)
 
 
 # Change the sprite's animations
