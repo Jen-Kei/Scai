@@ -27,6 +27,7 @@ var item_health_gain: int
 var item_weight_capacity: int
 var item_firerate: int
 var pickedUp: bool = false
+var perimeter: int = 50
 
 var _itemDetails
 
@@ -38,25 +39,24 @@ func _ready():
 
 # Called when the node enters the scene tree for the first time.
 func _process(delta):
-	if pickedUp:
-		return
-	if player.position.distance_to(self.position) < 100: # If the player is close to the gun
-		#print("Close to gun")
+	if pickedUp: return # If the item has been picked up, end the function
+
+	if player.position.distance_to(self.position) < perimeter: # If the player is close to the gun
 		$pickUpObj.visible = true # Show the pickup object
 		closeToItem = true
 		if Input.is_action_just_pressed("interact"):
 			print("Pressed E")
-			pickedUp = true
-			for i in (player.get_node("Inventory").get_node("Slots").get_children()):
-				if i.get_children().size() == 1:
-					print(i.name, " is empty")
-					var me: Node = duplicate()
-					print("Adding to inventory: ",me.name, ' In ', i.name)
-					i.add_child(me)
-					i.get_child(1).initTreasure(_itemDetails)
-					self.queue_free()
-					return
-				print(i.name, " is full")
+			for i in (player.get_node("Inventory").get_node("Slots").get_children()): # Loop through the player's inventory
+				if i.get_children().size() == 1: # If the inventory slot is empty
+					print(i.name, " is empty") # Print the name of the empty slot
+					var me: Node = duplicate() # Duplicate the item
+					print("Adding to inventory: ",me.name, ' In ', i.name) # Print the name of the item and the slot it's being added to
+					i.add_child(me) # Add the item to the inventory
+					i.get_child(1).initTreasure(_itemDetails) # Initialize the item
+					self.queue_free() # Remove the item from the scene
+					pickedUp = true # Set pickedUp to true
+					return # End the function
+				print(i.name, " is full") # Print the name of the full slot
 	else: # If the player is not close to the gun
 		#print("Not close to gun")
 		$pickUpObj.visible = false # Hide the pickup object
