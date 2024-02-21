@@ -193,7 +193,7 @@ func make_map():
 		for x in range(0, s.x * 2 - 1):
 			for y in range(0, s.y * 2 - 1):
 				#Map.set_cell(0, Vector2i(ul.x + x, ul.y + y), 0, Vector2i(2, 2), 0)
-				Map.set_cells_terrain_connect(1, [Vector2i(ul.x + x, ul.y + y)], 0, 0, false)
+				Map.set_cells_terrain_connect(2, [Vector2i(ul.x + x, ul.y + y)], 0, 0, false)
 		
 		# Carve connecting corridor
 		p = path.get_closest_point(room.position) # !!THIS LINE IS  A PROBLEM I THINK!
@@ -208,21 +208,25 @@ func make_map():
 	corridors.append(p)
 
 
-	print("before fin")
-	fin = true
-	while fin == false:
-		pass
-	print("after fin")
+	
 
-	var cells = Map.get_used_cells(1)
+	# Make the top and left walls
+	var cells = Map.get_used_cells(2)
 	print("make walls")
 	for tilePosition in cells:
-		print("entered for")
-		if Map.get_cell_source_id(1, tilePosition) != -1:
-			print("first if")
-			if Map.get_cell_source_id(1, Vector2i(tilePosition.x, tilePosition.y - 1)) == -1:
-				print("second if")
-				Map.set_cells_terrain_connect(1, [Vector2i(tilePosition.x, tilePosition.y)], 0, 1, false)
+		# check if the tile exists
+		if Map.get_cell_source_id(2, tilePosition) != -1:
+			# check if the tile on top of it doesn't exist, if it doesn't - it's a top wall
+			if Map.get_cell_source_id(2, Vector2i(tilePosition.x, tilePosition.y - 1)) == -1:
+				Map.set_cells_terrain_connect(2, [Vector2i(tilePosition.x, tilePosition.y)], 0, 1, false)
+			# check if the tile on the left doesn't exist, if it doesn't - it's a left wall
+			if Map.get_cell_source_id(2, Vector2i(tilePosition.x - 1, tilePosition.y)) == -1:
+				Map.set_cells_terrain_connect(2, [Vector2i(tilePosition.x, tilePosition.y)], 0, 1, false)
+
+			# check if there's a path, if there is we add a door
+			# if the tile on the top, bottom, left or right is in layer 
+
+
 	
 
 	
