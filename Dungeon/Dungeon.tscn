@@ -3,26 +3,64 @@
 [ext_resource type="Script" path="res://Dungeon/Dungeon.gd" id="1_xtlen"]
 [ext_resource type="Texture2D" uid="uid://d1cr4vfnreioy" path="res://Dungeon/Assets/ground.png" id="2_0nu4l"]
 [ext_resource type="Texture2D" uid="uid://b66nmg10b3kvy" path="res://Dungeon/Assets/background.png" id="3_2dw64"]
-[ext_resource type="Texture2D" uid="uid://d26ucm2ifulck" path="res://Dungeon/Assets/stone.png" id="4_g32ca"]
+[ext_resource type="Texture2D" uid="uid://v4mee5h4kwl1" path="res://Dungeon/Assets/Dungeon_Tileset.png" id="5_8gypp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4prog"]
 texture = ExtResource("2_0nu4l")
 2:2/next_alternative_id = 2
 2:2/0 = 0
 2:2/1 = 1
+7:1/0 = 0
+7:1/0/terrain_set = 0
+7:1/0/terrain = 0
+7:1/0/terrains_peering_bit/right_side = 0
+7:1/0/terrains_peering_bit/bottom_side = 0
+7:1/0/terrains_peering_bit/left_side = 0
+7:1/0/terrains_peering_bit/top_side = 0
+8:1/0 = 0
+8:1/0/terrain_set = 0
+8:1/0/terrain = 0
+8:1/0/terrains_peering_bit/right_side = 0
+8:1/0/terrains_peering_bit/bottom_side = 0
+8:1/0/terrains_peering_bit/left_side = 0
+8:1/0/terrains_peering_bit/top_side = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hvrdv"]
 texture = ExtResource("3_2dw64")
 8:7/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yvs1p"]
-texture = ExtResource("4_g32ca")
-0:0/0 = 0
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ema8c"]
+texture = ExtResource("5_8gypp")
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 1
+1:0/0/terrains_peering_bit/right_side = 1
+1:0/0/terrains_peering_bit/left_side = 1
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 1
+2:0/0/terrains_peering_bit/right_side = 1
+2:0/0/terrains_peering_bit/left_side = 1
+3:0/0 = 0
+3:0/0/terrain_set = 0
+3:0/0/terrain = 1
+3:0/0/terrains_peering_bit/right_side = 1
+3:0/0/terrains_peering_bit/left_side = 1
+4:0/0 = 0
+4:0/0/terrain_set = 0
+4:0/0/terrain = 1
+4:0/0/terrains_peering_bit/right_side = 1
+4:0/0/terrains_peering_bit/left_side = 1
 
 [sub_resource type="TileSet" id="TileSet_far0k"]
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Floor"
+terrain_set_0/terrain_0/color = Color(0.682353, 0, 0.458824, 1)
+terrain_set_0/terrain_1/name = "Walls"
+terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_4prog")
 sources/1 = SubResource("TileSetAtlasSource_hvrdv")
-sources/2 = SubResource("TileSetAtlasSource_yvs1p")
+sources/2 = SubResource("TileSetAtlasSource_ema8c")
 
 [node name="Dungeon" type="Node2D"]
 script = ExtResource("1_xtlen")
@@ -30,10 +68,12 @@ script = ExtResource("1_xtlen")
 [node name="Rooms" type="Node" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.4, 0.4)
 
 [node name="TileMap" type="TileMap" parent="."]
 show_behind_parent = true
+position = Vector2(1, 0)
 tile_set = SubResource("TileSet_far0k")
 format = 2
+layer_0/name = "Backgroujd"
+layer_1/name = "Floor_Walls"
 layer_1/tile_data = PackedInt32Array()

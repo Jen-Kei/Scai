@@ -158,6 +158,7 @@ func find_mst(nodes):
 # Create a tilemap from the generated rooms and paths
 func make_map():
 	# VARIABLES
+	fin = false
 
 	Map.clear() # Clear any existing tiles so we can regenerate
 
@@ -189,9 +190,10 @@ func make_map():
 		var end
 
 		# Start at 2 to get border
-		for x in range(2, s.x * 2 - 1):
-			for y in range(2, s.y * 2 - 1):
-				Map.set_cell(0, Vector2i(ul.x + x, ul.y + y), 0, Vector2i(2, 2), 0)
+		for x in range(0, s.x * 2 - 1):
+			for y in range(0, s.y * 2 - 1):
+				#Map.set_cell(0, Vector2i(ul.x + x, ul.y + y), 0, Vector2i(2, 2), 0)
+				Map.set_cells_terrain_connect(1, [Vector2i(ul.x + x, ul.y + y)], 0, 0, false)
 		
 		# Carve connecting corridor
 		p = path.get_closest_point(room.position) # !!THIS LINE IS  A PROBLEM I THINK!
@@ -204,6 +206,26 @@ func make_map():
 		# Carve a path from start to end
 		carve_path(start, end)
 	corridors.append(p)
+
+
+	print("before fin")
+	fin = true
+	while fin == false:
+		pass
+	print("after fin")
+
+	var cells = Map.get_used_cells(1)
+	print("make walls")
+	for tilePosition in cells:
+		print("entered for")
+		if Map.get_cell_source_id(1, tilePosition) != -1:
+			print("first if")
+			if Map.get_cell_source_id(1, Vector2i(tilePosition.x, tilePosition.y - 1)) == -1:
+				print("second if")
+				Map.set_cells_terrain_connect(1, [Vector2i(tilePosition.x, tilePosition.y)], 0, 1, false)
+	
+
+	
 
 # carve_path IS being called on every connection
 func carve_path(start, end):
@@ -225,6 +247,10 @@ func carve_path(start, end):
 	# Carving path
 	print("Carving path")
 	for x in range(start.x, end.x + difference_x, difference_x):
-		Map.set_cell(0, Vector2i(x, x_over_y.y), 0, Vector2i(2, 2), 0)
+		Map.set_cells_terrain_connect(1, [Vector2i(x, x_over_y.y)], 0, 0, false)
+	
 	for y in range(start.y, end.y + difference_y, difference_y):
-		Map.set_cell(0, Vector2i(y_over_x.x, y), 0, Vector2i(2, 2), 0)
+		Map.set_cells_terrain_connect(1, [Vector2i(y_over_x.x + difference_x, y)], 0, 0, false)
+
+
+		
