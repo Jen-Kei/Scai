@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://ba4jxxq57ifke"]
+[gd_scene load_steps=12 format=3 uid="uid://ba4jxxq57ifke"]
 
 [ext_resource type="Texture2D" uid="uid://0tt8sh16jpgp" path="res://HomeMap/Assets/Grass.png" id="1_vyn7r"]
 [ext_resource type="Texture2D" uid="uid://bkix4o4mi588n" path="res://HomeMap/Assets/Hills.png" id="2_pnky5"]
 [ext_resource type="Texture2D" uid="uid://chwepjbuko7es" path="res://HomeMap/Assets/Water.png" id="3_y7rg3"]
 [ext_resource type="Texture2D" uid="uid://ciihx3wg5axe7" path="res://HomeMap/Assets/Basic_Grass_Biom_things.png" id="4_iriry"]
 [ext_resource type="PackedScene" uid="uid://d8aw26qy6rh0" path="res://Player/player.tscn" id="5_cdha2"]
+[ext_resource type="PackedScene" uid="uid://b4b6kdfqcgmfs" path="res://Treasures/Treasures.tscn" id="6_djwfw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w4vo5"]
 texture = ExtResource("1_vyn7r")
@@ -587,3 +588,16 @@ layer_2/y_sort_enabled = true
 layer_2/tile_data = PackedInt32Array(655368, 3, 0, 589827, 3, 0, 458752, 3, 0, 655362, 3, 0, 655364, 3, 0, 196624, 3, 0, 524309, 3, 0, 524318, 3, 0, 1179658, 3, 0, 1114114, 3, 0, 1179657, 65539, 0, 1245184, 65539, 0, 1114128, 65539, 0, 1048596, 65539, 0, 851997, 65539, 0, 524301, 65539, 0, 589836, 196611, 0, 655394, 196611, 0, 131089, 196611, 0, 1048595, 196611, 0, 1114121, 196611, 0, 786432, 196611, 0)
 
 [node name="Player" parent="." instance=ExtResource("5_cdha2")]
+position = Vector2(355, 369)
+
+[node name="Treasure" parent="." instance=ExtResource("6_djwfw")]
+position = Vector2(535, 316)
+
+[node name="Treasure2" parent="." instance=ExtResource("6_djwfw")]
+position = Vector2(535, 411)
+
+[node name="Treasure3" parent="." instance=ExtResource("6_djwfw")]
+position = Vector2(760, 412)
+
+[node name="Treasure4" parent="." instance=ExtResource("6_djwfw")]
+position = Vector2(751, 301)

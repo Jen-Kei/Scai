@@ -1,15 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4b6kdfqcgmfs"]
+[gd_scene load_steps=3 format=3 uid="uid://b4b6kdfqcgmfs"]
 
 [ext_resource type="Script" path="res://Treasures/Treasures.gd" id="1_nb8qg"]
-[ext_resource type="PackedScene" uid="uid://d8aw26qy6rh0" path="res://Player/player.tscn" id="2_a41x1"]
 [ext_resource type="PackedScene" uid="uid://c28qeso7ruaod" path="res://ePickup/ePickup.tscn" id="3_7k4x2"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Treasure" type="Node2D"]
 script = ExtResource("1_nb8qg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="Player" parent="." instance=ExtResource("2_a41x1")]
-position = Vector2(135, -80)
 
 [node name="pickUpObj" parent="." instance=ExtResource("3_7k4x2")]
