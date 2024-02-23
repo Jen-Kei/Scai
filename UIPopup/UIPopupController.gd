@@ -31,6 +31,12 @@ func _on_user_text_box_text_submitted(new_text:String): # Press enter
 func _on_chat_response_recieved(response:String): # Chat response recieved
 	%AI_TextBox.text += aiName+': '
 	get_text_between_braces(response)
+	var regex = RegEx.new()
+	regex.compile("\\{([a-z, A-Z}]*)\\}")
+	var matches = regex.search_all(response)
+	for match in matches:
+		response = response.replace(match.get_string(0), '')
+
 	slowPrint(response)
 
 func slowPrint(text): # Slowly print the text like chatgpt
@@ -50,42 +56,44 @@ func slowPrint(text): # Slowly print the text like chatgpt
 	
 	
 func get_text_between_braces(input_string: String):
+		var trigger
+		var emotion
+
 		var regex = RegEx.new()
 		regex.compile("\\{([^}]*)\\}")
-	
 		var matches = regex.search_all(input_string)
 		result = []
-	
 		for match in matches:
 			result.append(match.get_string(1))
+
+		var numRegex = RegEx.new()
+		numRegex.compile("\\{(\\d+(\\.\\d+)?)\\}")
+		var numMatches = numRegex.search_all(input_string)
+		for match in numMatches:
+			currentPrice = match.get_string(1)
 		
+		print(result)
 		# Check if the result is empty
 		if result.size() == 0:
-			print("No matches found")
+			print("No matches found, function returning...")
 			return # END FUNCTION
 
-		# Check if the result is a trigger
-		for i in triggers:
-			if result[0] == i:
-				print("Trigger found: ", i)
-				return # END FUNCTION
+		for i in result:
+			if i == 'DEAL':
+				trigger = 'DEAL'
+			elif i == 'GUARDS':
+				trigger = 'GUARDS'
+			elif i == 'HAPPY':
+				emotion = 'HAPPY'
+				%AI_Pic.texture = load('res://UIPopup/Assets/Happy.jpg')
+			elif i == 'ANGRY':
+				emotion = 'ANGRY'
+				%AI_Pic.texture = load('res://UIPopup/Assets/Angry.jpg')
+			elif i == 'NEUTRAL':
+				emotion = 'NEUTRAL'
+				%AI_Pic.texture = load('res://UIPopup/Assets/Neutral.jpg')
+			elif i == 'SAD':
+				emotion = 'SAD'
+				%AI_Pic.texture = load('res://UIPopup/Assets/Neutral.jpg')
 
-		# Check if the result is an emotion
-		for i in emotions:
-			if result[0] == i:
-				print("Emotion found: ", i)
-				if i == 'HAPPY':
-					print("The AI is happy")
-					%AI_Pic.texture = load('res://UIPopup/Assets/Happy.jpg')
-				if i == 'SAD':
-					print("The AI is sad")
-				elif i == 'ANGRY':
-					%AI_Pic.texture = load('res://UIPopup/Assets/Angry.jpg')
-				elif i == 'NEUTRAL':
-					print("The AI is neutral")
-					%AI_Pic.texture = load('res://UIPopup/Assets/Neutral.jpg')
-				
-				return # END FUNCTION
-
-		currentPrice = result[0]
-		print("The current price is: ", currentPrice)
+		print("The AI is feeling: ", emotion, "\nThe AI has triggered: ", trigger, "\nThe current price is: ", currentPrice)
