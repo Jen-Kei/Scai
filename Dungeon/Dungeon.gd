@@ -78,11 +78,13 @@ func make_rooms():
 	# generate a mininmum spanning tree connecting the rooms
 	path = find_mst(roomPositions)
 	
+	
 	fin = true
 	if fin == true && path:
 		make_map()
 	else:
 		make_rooms()
+	
 
 func _draw():
 	'''
@@ -97,7 +99,7 @@ func _draw():
 				var tempPointA = path.get_point_position(pointA)
 				var tempPointB = path.get_point_position(pointB)
 				draw_line(tempPointA, tempPointB, Color(1, 1, 0), 15, true)
-		'''
+	'''
 	
 				
 
@@ -212,18 +214,33 @@ func make_map():
 
 	# Make the top and left walls
 	var cells = Map.get_used_cells(2)
-	var pathCell = Map.get_used_cells(1)
-
+	
 	print("make walls")
 	for tilePosition in cells:
 		# check if the tile exists
 		if Map.get_cell_source_id(2, tilePosition) != -1:
-			# check if the tile on top of it doesn't exist, if it doesn't - it's a top wall
-			if Map.get_cell_source_id(2, Vector2i(tilePosition.x, tilePosition.y - 1)) == -1:
-				Map.set_cells_terrain_connect(2, [Vector2i(tilePosition.x, tilePosition.y)], 0, 1, false)
-			# check if the tile on the left doesn't exist, if it doesn't - it's a left wall
-			if Map.get_cell_source_id(2, Vector2i(tilePosition.x - 1, tilePosition.y)) == -1:
-				Map.set_cells_terrain_connect(2, [Vector2i(tilePosition.x, tilePosition.y)], 0, 1, false)
+			# IGNORE SINGLE TILE PATH
+			if (Map.get_cell_source_id(2, Vector2i(tilePosition.x, tilePosition.y - 1)) == -1 \
+				&& Map.get_cell_source_id(2, Vector2i(tilePosition.x, tilePosition.y + 1)) == -1) \
+				|| \
+				(Map.get_cell_source_id(2, Vector2i(tilePosition.x - 1, tilePosition.y)) == -1 \
+				&& Map.get_cell_source_id(2, Vector2i(tilePosition.x + 1, tilePosition.y)) == -1):
+					print("path")
+			else:
+				# check if the tile on top of it doesn't exist, if it doesn't - it's a top wall
+				if Map.get_cell_source_id(2, Vector2i(tilePosition.x, tilePosition.y - 1)) == -1:
+					Map.set_cells_terrain_connect(2, [Vector2i(tilePosition.x, tilePosition.y)], 0, 1, false)
+				# check if the tile on top of it doesn't exist, if it doesn't - it's a bottom wall
+				if Map.get_cell_source_id(2, Vector2i(tilePosition.x, tilePosition.y + 1)) == -1:
+					Map.set_cells_terrain_connect(2, [Vector2i(tilePosition.x, tilePosition.y)], 0, 1, false)
+				# check if the tile on the left doesn't exist, if it doesn't - it's a left wall
+				if Map.get_cell_source_id(2, Vector2i(tilePosition.x - 1, tilePosition.y)) == -1:
+					Map.set_cells_terrain_connect(2, [Vector2i(tilePosition.x, tilePosition.y)], 0, 1, false)
+				# check if the tile on the right doesn't exist, if it doesn't - it's a right wall
+				if Map.get_cell_source_id(2, Vector2i(tilePosition.x + 1, tilePosition.y)) == -1:
+					Map.set_cells_terrain_connect(2, [Vector2i(tilePosition.x, tilePosition.y)], 0, 1, false)
+	
+	
 	
 
 	
@@ -241,17 +258,17 @@ func carve_path(start, end):
 	var x_over_y = start
 	var y_over_x = end
 	
-	if randi() % 2 > 0:
-		x_over_y = end
-		y_over_x = start
+	x_over_y = end
+	y_over_x = start
 
 	# Carving path
 	print("Carving path")
 	for x in range(start.x, end.x + difference_x, difference_x):
-		Map.set_cells_terrain_connect(1, [Vector2i(x, x_over_y.y)], 0, 2, false)
+		Map.set_cells_terrain_connect(2, [Vector2i(x, x_over_y.y)], 0, 2, false)
 	
 	for y in range(start.y, end.y + difference_y, difference_y):
-		Map.set_cells_terrain_connect(1, [Vector2i(y_over_x.x + difference_x, y)], 0, 2, false)
+		Map.set_cells_terrain_connect(2, [Vector2i(y_over_x.x + difference_x, y)], 0, 2, false)
+
 
 
 		
