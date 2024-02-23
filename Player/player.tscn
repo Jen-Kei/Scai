@@ -431,13 +431,12 @@ script = ExtResource("4_c4t1w")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 y_sort_enabled = true
-scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_p5s27")
 animation = &"front_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
-position = Vector2(1, 26)
+position = Vector2(0, 13)
 shape = SubResource("CircleShape2D_jnvvw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
