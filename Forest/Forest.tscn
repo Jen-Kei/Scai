@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dgksrxus0nha7"]
+[gd_scene load_steps=32 format=3 uid="uid://dgksrxus0nha7"]
 
 [ext_resource type="PackedScene" uid="uid://d8aw26qy6rh0" path="res://Player/player.tscn" id="1_qky6c"]
 [ext_resource type="Texture2D" uid="uid://b48e34g5xdwx7" path="res://Forest/Assets/TX Tileset Grass.png" id="1_w14rg"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://1i0fluv4273h" path="res://Forest/Assets/Forest Cliff.png" id="8_h8qy0"]
 [ext_resource type="Texture2D" uid="uid://co3hif14xxlx7" path="res://Forest/Assets/Water.png" id="9_l0bpt"]
 [ext_resource type="Texture2D" uid="uid://dbc6e74o8i34i" path="res://Forest/Assets/Grass.png" id="9_q4bg7"]
+[ext_resource type="Script" path="res://Forest/Camera2D.gd" id="15_w2c4d"]
+[ext_resource type="PackedScene" uid="uid://b4b6kdfqcgmfs" path="res://Treasures/Treasures.tscn" id="16_8biye"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xjm1g"]
 texture = ExtResource("1_w14rg")
@@ -5628,12 +5630,23 @@ layer_7/y_sort_enabled = true
 layer_7/z_index = 5
 layer_7/tile_data = PackedInt32Array(786440, 65540, 0, 1048577, 1179652, 2, 1310719, 589828, 0, 65556, 589828, 0, 2097169, 589828, 0, 196683, 65540, 0, 196670, 589828, 0, 393276, 1179652, 2, 1966127, 1179652, 2, 1310789, 65540, 0, 2555924, 65540, 0, 1572895, 589828, 11, 852010, 851972, 11, 2162748, 851972, 11, 2359302, 851972, 11, 589860, 1114116, 11, 1507361, 393220, 11, 1245219, 131076, 12, 1441839, 131076, 12, 2424866, 131076, 12, 2490409, 393220, 11, 2359300, 393220, 11, 786461, 65540, 0)
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(628, 368)
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 1295
+limit_bottom = 750
+script = ExtResource("15_w2c4d")
+
 [node name="Player" parent="." instance=ExtResource("1_qky6c")]
 z_index = 5
-position = Vector2(60, 523)
+position = Vector2(658, 316)
 
-[node name="TextureProgressBar" parent="Player/StaminaBar" index="0"]
-visible = false
+[node name="Treasures" type="Node2D" parent="."]
+
+[node name="Treasure" parent="Treasures" instance=ExtResource("16_8biye")]
+position = Vector2(737, 306)
 
 [editable path="Player"]
 [editable path="Player/StaminaBar"]
