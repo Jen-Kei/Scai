@@ -8,16 +8,23 @@ script = ExtResource("1_ognep")
 
 [node name="Slots" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -114.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="Slot1" type="Panel" parent="Slots"]
 layout_mode = 2
-offset_left = 500.0
-offset_top = 600.0
-offset_right = 540.0
-offset_bottom = 640.0
+offset_left = -138.0
+offset_top = -20.0
+offset_right = -98.0
+offset_bottom = 20.0
 script = ExtResource("1_aetlx")
 
 [node name="TextureRect" type="TextureRect" parent="Slots/Slot1"]
@@ -28,10 +35,10 @@ expand_mode = 1
 
 [node name="Slot2" type="Panel" parent="Slots"]
 layout_mode = 2
-offset_left = 560.0
-offset_top = 600.0
-offset_right = 600.0
-offset_bottom = 640.0
+offset_left = -78.0
+offset_top = -20.0
+offset_right = -38.0
+offset_bottom = 20.0
 script = ExtResource("1_aetlx")
 
 [node name="TextureRect" type="TextureRect" parent="Slots/Slot2"]
@@ -42,10 +49,10 @@ expand_mode = 1
 
 [node name="Slot3" type="Panel" parent="Slots"]
 layout_mode = 2
-offset_left = 620.0
-offset_top = 600.0
-offset_right = 660.0
-offset_bottom = 640.0
+offset_left = -18.0
+offset_top = -20.0
+offset_right = 22.0
+offset_bottom = 20.0
 script = ExtResource("1_aetlx")
 
 [node name="TextureRect" type="TextureRect" parent="Slots/Slot3"]
@@ -56,10 +63,10 @@ expand_mode = 1
 
 [node name="Slot4" type="Panel" parent="Slots"]
 layout_mode = 2
-offset_left = 680.0
-offset_top = 600.0
-offset_right = 720.0
-offset_bottom = 640.0
+offset_left = 42.0
+offset_top = -20.0
+offset_right = 82.0
+offset_bottom = 20.0
 script = ExtResource("1_aetlx")
 
 [node name="TextureRect" type="TextureRect" parent="Slots/Slot4"]
@@ -70,10 +77,10 @@ expand_mode = 1
 
 [node name="Slot5" type="Panel" parent="Slots"]
 layout_mode = 0
-offset_left = 740.0
-offset_top = 600.0
-offset_right = 780.0
-offset_bottom = 640.0
+offset_left = 102.0
+offset_top = -20.0
+offset_right = 142.0
+offset_bottom = 20.0
 script = ExtResource("1_aetlx")
 
 [node name="TextureRect" type="TextureRect" parent="Slots/Slot5"]
