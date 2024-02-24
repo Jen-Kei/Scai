@@ -5667,7 +5667,7 @@ layer_7/tile_data = PackedInt32Array(786440, 65540, 0, 1048577, 1179652, 2, 1310
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(628, 368)
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 limit_left = 0
 limit_top = 0
 limit_right = 1295
