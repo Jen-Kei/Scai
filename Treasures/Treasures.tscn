@@ -9,3 +9,4 @@ script = ExtResource("1_nb8qg")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="pickUpObj" parent="." instance=ExtResource("3_7k4x2")]
+scale = Vector2(0.3, 0.3)
