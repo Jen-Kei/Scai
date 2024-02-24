@@ -435,12 +435,9 @@ sprite_frames = SubResource("SpriteFrames_p5s27")
 animation = &"front_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-z_index = 3
 y_sort_enabled = true
 position = Vector2(0, 13)
 shape = SubResource("CircleShape2D_jnvvw")
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="StaminaBar" parent="." instance=ExtResource("3_dpee4")]
 unique_name_in_owner = true
@@ -449,9 +446,5 @@ unique_name_in_owner = true
 player = NodePath("../..")
 
 [node name="Inventory" parent="." instance=ExtResource("5_of4by")]
-offset_left = -640.0
-offset_top = -360.0
-offset_right = -640.0
-offset_bottom = -360.0
 
 [editable path="StaminaBar"]
