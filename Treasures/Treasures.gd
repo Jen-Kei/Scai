@@ -15,17 +15,19 @@ var item_name: String
 var item_desc: String
 var item_sprite: String
 
-var item_weight: int
-var item_value: int
+var item_weight: float
+var item_value: float
 
-var item_stamina_capacity: int
-var item_stamina_gain: int
+var item_speed: float
 
-var item_health_capacity: int
-var item_health_gain: int
+var item_stamina_capacity: float
+var item_stamina_gain: float
 
-var item_weight_capacity: int
-var item_firerate: int
+var item_health_capacity: float
+var item_health_gain: float
+
+var item_weight_capacity: float
+var item_firerate: float
 var pickedUp: bool = false
 var perimeter: int = 50
 
@@ -91,6 +93,8 @@ func initTreasure(args = {}):
 
 	item_weight = _itemDetails["Weight"]
 	item_value = _itemDetails["Value"]
+
+	item_speed = _itemDetails["speed"]
 
 	item_stamina_capacity = _itemDetails["StaminaCapacity"]
 	item_stamina_gain = _itemDetails["StaminaGain"]

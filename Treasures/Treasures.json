@@ -13,7 +13,7 @@
 					"Weight": 30,
 					"Value": 12,
 
-					"speed": 1,
+					"speed": 1.8,
 					"StaminaCapacity": 1,
 					"StaminaGain": 1,
 					"StaminaPerSecond": 1,

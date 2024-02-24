@@ -1,8 +1,9 @@
-extends Control
+extends CanvasLayer
 
 @onready var Slots = [$Slots/Slot1, $Slots/Slot2, $Slots/Slot3, $Slots/Slot4, $Slots/Slot5]
 @onready var player = get_tree().root.get_child(0).get_node("Player")
 var currentlySelected: int
+@onready var statBank = %StatBank
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -45,6 +46,7 @@ func selectSlot(slot: int):
 
 func dropItem():
 	var droppedItem = Slots[currentlySelected].get_children()[1] # Get the item that is being dropped
+	statBank.appendStats(droppedItem._itemDetails, false) # Append the stats of the item to the stat bank
 	var item = droppedItem.duplicate() # Duplicate the item
 
 	item.global_position = player.global_position # Set the position of the item to the player's position
