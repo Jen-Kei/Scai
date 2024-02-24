@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0driu41m6wub"]
+
+[ext_resource type="PackedScene" uid="uid://dgksrxus0nha7" path="res://Forest/Forest.tscn" id="1_a2elv"]
+[ext_resource type="PackedScene" uid="uid://d8aw26qy6rh0" path="res://Player/player.tscn" id="2_k4bt3"]
+
+[node name="JennyTestMap" type="Node2D"]
+
+[node name="ForestMap" parent="." instance=ExtResource("1_a2elv")]
+position = Vector2(705.593, 464.571)
+
+[node name="Player" parent="." instance=ExtResource("2_k4bt3")]
+position = Vector2(660.593, 464.571)
