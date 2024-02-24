@@ -110,8 +110,8 @@ func initTreasure(args = {}):
 	$pickUpObj/pickupPanel/RichTextLabel.text = '[center]'+item_name # Center the item name
 
 
-	$Sprite2D.scale.x = 0.05 # Set the scale of the item
-	$Sprite2D.scale.y = 0.05 # Set the scale of the item
+	$Sprite2D.scale.x = 1 # Set the scale of the item
+	$Sprite2D.scale.y = 1 # Set the scale of the item
 	$Sprite2D.texture = load("res://Treasures/Assets/" + item_sprite) # Set the item sprite
 	self.name = item_name
 
