@@ -5,14 +5,22 @@ class_name Player
 signal stamina_decrease
 signal stamina_increase
 
+signal health_decrease
+signal health_increase
+
 
 # Initialise vars 
 @onready var speed = %StatBank.speed
 @onready var normal_speed = %StatBank.normal_speed
 @onready var extra_speed = %StatBank.extra_speed
+
 @onready var stamina = %StatBank.stamina
 @onready var current_direction = "none"
 @onready var running = false
+
+@onready var health = %StatBank.health
+@onready var health_capacity = %StatBank.health_capacity
+@onready var health_gain = %StatBank.health_gain
 
 
 
@@ -26,6 +34,20 @@ func _process(delta):
 	player_speed()
 	player_movement(delta)
 
+func reInit():
+	# Initialise vars
+	speed = %StatBank.speed
+	print("Reinit speed: ", speed)
+	normal_speed = %StatBank.normal_speed
+	extra_speed = %StatBank.extra_speed
+
+	stamina = %StatBank.stamina
+	current_direction = "none"
+	running = false
+
+	health = %StatBank.health
+	health_capacity = %StatBank.health_capacity
+	health_gain = %StatBank.health_gain
 
 """
 	FUNCTIONS
