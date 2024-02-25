@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d8aw26qy6rh0" path="res://Player/player.tscn" id="2_215dv"]
 [ext_resource type="PackedScene" uid="uid://dhyldbmopr707" path="res://Camera/Camera.tscn" id="3_cr1ic"]
 [ext_resource type="PackedScene" uid="uid://ckmtmjtg226um" path="res://ForestMap/ForestMap.tscn" id="3_kujo0"]
-[ext_resource type="Script" path="res://JennyTestMap/Treasures.gd" id="4_6b4io"]
+[ext_resource type="Script" path="res://JennyTestMap/AllTreasures.gd" id="4_6b4io"]
 
 [node name="JennyTestMap" type="Node2D"]
 
@@ -18,7 +18,7 @@ position = Vector2(49, 507)
 [node name="Forest" parent="ForestMap" index="0"]
 position = Vector2(0, 0)
 
-[node name="Treasures" type="Node2D" parent="."]
+[node name="AllTreasures" type="Node2D" parent="."]
 script = ExtResource("4_6b4io")
 
 [editable path="Camera2D"]
