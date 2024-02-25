@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c28qeso7ruaod" path="res://ePickup/ePickup.tscn" id="3_7k4x2"]
 
 [node name="Treasure" type="Node2D"]
+z_index = 5
 script = ExtResource("1_nb8qg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
