@@ -5634,6 +5634,7 @@ sources/14 = SubResource("TileSetAtlasSource_qhqdy")
 sources/6 = SubResource("TileSetAtlasSource_h78se")
 
 [node name="ForestMap" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Forest" type="TileMap" parent="."]
 y_sort_enabled = true
