@@ -1,9 +1,10 @@
 extends TextureProgressBar
 
 @export var player: Player
+@onready var staminaPerSecond = 1.0
 
 @onready var staminaBar = $StaminaBar/TextureProgressBar
-@onready var statBank = get_tree().root.get_child(0).get_child(0).get_node("StatBank")
+@onready var statBank = get_tree().root.get_child(0).get_child(0).get_node("StatBank") # change for different place ig
 
 
 
@@ -16,6 +17,8 @@ func _ready():
 
 # Update stamina value
 func _on_player_stamina_decrease():
+	player.stamina -= 5
+	player.stamina = clamp(player.stamina, 0, 500)
 	var staminaCapacity = statBank.stamina_capacity
 	var staminaGain = statBank.stamina_gain
 	player.stamina -= staminaGain
@@ -23,6 +26,8 @@ func _on_player_stamina_decrease():
 	value = player.stamina
 
 func _on_player_stamina_increase():
+	player.stamina += staminaPerSecond
+	player.stamina = clamp(player.stamina, 0, 500)
 	var staminaCapacity = statBank.stamina_capacity
 	var staminaGain = statBank.stamina_gain
 	player.stamina += staminaGain
