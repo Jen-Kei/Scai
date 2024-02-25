@@ -107,21 +107,6 @@
 					"WeightCapacity": 1,
 					"FireRate": 1
 				},
-				"Watch": {
-					"Name": "Watch",
-					"Description": "Increases your fire rate by 10% for 5 minutes",
-					"Sprite": "Watch.png",
-					"Weight": 10,
-					"Value": 15,
-					"speed": 1.8,
-					"StaminaCapacity": 1,
-					"StaminaGain": 1,
-					"StaminaPerSecond": 1,
-					"HealthCapacity": 1,
-					"HealthGain": 1,
-					"WeightCapacity": 1,
-					"FireRate": 1.2
-				},
 				"Garlic": {
 					"Name": "Garlic",
 					"Description": "It stinks.",
