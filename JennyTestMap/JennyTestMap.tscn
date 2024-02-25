@@ -8,11 +8,15 @@
 [node name="JennyTestMap" type="Node2D"]
 
 [node name="Camera2D" parent="." instance=ExtResource("3_cr1ic")]
+zoom = Vector2(2, 2)
 
 [node name="Player" parent="." instance=ExtResource("2_215dv")]
 position = Vector2(49, 507)
 
 [node name="ForestMap" parent="." instance=ExtResource("3_kujo0")]
+
+[node name="Forest" parent="ForestMap" index="0"]
+position = Vector2(0, 0)
 
 [node name="Treasures" type="Node2D" parent="."]
 script = ExtResource("4_6b4io")
