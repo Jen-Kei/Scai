@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://wnrursq06u7a"]
+
+[ext_resource type="Texture2D" uid="uid://dww4ct57i8kpb" path="res://UI/StaminaBar/Assets/healthbarUnder.png" id="1_svjjs"]
+[ext_resource type="Texture2D" uid="uid://cf1kmu3gn8ecy" path="res://UI/StaminaBar/Assets/healthbarProgress.png" id="2_ripdi"]
+[ext_resource type="Script" path="res://UI/StaminaBar/StaminaBar.gd" id="3_r178g"]
+
+[node name="HealthBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.154
+anchor_right = 0.125
+anchor_bottom = 0.154
+offset_top = 0.207993
+offset_right = 64.0
+offset_bottom = 10.208
+scale = Vector2(2, 2)
+max_value = 500.0
+texture_under = ExtResource("1_svjjs")
+texture_progress = ExtResource("2_ripdi")
+script = ExtResource("3_r178g")

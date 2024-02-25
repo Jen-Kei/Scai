@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwvsi4dd3abs0"]
+
+[ext_resource type="Script" path="res://UI/HUD/Slot.gd" id="1_aetlx"]
+[ext_resource type="Script" path="res://UI/HUD/inventory.gd" id="1_ognep"]
+
+[node name="Inventory" type="CanvasLayer"]
+script = ExtResource("1_ognep")
+
+[node name="Slots" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -114.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Slot1" type="Panel" parent="Slots"]
+layout_mode = 2
+offset_left = -138.0
+offset_top = -20.0
+offset_right = -98.0
+offset_bottom = 20.0
+script = ExtResource("1_aetlx")
+
+[node name="TextureRect" type="TextureRect" parent="Slots/Slot1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+
+[node name="Slot2" type="Panel" parent="Slots"]
+layout_mode = 2
+offset_left = -78.0
+offset_top = -20.0
+offset_right = -38.0
+offset_bottom = 20.0
+script = ExtResource("1_aetlx")
+
+[node name="TextureRect" type="TextureRect" parent="Slots/Slot2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+
+[node name="Slot3" type="Panel" parent="Slots"]
+layout_mode = 2
+offset_left = -18.0
+offset_top = -20.0
+offset_right = 22.0
+offset_bottom = 20.0
+script = ExtResource("1_aetlx")
+
+[node name="TextureRect" type="TextureRect" parent="Slots/Slot3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+
+[node name="Slot4" type="Panel" parent="Slots"]
+layout_mode = 2
+offset_left = 42.0
+offset_top = -20.0
+offset_right = 82.0
+offset_bottom = 20.0
+script = ExtResource("1_aetlx")
+
+[node name="TextureRect" type="TextureRect" parent="Slots/Slot4"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+
+[node name="Slot5" type="Panel" parent="Slots"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = -20.0
+offset_right = 142.0
+offset_bottom = 20.0
+script = ExtResource("1_aetlx")
+
+[node name="TextureRect" type="TextureRect" parent="Slots/Slot5"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1

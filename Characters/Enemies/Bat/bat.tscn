@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://ymx6vsrrc32c"]
+
+[ext_resource type="Texture2D" uid="uid://duiud66bvgxjg" path="res://Characters/Enemies/Assets/Bat/Bat/fly.png" id="1_i7sda"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xhqk4"]
+
+[sub_resource type="Animation" id="Animation_0j62c"]
+resource_name = "fly"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("flyingBat:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_kxo7d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("flyingBat:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_s4lqs"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_30p7m"]
+_data = {
+"RESET": SubResource("Animation_kxo7d"),
+"fly": SubResource("Animation_0j62c"),
+"idle": SubResource("Animation_s4lqs")
+}
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="flyingBat" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-4, 0)
+texture = ExtResource("1_i7sda")
+hframes = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xhqk4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_30p7m")
+}
