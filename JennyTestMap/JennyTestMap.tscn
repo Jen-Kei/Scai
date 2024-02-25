@@ -1,14 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0driu41m6wub"]
+[gd_scene load_steps=4 format=3 uid="uid://d0driu41m6wub"]
 
 [ext_resource type="PackedScene" uid="uid://d8aw26qy6rh0" path="res://Player/player.tscn" id="2_215dv"]
-[ext_resource type="PackedScene" uid="uid://dhyldbmopr707" path="res://Camera/Camera.tscn" id="3_cr1ic"]
 [ext_resource type="PackedScene" uid="uid://ckmtmjtg226um" path="res://ForestMap/ForestMap.tscn" id="3_kujo0"]
 [ext_resource type="Script" path="res://JennyTestMap/AllTreasures.gd" id="4_6b4io"]
 
 [node name="JennyTestMap" type="Node2D"]
 
-[node name="Camera2D" parent="." instance=ExtResource("3_cr1ic")]
+[node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(628, 368)
 zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 1295
+limit_bottom = 750
 
 [node name="Player" parent="." instance=ExtResource("2_215dv")]
 position = Vector2(49, 507)
@@ -21,7 +26,12 @@ position = Vector2(0, 0)
 [node name="AllTreasures" type="Node2D" parent="."]
 script = ExtResource("4_6b4io")
 
-[editable path="Camera2D"]
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="AllTreasures" method="_on_timer_timeout"]
+
 [editable path="Player"]
 [editable path="Player/StaminaBar"]
 [editable path="ForestMap"]

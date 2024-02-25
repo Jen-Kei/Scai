@@ -9,7 +9,7 @@ var maxTreasures = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	add_treasures_to_grass()
+	#add_treasures_to_grass()
 	randomize()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,8 +42,31 @@ func add_treasures_to_grass():
 			treasuresAdded += 1
 			print(treasuresAdded)
 			print(randCell)
-		
-
-			
 	
 
+
+func _on_timer_timeout():
+	var randX
+	var randY
+	var randCell
+	var instance
+	var treasuresAdded = 0
+
+
+	# For every treasure, generate a random location 
+	randX = randf_range(0, 1280)
+	randY = randf_range(0, 710)
+
+	randCell = Vector2(randX, randY)
+	%Camera2D.transform.origin = randCell
+	print(randCell)
+
+	# only spawn if it's on a grass tile
+	if Map.get_cell_source_id(2, Map.local_to_map(randCell)) != -1:
+		print("is cell", Map.get_cell_source_id(2, randCell, false))
+		instance = Treasure.instantiate()
+		instance.position = randCell
+		add_child(instance)
+		treasuresAdded += 1
+		print(treasuresAdded)
+		print(randCell)
