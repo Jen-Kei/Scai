@@ -1,7 +1,7 @@
 extends TextureProgressBar
 
 @export var player: Player
-@onready var staminaPerSecond = 1
+@onready var staminaPerSecond = 1.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

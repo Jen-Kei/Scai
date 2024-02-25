@@ -8,6 +8,7 @@ signal stamina_increase
 signal health_decrease
 signal health_increase
 
+@onready var staminaBar = $StaminaBar/TextureProgressBar
 
 # Initialise vars 
 @onready var speed = %StatBank.speed
@@ -48,6 +49,8 @@ func reInit():
 	health = %StatBank.health
 	health_capacity = %StatBank.health_capacity
 	health_gain = %StatBank.health_gain
+
+	staminaBar.staminaPerSecond = %StatBank.stamina_gain
 
 """
 	FUNCTIONS
