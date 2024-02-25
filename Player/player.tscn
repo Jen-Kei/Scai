@@ -448,4 +448,6 @@ player = NodePath("../..")
 
 [node name="Inventory" parent="." instance=ExtResource("5_of4by")]
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
 [editable path="StaminaBar"]
