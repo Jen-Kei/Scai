@@ -24,6 +24,9 @@ signal health_increase
 @onready var health_gain = %StatBank.health_gain
 
 @onready var input_movement = Vector2.ZERO
+@onready var animTree = $AnimationTree
+@onready var animPlayer = $AnimationPlayer
+@onready var animState = animTree.get("parameters/playback")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -60,8 +63,6 @@ func reInit():
 
 # Move the character and update animation
 func player_movement():
-	var animTree = $AnimationTree
-	var animState = animTree.get("parameters/playback")
 	input_movement = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 
 	if input_movement != Vector2.ZERO:
@@ -82,14 +83,13 @@ func player_movement():
 # Change the player's speed and update the stamina meter 
 func player_speed():
 	if Input.is_action_pressed("ui_run") && stamina > 10:
-		speed = extra_speed
-		running = true
+		if stamina > 30:
+			speed = extra_speed
+			animPlayer.speed_scale = 1.5
 		stamina_decrease.emit()
 	else:
 		speed = normal_speed
-		running = false
+		animPlayer.speed_scale = 1
 		stamina_increase.emit()
 
-	#print("stamina: ", stamina)
-
-
+	print(stamina)
