@@ -17,15 +17,18 @@ extends Node2D
 
 @onready var fire_rate = 30
 
+var weightItems = []
+
 
 func appendStats(details, add):
 	if add:
 		weight += details["Weight"] * weightMultiplier
 		print("Added weight: ", weight)
 
-		speed = (speed * details["speed"]) - weight
-		normal_speed = (normal_speed * details["speed"]) - weight
-		extra_speed = (extra_speed * details["speed"]) - weight
+		var new_speed = 100 - weight
+		speed = new_speed
+		normal_speed = new_speed
+		extra_speed = new_speed
 
 		stamina_capacity = stamina_capacity * details["StaminaCapacity"]
 		stamina_gain = stamina_gain * details["StaminaGain"]
@@ -40,9 +43,10 @@ func appendStats(details, add):
 		weight -= details["Weight"] * weightMultiplier
 		print("Dropped weight: ", weight)
 
-		speed = ((speed / details["speed"]) + (details["Weight"] * weightMultiplier)) + weight
-		normal_speed = ((normal_speed / details["speed"]) + (details["Weight"] * weightMultiplier)) + weight
-		extra_speed = ((extra_speed / details["speed"]) + (details["Weight"] * weightMultiplier)) + weight
+		var new_speed = 100 - weight
+		speed = new_speed
+		normal_speed = new_speed
+		extra_speed = new_speed
 
 		stamina_capacity = stamina_capacity / details["StaminaCapacity"]
 		stamina_gain = stamina_gain / details["StaminaGain"]
