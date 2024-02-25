@@ -58,7 +58,6 @@ func _on_timer_timeout():
 	randY = randf_range(0, 710)
 
 	randCell = Vector2(randX, randY)
-	%Camera2D.transform.origin = randCell
 	print(randCell)
 
 	# only spawn if it's on a grass tile
