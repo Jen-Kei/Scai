@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://doiewusn0c8mf"]
+
+[ext_resource type="PackedScene" uid="uid://dw2yu5c3tj7ns" path="res://escUI/input_button.tscn" id="1_7mdhu"]
+[ext_resource type="Script" path="res://escUI/InputSettings.gd" id="1_gcenr"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="InputSettings" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gcenr")
+
+[node name="PanelContainer" type="PanelContainer" parent="InputSettings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -537.0
+offset_top = -322.0
+offset_right = 537.0
+offset_bottom = 322.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="InputSettings/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InputSettings/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="InputSettings/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ActionList" type="VBoxContainer" parent="InputSettings/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InputButton" parent="InputSettings/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("1_7mdhu")]
+layout_mode = 2
+
+[node name="InputButton2" parent="InputSettings/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("1_7mdhu")]
+layout_mode = 2
+
+[node name="InputButton3" parent="InputSettings/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("1_7mdhu")]
+layout_mode = 2
+
+[node name="InputButton4" parent="InputSettings/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("1_7mdhu")]
+layout_mode = 2
+
+[node name="ResetButton" type="Button" parent="InputSettings/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 50
+text = "Reset To Default"
+
+[connection signal="pressed" from="InputSettings/PanelContainer/MarginContainer/VBoxContainer/ResetButton" to="InputSettings" method="_on_reset_button_pressed"]
