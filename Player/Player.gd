@@ -91,5 +91,3 @@ func player_speed():
 		speed = normal_speed
 		animPlayer.speed_scale = 1
 		stamina_increase.emit()
-
-	print(stamina)
