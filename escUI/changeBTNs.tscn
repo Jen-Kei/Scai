@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://doiewusn0c8mf"]
+[gd_scene load_steps=4 format=3 uid="uid://doiewusn0c8mf"]
 
 [ext_resource type="PackedScene" uid="uid://dw2yu5c3tj7ns" path="res://escUI/input_button.tscn" id="1_7mdhu"]
+[ext_resource type="Theme" uid="uid://bq5xapy267tbu" path="res://Theme/DefaultTheme.tres" id="1_621vf"]
 [ext_resource type="Script" path="res://escUI/InputSettings.gd" id="1_gcenr"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_621vf")
 script = ExtResource("1_gcenr")
 
 [node name="PanelContainer" type="PanelContainer" parent="InputSettings"]
@@ -61,6 +63,8 @@ layout_mode = 2
 [node name="ResetButton" type="Button" parent="InputSettings/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 focus_mode = 0
 theme_override_font_sizes/font_size = 50
 text = "Reset To Default"
