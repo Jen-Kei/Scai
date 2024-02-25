@@ -56,7 +56,6 @@ func reInit():
 	FUNCTIONS
 	player_movement() - moving the character
 	player_speed() - change the speed of the character if walking or running
-	player_animation() - changing the animations based on if the character is idle or moving and the direction it's facing
 """
 
 # Move the character and update animation
@@ -93,55 +92,4 @@ func player_speed():
 
 	#print("stamina: ", stamina)
 
-
-# Change the sprite's animations
-func player_animation(movement):
-	var direction = current_direction
-	var animation = $AnimatedSprite2D
-
-
-	if direction == "left":
-		animation.flip_h = true
-		if movement == 1:
-			if running == true:
-				animation.speed_scale = 3
-			else:
-				animation.speed_scale = 1
-			animation.play("side_walk")
-		elif movement == 0:
-			animation.play("side_idle")
-
-	if direction == "right":
-		animation.flip_h = false
-		if movement == 1:
-			if running == true:
-				animation.speed_scale = 3
-			else:
-				animation.speed_scale = 1
-			animation.play("side_walk")
-		elif movement == 0:
-			animation.play("side_idle")
-
-	if direction == "up":
-		animation.flip_h = false
-		if movement == 1:
-			if running == true:
-				animation.speed_scale = 3
-			else:
-				animation.speed_scale = 1
-			animation.play("back_walk")
-		elif movement == 0:
-			animation.play("back_idle")
-
-	if direction == "down":
-		animation.flip_h = false
-		if movement == 1:
-			if running == true:
-				animation.speed_scale = 3
-			else:
-				animation.speed_scale = 1
-			animation.play("front_walk")
-		elif movement == 0:
-			animation.play("front_idle")
-	
 
