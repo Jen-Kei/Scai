@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://csfgh4eel3xyn"]
+
+[ext_resource type="Script" path="res://Gun/gun.gd" id="1_18fb0"]
+[ext_resource type="PackedScene" uid="uid://c28qeso7ruaod" path="res://ePickup/ePickup.tscn" id="2_etlaa"]
+
+[node name="Gun" type="Sprite2D"]
+script = ExtResource("1_18fb0")
+
+[node name="pickUpObj" parent="." instance=ExtResource("2_etlaa")]
+
+[node name="gunShot" type="AudioStreamPlayer2D" parent="."]

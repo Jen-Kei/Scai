@@ -1,6 +1,7 @@
-[gd_scene load_steps=49 format=3 uid="uid://d8aw26qy6rh0"]
+[gd_scene load_steps=50 format=3 uid="uid://d8aw26qy6rh0"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_bldul"]
+[ext_resource type="Script" path="res://Player/Marker2D.gd" id="2_r3d3w"]
 [ext_resource type="PackedScene" uid="uid://hn6ishxcqfys" path="res://StaminaBar/StaminaBar.tscn" id="3_dpee4"]
 [ext_resource type="Script" path="res://Player/StatBank.gd" id="4_c4t1w"]
 [ext_resource type="Texture2D" uid="uid://qirdp1283kj1" path="res://AnimatedPlayer/Assets/idle_walk_sprites.png" id="5_j8fnr"]
@@ -418,6 +419,12 @@ z_index = 5
 y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_bldul")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+script = ExtResource("2_r3d3w")
+
+[node name="gunSlot" type="Node2D" parent="Marker2D"]
+position = Vector2(19, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("5_j8fnr")
