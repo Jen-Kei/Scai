@@ -23,17 +23,17 @@ signal health_increase
 @onready var health_capacity = %StatBank.health_capacity
 @onready var health_gain = %StatBank.health_gain
 
+@onready var input_movement = Vector2.ZERO
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# Character initial 
-	$AnimatedSprite2D.play("front_idle")
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	player_speed()
-	player_movement(delta)
+	player_movement()
 
 func reInit():
 	# Initialise vars
@@ -60,39 +60,22 @@ func reInit():
 """
 
 # Move the character and update animation
-func player_movement(delta):
-	# Character is moving (ugly)?
-	if (Input.is_action_pressed("ui_up") || 
-		Input.is_action_pressed("ui_down") || 
-		Input.is_action_pressed("ui_left") || 
-		Input.is_action_pressed("ui_right") ||
-		Input.is_action_pressed("ui_run")):
+func player_movement():
+	var animTree = $AnimationTree
+	var animState = animTree.get("parameters/playback")
+	input_movement = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 
-		# Move the player in a direction
-		if Input.is_action_pressed("ui_up"):
-			current_direction = "up"
-			player_animation(1)
-			self.transform.origin.y -= speed * delta
+	if input_movement != Vector2.ZERO:
+		animTree.set("parameters/Idle/blend_position", input_movement)
+		animTree.set("parameters/Walk/blend_position", input_movement)
 
-		if Input.is_action_pressed("ui_down"):
-			current_direction = "down"
-			player_animation(1)
-			self.transform.origin.y += speed * delta
+		animState.travel("Walk")
 
-		if Input.is_action_pressed("ui_left"):
-			current_direction = "left"
-			player_animation(1)
-			self.transform.origin.x -= speed * delta
-			
-		if Input.is_action_pressed("ui_right"):
-			current_direction = "right"
-			player_animation(1)
-			self.transform.origin.x += speed * delta
-
-	# Character is not moving
-	else:
-		player_animation(0)
-		
+		velocity = input_movement * speed 
+	
+	if input_movement == Vector2.ZERO:
+		animState.travel("Idle")
+		velocity = Vector2.ZERO
 
 	move_and_slide()
 
