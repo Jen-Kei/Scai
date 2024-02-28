@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dp3bh8gmmp2bh"]
+[gd_scene load_steps=14 format=3 uid="uid://dp3bh8gmmp2bh"]
 
 [ext_resource type="Texture2D" uid="uid://84xfjwfj2eu0" path="res://Enemies/Catboom/Assets/Cat.png" id="1_67trn"]
+[ext_resource type="Script" path="res://Enemies/Catboom/CatBoom.gd" id="1_nbokt"]
 
 [sub_resource type="Animation" id="Animation_o3q32"]
 resource_name = "idle"
@@ -162,7 +163,12 @@ _data = {
 "sleep": SubResource("Animation_jiqq5")
 }
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ommv"]
+radius = 3.16228
+
+[node name="Cat" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_nbokt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -174,3 +180,13 @@ vframes = 10
 libraries = {
 "": SubResource("AnimationLibrary_wqmea")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 14)
+shape = SubResource("CircleShape2D_1ommv")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
