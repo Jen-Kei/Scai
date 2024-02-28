@@ -48,25 +48,19 @@ texture_margin_left = 1.0
 texture_margin_right = 1.0
 region_rect = Rect2(145, 113, 46, 14)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x73tt"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0, 0, 0, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b0pl6"]
+texture = ExtResource("1_ulwxd")
+texture_margin_left = 1.0
+texture_margin_right = 1.0
+region_rect = Rect2(145.918, 81, 45.0819, 14)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_coihs"]
 texture = ExtResource("1_ulwxd")
-texture_margin_left = 6.0
-texture_margin_top = 5.0
-texture_margin_right = 6.0
-texture_margin_bottom = 5.0
-region_rect = Rect2(0, 97, 48, 31)
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+region_rect = Rect2(0, 96.7294, 47.2686, 31.2706)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mate4"]
 
@@ -80,8 +74,12 @@ texture_margin_right = 2.0
 texture_margin_bottom = 4.0
 region_rect = Rect2(145, 113, 46, 14)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0nw0d"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tja1e"]
 texture = ExtResource("1_ulwxd")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
 region_rect = Rect2(145, 98, 46, 13)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ioyv"]
@@ -92,17 +90,13 @@ texture_margin_right = 2.0
 texture_margin_bottom = 4.0
 region_rect = Rect2(145, 98, 46, 13)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_esjt0"]
-content_margin_left = 4.0
-content_margin_top = 0.0
-content_margin_right = 4.0
-content_margin_bottom = 0.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 6
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ioxgw"]
+texture = ExtResource("1_ulwxd")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(50, 34, 44, 12)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_53b63"]
 content_margin_left = 4.0
@@ -126,6 +120,8 @@ expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
 [resource]
+default_font = ExtResource("1_a3kdk")
+default_font_size = 16
 BoxContainer/constants/separation = 4
 Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
@@ -149,7 +145,7 @@ Button/styles/disabled = SubResource("StyleBoxFlat_wu4y0")
 Button/styles/focus = SubResource("StyleBoxFlat_l31sw")
 Button/styles/hover = SubResource("StyleBoxTexture_pblxr")
 Button/styles/normal = SubResource("StyleBoxTexture_bxevm")
-Button/styles/pressed = SubResource("StyleBoxFlat_x73tt")
+Button/styles/pressed = SubResource("StyleBoxTexture_b0pl6")
 HBoxContainer/constants/separation = 4
 MarginContainer/constants/margin_bottom = 0
 MarginContainer/constants/margin_left = 0
@@ -165,7 +161,7 @@ VScrollBar/icons/increment = SubResource("ImageTexture_n2hg7")
 VScrollBar/icons/increment_highlight = SubResource("ImageTexture_n2hg7")
 VScrollBar/icons/increment_pressed = SubResource("ImageTexture_n2hg7")
 VScrollBar/styles/grabber = SubResource("StyleBoxTexture_kimrk")
-VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_0nw0d")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_tja1e")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_5ioyv")
-VScrollBar/styles/scroll = SubResource("StyleBoxFlat_esjt0")
+VScrollBar/styles/scroll = SubResource("StyleBoxTexture_ioxgw")
 VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_53b63")
