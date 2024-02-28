@@ -68,19 +68,17 @@ texture_margin_right = 6.0
 texture_margin_bottom = 5.0
 region_rect = Rect2(0, 97, 48, 31)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xewvo"]
-content_margin_left = 150.0
-content_margin_top = 100.0
-content_margin_right = 150.0
-content_margin_bottom = 200.0
-texture = ExtResource("1_ulwxd")
-region_rect = Rect2(2, 34, 0, 0)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mate4"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_n2hg7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kimrk"]
 texture = ExtResource("1_ulwxd")
-region_rect = Rect2(176, 129, 16, 3)
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(145, 113, 46, 14)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0nw0d"]
 texture = ExtResource("1_ulwxd")
@@ -88,6 +86,10 @@ region_rect = Rect2(145, 98, 46, 13)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ioyv"]
 texture = ExtResource("1_ulwxd")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
 region_rect = Rect2(145, 98, 46, 13)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_esjt0"]
@@ -154,7 +156,7 @@ MarginContainer/constants/margin_left = 0
 MarginContainer/constants/margin_right = 0
 MarginContainer/constants/margin_top = 0
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_coihs")
-ScrollContainer/styles/panel = SubResource("StyleBoxTexture_xewvo")
+ScrollContainer/styles/panel = SubResource("StyleBoxEmpty_mate4")
 VBoxContainer/constants/separation = 4
 VScrollBar/icons/decrement = SubResource("ImageTexture_n2hg7")
 VScrollBar/icons/decrement_highlight = SubResource("ImageTexture_n2hg7")
