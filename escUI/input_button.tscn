@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dw2yu5c3tj7ns"]
 
 [ext_resource type="Theme" uid="uid://bq5xapy267tbu" path="res://Theme/DefaultTheme.tres" id="1_v4awu"]
-[ext_resource type="FontFile" uid="uid://chtow6hpubb51" path="res://Theme/Assets/Pixelme.ttf" id="2_1gmyf"]
+[ext_resource type="FontFile" uid="uid://chtow6hpubb51" path="res://Theme/Pixelme.ttf" id="2_l4txi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_02e65"]
 
@@ -40,8 +40,8 @@ theme = ExtResource("1_v4awu")
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("1_v4awu")
-theme_override_fonts/font = ExtResource("2_1gmyf")
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("2_l4txi")
+theme_override_font_sizes/font_size = 30
 text = "Action Name"
 vertical_alignment = 1
 
@@ -54,7 +54,7 @@ mouse_filter = 1
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("1_v4awu")
-theme_override_fonts/font = ExtResource("2_1gmyf")
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("2_l4txi")
+theme_override_font_sizes/font_size = 30
 text = "Labe Input"
 vertical_alignment = 1
