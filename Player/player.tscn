@@ -429,7 +429,6 @@ script = ExtResource("2_r3d3w")
 position = Vector2(19, 0)
 
 [node name="lights" type="Node2D" parent="Marker2D"]
-visible = false
 
 [node name="Flashlight" parent="Marker2D/lights" instance=ExtResource("3_jx1x2")]
 

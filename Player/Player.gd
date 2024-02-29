@@ -27,6 +27,9 @@ signal health_increase
 @onready var animTree = $AnimationTree
 @onready var animPlayer = $AnimationPlayer
 @onready var animState = animTree.get("parameters/playback")
+@onready var inventoryPopup = preload("res://HUD/InventorySelect.tscn")
+
+var inventoryOpen = false
 
 #@onready var DungeonMapZero = preload("res://DungeonMapZero/DungeonMapZero.tscn")
 
@@ -82,6 +85,12 @@ func player_movement():
 	if input_movement == Vector2.ZERO:
 		animState.travel("Idle")
 		velocity = Vector2.ZERO
+
+	# for testing, delete if found
+	if Input.is_action_just_pressed("inventory") and !inventoryOpen:
+		inventoryOpen = true
+		var inventory = inventoryPopup.instantiate()
+		get_parent().add_child(inventory)
 
 	move_and_slide()
 
