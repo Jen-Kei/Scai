@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhd4g6wg8uwky"]
+
+[ext_resource type="Script" path="res://HUD/InventorySelect.gd" id="1_v03jg"]
+[ext_resource type="PackedScene" uid="uid://cb8fjofvqecdv" path="res://HUD/ItemButton.tscn" id="2_6jwrd"]
+
+[node name="InventorySelect" type="CanvasLayer"]
+script = ExtResource("1_v03jg")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -495.0
+offset_top = -277.0
+offset_right = 495.0
+offset_bottom = 277.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ActionList" type="VBoxContainer" parent="Control/PanelContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ItemButton" parent="Control/PanelContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("2_6jwrd")]
+layout_mode = 2
+
+[node name="ItemButton2" parent="Control/PanelContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("2_6jwrd")]
+layout_mode = 2
+
+[node name="RdescLabel2" type="RichTextLabel" parent="Control/PanelContainer/VBoxContainer/ScrollContainer/ActionList/ItemButton2"]
+custom_minimum_size = Vector2(600, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+bbcode_enabled = true
+text = "Description"
+
+[editable path="Control/PanelContainer/VBoxContainer/ScrollContainer/ActionList/ItemButton"]
+[editable path="Control/PanelContainer/VBoxContainer/ScrollContainer/ActionList/ItemButton2"]
