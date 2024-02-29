@@ -97,3 +97,6 @@ func get_text_between_braces(input_string: String):
 				%AI_Pic.texture = load('res://UIPopup/Assets/Neutral.jpg')
 
 		print("The AI is feeling: ", emotion, "\nThe AI has triggered: ", trigger, "\nThe current price is: ", currentPrice)
+
+func _on_end_btn_button_down():
+	self.queue_free()

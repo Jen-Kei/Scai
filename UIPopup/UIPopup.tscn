@@ -3,7 +3,9 @@
 [ext_resource type="Script" path="res://UIPopup/UIPopupController.gd" id="1_arvkw"]
 [ext_resource type="PackedScene" uid="uid://c3eeoi32s1nty" path="res://AI/AIRequest.tscn" id="2_g7347"]
 
-[node name="UIPopup" type="Control"]
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="UIPopup" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_arvkw")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="UIPopup"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -26,7 +28,7 @@ offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="User_Name" type="RichTextLabel" parent="Panel"]
+[node name="User_Name" type="RichTextLabel" parent="UIPopup/Panel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
@@ -41,7 +43,7 @@ grow_horizontal = 2
 grow_vertical = 0
 bbcode_enabled = true
 
-[node name="User_TextBox" type="LineEdit" parent="Panel"]
+[node name="User_TextBox" type="LineEdit" parent="UIPopup/Panel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
@@ -56,7 +58,7 @@ offset_bottom = -68.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="AI_Name" type="RichTextLabel" parent="Panel"]
+[node name="AI_Name" type="RichTextLabel" parent="UIPopup/Panel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
@@ -68,14 +70,14 @@ offset_bottom = 57.0
 grow_horizontal = 2
 bbcode_enabled = true
 
-[node name="AI_Pic" type="TextureRect" parent="Panel/AI_Name"]
+[node name="AI_Pic" type="TextureRect" parent="UIPopup/Panel/AI_Name"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_right = 57.0
 offset_bottom = 57.0
 expand_mode = 1
 
-[node name="AI_TextBox" type="RichTextLabel" parent="Panel"]
+[node name="AI_TextBox" type="RichTextLabel" parent="UIPopup/Panel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
@@ -88,7 +90,16 @@ offset_bottom = 317.0
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 12
 
-[node name="AIRequest" parent="Panel" instance=ExtResource("2_g7347")]
+[node name="AIRequest" parent="UIPopup/Panel" instance=ExtResource("2_g7347")]
 unique_name_in_owner = true
 
-[connection signal="text_submitted" from="Panel/User_TextBox" to="." method="_on_user_text_box_text_submitted"]
+[node name="endBTN" type="Button" parent="UIPopup"]
+layout_mode = 0
+offset_left = 805.0
+offset_top = 554.0
+offset_right = 928.0
+offset_bottom = 610.0
+text = "End"
+
+[connection signal="text_submitted" from="UIPopup/Panel/User_TextBox" to="UIPopup" method="_on_user_text_box_text_submitted"]
+[connection signal="button_down" from="UIPopup/endBTN" to="UIPopup" method="_on_end_btn_button_down"]
