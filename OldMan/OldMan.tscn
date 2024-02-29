@@ -6,6 +6,21 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lww36"]
 
+[sub_resource type="Animation" id="Animation_x0068"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [72]
+}
+
 [sub_resource type="Animation" id="Animation_o0gqh"]
 resource_name = "idle"
 length = 0.3
@@ -21,21 +36,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [72, 73, 74, 75]
-}
-
-[sub_resource type="Animation" id="Animation_x0068"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [72]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w5w5n"]

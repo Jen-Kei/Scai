@@ -9,14 +9,17 @@ extends CharacterBody2D
 func _ready():
 	anim.speed_scale = 0.5
 	anim.play("idle")
-	ekey.visible = false
+	ekey.visible = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if player.position.distance_to(self.position) < 50:
-		ekey.visible = true
-		if Input.is_action_just_pressed("interact"):
-			print("Popup")
+	if player.distance_to(self.position) < 50:
+		ekey.show = true
+		if Input.is_action_just_pressed("e"):
+			get_tree().get_root().add_child(AI)
+			AI.popup_centered = true
+			AI.popup_exclusive = true
+			AI.popup()
 	else:
-		ekey.visible = false
+		ekey.visible = true

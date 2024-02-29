@@ -1,17 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgksrxus0nha7"]
+[gd_scene load_steps=6 format=3 uid="uid://dgksrxus0nha7"]
 
 [ext_resource type="PackedScene" uid="uid://d8aw26qy6rh0" path="res://Player/player.tscn" id="1_qky6c"]
 [ext_resource type="PackedScene" uid="uid://ckmtmjtg226um" path="res://ForestMap/ForestMap.tscn" id="4_ccmx0"]
+[ext_resource type="PackedScene" uid="uid://rybo4cveuxqj" path="res://OldMan/OldMan.tscn" id="5_biw3o"]
 [ext_resource type="PackedScene" uid="uid://dhyldbmopr707" path="res://Camera/Camera.tscn" id="14_k6y2r"]
 [ext_resource type="PackedScene" uid="uid://b4b6kdfqcgmfs" path="res://Treasures/Treasures.tscn" id="16_8biye"]
 
 [node name="Forest" type="Node2D"]
 y_sort_enabled = true
 
-[node name="Camera2D" parent="." instance=ExtResource("14_k6y2r")]
-
 [node name="Player" parent="." instance=ExtResource("1_qky6c")]
 position = Vector2(658, 316)
+
+[node name="Camera2D" parent="." instance=ExtResource("14_k6y2r")]
 
 [node name="Treasures" type="Node2D" parent="."]
 
@@ -19,6 +20,9 @@ position = Vector2(658, 316)
 position = Vector2(737, 306)
 
 [node name="ForestMap" parent="." instance=ExtResource("4_ccmx0")]
+
+[node name="OldMan" parent="." instance=ExtResource("5_biw3o")]
+position = Vector2(808, 354)
 
 [editable path="Player"]
 [editable path="Player/StaminaBar"]
