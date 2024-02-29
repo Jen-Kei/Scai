@@ -425,10 +425,18 @@ script = ExtResource("1_bldul")
 [node name="Marker2D" type="Marker2D" parent="."]
 script = ExtResource("2_r3d3w")
 
-[node name="Flashlight" parent="Marker2D" instance=ExtResource("3_jx1x2")]
-
 [node name="gunSlot" type="Node2D" parent="Marker2D"]
 position = Vector2(19, 0)
+
+[node name="lights" type="Node2D" parent="Marker2D"]
+
+[node name="Flashlight" parent="Marker2D/lights" instance=ExtResource("3_jx1x2")]
+
+[node name="PointLight2D" type="PointLight2D" parent="Marker2D/lights"]
+position = Vector2(0, 1)
+scale = Vector2(0.1, 0.1)
+energy = 0.7
+texture = ExtResource("8_erv3m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("5_j8fnr")
@@ -466,11 +474,5 @@ unique_name_in_owner = true
 player = NodePath("../..")
 
 [node name="Inventory" parent="." instance=ExtResource("5_of4by")]
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(0, 1)
-scale = Vector2(0.1, 0.1)
-energy = 0.7
-texture = ExtResource("8_erv3m")
 
 [editable path="StaminaBar"]
