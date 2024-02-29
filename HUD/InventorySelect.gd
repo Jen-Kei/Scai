@@ -3,7 +3,7 @@ extends CanvasLayer
 @onready var ActionList = $Control/PanelContainer/VBoxContainer/ScrollContainer/ActionList
 @onready var itemBTN = preload("res://HUD/ItemButton.tscn")
 @onready var player = get_parent().get_node("Player")
-
+@onready var sellBTN = $Control/PanelContainer/sellBTN
 # Called when the node enters the scene tree for the first time.
 
 '''
@@ -22,6 +22,7 @@ extends CanvasLayer
 func _ready():
 	print(get_parent())
 	print(player)
+	sellBTN.visible = false
 	_create_action_list()
 
 func _process(delta):
@@ -43,6 +44,7 @@ func _create_action_list():
 		itemBTN.get_node("Button").text = item.item_name
 		itemBTN.get_node("pic").texture = load("res://Treasures/Assets/"+item.item_sprite)
 		itemBTN.get_node("RdescLabel").text = '[center]'+item.item_desc
+		itemBTN.itemValue = item.item_value
 		if item.item_value < 50:
 			itemBTN.get_node("RtextLabel").text = "0 - 50"
 		elif item.item_value < 100:
@@ -59,3 +61,12 @@ func _create_action_list():
 			itemBTN.get_node("RtextLabel").text = "??? - ???"
 
 		ActionList.add_child(itemBTN)
+
+func _on_sell_btn_button_down():
+	getSelectedValue()
+
+
+func getSelectedValue():
+	for i in ActionList.get_children():
+		if i.pressedDown:
+			print(i.itemValue)

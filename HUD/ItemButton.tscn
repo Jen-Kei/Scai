@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cb8fjofvqecdv"]
+[gd_scene load_steps=3 format=3 uid="uid://cb8fjofvqecdv"]
 
+[ext_resource type="Script" path="res://HUD/ItemButton.gd" id="1_6shm2"]
 [ext_resource type="Texture2D" uid="uid://ddrl207dg2pi" path="res://icon.svg" id="1_v55u6"]
 
 [node name="ItemButton" type="PanelContainer"]
@@ -7,6 +8,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 128.0
 grow_horizontal = 2
+script = ExtResource("1_6shm2")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
@@ -35,3 +37,5 @@ theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true
 text = "100 - 200"
 scroll_active = false
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

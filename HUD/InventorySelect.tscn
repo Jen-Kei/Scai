@@ -47,13 +47,10 @@ layout_mode = 2
 [node name="ItemButton2" parent="Control/PanelContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("2_6jwrd")]
 layout_mode = 2
 
-[node name="RdescLabel2" type="RichTextLabel" parent="Control/PanelContainer/VBoxContainer/ScrollContainer/ActionList/ItemButton2"]
-custom_minimum_size = Vector2(600, 40)
+[node name="sellBTN" type="Button" parent="Control/PanelContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 8
 size_flags_vertical = 8
-bbcode_enabled = true
-text = "Description"
+text = "Sell"
 
-[editable path="Control/PanelContainer/VBoxContainer/ScrollContainer/ActionList/ItemButton"]
-[editable path="Control/PanelContainer/VBoxContainer/ScrollContainer/ActionList/ItemButton2"]
+[connection signal="button_down" from="Control/PanelContainer/sellBTN" to="." method="_on_sell_btn_button_down"]
