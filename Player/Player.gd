@@ -28,6 +28,8 @@ signal health_increase
 @onready var animPlayer = $AnimationPlayer
 @onready var animState = animTree.get("parameters/playback")
 
+#@onready var DungeonMapZero = preload("res://DungeonMapZero/DungeonMapZero.tscn")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -91,3 +93,13 @@ func player_speed():
 		speed = normal_speed
 		animPlayer.speed_scale = 1
 		stamina_increase.emit()
+
+'''
+func door_open():
+	# Check if the player is near a door
+	# For every door, check if the player is near it, if so, hide the door
+	for doorCell in DungeonMapZero.get_used_cells(4):
+		if self.position.distance_to(DungeonMapZero.local_to_map(doorCell)) < 50:
+			if Input.is_action_pressed("interact"):
+				print("hide")
+'''
