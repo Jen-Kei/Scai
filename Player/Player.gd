@@ -40,6 +40,10 @@ func _process(delta):
 	player_speed()
 	player_movement()
 
+	if Input.is_action_just_pressed("flashlight"):
+		for i in $Marker2D/lights.get_children():
+			i.visible = !i.visible
+
 func reInit():
 	# Initialise vars
 	speed = %StatBank.speed

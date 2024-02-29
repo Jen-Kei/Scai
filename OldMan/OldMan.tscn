@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://rybo4cveuxqj"]
+
+[ext_resource type="Script" path="res://OldMan/OldMan.gd" id="1_clret"]
+[ext_resource type="Texture2D" uid="uid://b4caw1rhre0ip" path="res://OldMan/Assets/Male3.png" id="2_cs34s"]
+[ext_resource type="PackedScene" uid="uid://ca3ax5hy1pmbl" path="res://ePickup/e_key.tscn" id="3_0rls3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lww36"]
+
+[sub_resource type="Animation" id="Animation_o0gqh"]
+resource_name = "idle"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [72, 73, 74, 75]
+}
+
+[sub_resource type="Animation" id="Animation_x0068"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [72]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w5w5n"]
+_data = {
+"RESET": SubResource("Animation_x0068"),
+"idle": SubResource("Animation_o0gqh")
+}
+
+[node name="OldMan" type="CharacterBody2D"]
+script = ExtResource("1_clret")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_lww36")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cs34s")
+hframes = 8
+vframes = 12
+frame = 72
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_w5w5n")
+}
+
+[node name="eKey" parent="." instance=ExtResource("3_0rls3")]
+position = Vector2(6, 7)
+rotation = 0.456686
+scale = Vector2(0.01, 0.01)
