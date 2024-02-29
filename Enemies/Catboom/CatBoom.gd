@@ -5,10 +5,12 @@ extends CharacterBody2D
 @onready var selfSprite = $Sprite2D
 @onready var timer = $Timer
 @onready var _particle = preload("res://Enemies/Catboom/Assets/death.tscn")
+@onready var nav = $Navigation/NavigationAgent2D
 
 var RADIUS = 180
 var EXPLODEWHEN = 50
 var exploded = false
+var acceleration = 7
 
 var speed = 50
 var vector_to_player
@@ -21,10 +23,14 @@ func _ready():
 func _process(delta):
 	# Calculate the vector from the enemy to the player
 	vector_to_player = player.position - self.position
-
+	var direction = Vector2.ZERO
+	direction = nav.get_next_path_position() - global_position
+	direction = direction.normalized()
 	# Check if the player is to the left or right
 	if player.position.distance_to(self.position) < RADIUS and !exploded:
-		self.position += (player.position - self.position).normalized() * delta * speed
+		#self.position += (player.position - self.position).normalized() * delta * speed
+		nav.target_position = player.position
+		velocity = velocity.lerp(direction * speed, acceleration * delta)
 		if vector_to_player.x < 0:
 			selfSprite.flip_h = true
 			anim.play("jog")
@@ -53,3 +59,6 @@ func _on_timer_timeout():
 	particle.emitting = true
 	get_tree().current_scene.add_child(particle)
 	self.queue_free()
+
+func _on_re_calc_timer_timeout():
+	nav.target_position = player.global_position

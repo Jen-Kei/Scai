@@ -189,4 +189,31 @@ shape = SubResource("CircleShape2D_1ommv")
 wait_time = 0.5
 one_shot = true
 
+[node name="Raycasts" type="Marker2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, 4)
+target_position = Vector2(48, 0)
+
+[node name="RayCast2D2" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, 8)
+target_position = Vector2(48, 0)
+
+[node name="RayCast2D3" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, 12)
+target_position = Vector2(48, 0)
+
+[node name="RayCast2D4" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, 16)
+target_position = Vector2(48, 0)
+
+[node name="Navigation" type="Node2D" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation"]
+debug_enabled = true
+
+[node name="reCalcTimer" type="Timer" parent="Navigation"]
+wait_time = 0.1
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Navigation/reCalcTimer" to="." method="_on_re_calc_timer_timeout"]
