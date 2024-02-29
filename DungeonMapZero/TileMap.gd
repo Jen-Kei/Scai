@@ -17,6 +17,7 @@ func door_open():
 	for doorCell in self.get_used_cells(4):
 		if player.position.distance_to(self.map_to_local(doorCell)) < 50:
 			if Input.is_action_pressed("interact"):
-				self.set_cell()
+				self.set_cell(8, doorCell, 0, Vector2i(2, 2), 0)
 			else:
-
+				erase_cell(8, doorCell)
+				
