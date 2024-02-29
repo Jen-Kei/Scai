@@ -18,6 +18,6 @@ func door_open():
 		if player.position.distance_to(self.map_to_local(doorCell)) < 50:
 			if Input.is_action_pressed("interact"):
 				self.set_cell(8, doorCell, 0, Vector2i(2, 2), 0)
+				# disable door collision
 			else:
 				erase_cell(8, doorCell)
-				
