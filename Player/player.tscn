@@ -1,11 +1,13 @@
-[gd_scene load_steps=50 format=3 uid="uid://d8aw26qy6rh0"]
+[gd_scene load_steps=52 format=3 uid="uid://d8aw26qy6rh0"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_bldul"]
 [ext_resource type="Script" path="res://Player/Marker2D.gd" id="2_r3d3w"]
 [ext_resource type="PackedScene" uid="uid://hn6ishxcqfys" path="res://StaminaBar/StaminaBar.tscn" id="3_dpee4"]
+[ext_resource type="PackedScene" uid="uid://smpdg2o4opo7" path="res://Flashlight/flashlight.tscn" id="3_jx1x2"]
 [ext_resource type="Script" path="res://Player/StatBank.gd" id="4_c4t1w"]
 [ext_resource type="Texture2D" uid="uid://qirdp1283kj1" path="res://AnimatedPlayer/Assets/idle_walk_sprites.png" id="5_j8fnr"]
 [ext_resource type="PackedScene" uid="uid://cwvsi4dd3abs0" path="res://HUD/inventory.tscn" id="5_of4by"]
+[ext_resource type="Texture2D" uid="uid://bltj24q35ub8j" path="res://Flashlight/2d_lights_and_shadows_neutral_point_light.webp" id="8_erv3m"]
 
 [sub_resource type="Animation" id="Animation_atts6"]
 length = 0.001
@@ -423,6 +425,8 @@ script = ExtResource("1_bldul")
 [node name="Marker2D" type="Marker2D" parent="."]
 script = ExtResource("2_r3d3w")
 
+[node name="Flashlight" parent="Marker2D" instance=ExtResource("3_jx1x2")]
+
 [node name="gunSlot" type="Node2D" parent="Marker2D"]
 position = Vector2(19, 0)
 
@@ -462,5 +466,11 @@ unique_name_in_owner = true
 player = NodePath("../..")
 
 [node name="Inventory" parent="." instance=ExtResource("5_of4by")]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(0.1, 0.1)
+energy = 0.7
+texture = ExtResource("8_erv3m")
 
 [editable path="StaminaBar"]
