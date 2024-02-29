@@ -192,6 +192,7 @@ script = ExtResource("1_xtlen")
 [node name="Rooms" type="Node" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.4, 0.4)
 
 [node name="TileMap" type="TileMap" parent="."]
 show_behind_parent = true
