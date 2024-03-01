@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var ekey = $eKey
 @onready var inventoryPopup = preload("res://HUD/InventorySelect.tscn")
 var inventoryInstance
+var interacting = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,7 +19,8 @@ func _ready():
 func _process(delta):
 	if player.position.distance_to(self.position) < 50:
 		ekey.visible = true
-		if Input.is_action_just_pressed("interact"):
+		if Input.is_action_just_pressed("interact") and !interacting:
+			interacting = true
 			inventoryInstance = inventoryPopup.instantiate()
 			get_parent().add_child(inventoryInstance)
 			inventoryInstance.sellItems.connect(soldItems)
@@ -34,6 +36,7 @@ func soldItems(x):
 	print("Total Sold: ", totalSold)
 
 	var aiInstance = AI.instantiate()
-	get_parent().add_child(aiInstance)
+	get_tree().get_root().add_child(aiInstance)
 	aiInstance.get_child(0).initPopup("Old Man", "Player", "Item is usually worth: "+str(totalSold)+"\n Hello sir!")
 	inventoryInstance.queue_free()
+	player.process_mode = PROCESS_MODE_DISABLED
