@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b25pg6ksv2127"]
+[gd_scene load_steps=9 format=3 uid="uid://b25pg6ksv2127"]
 
 [ext_resource type="Texture2D" uid="uid://w4i5gh8y6h5w" path="res://DungeonMapZero/Assets/Dungeon.png" id="1_jp63i"]
 [ext_resource type="Script" path="res://DungeonMapZero/TileMap.gd" id="2_e7ta2"]
@@ -635,6 +635,9 @@ polygon = PackedVector2Array(48, 128, 240, 127, 241, 81, 351, 80, 352, 127, 448,
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8cn4e"]
 polygon = PackedVector2Array(113, 662, 255, 660, 257, 486, 383, 486, 384, 449, 192, 447, 192, 605, 112, 607)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hgqbq"]
+polygon = PackedVector2Array(1177, 860, 1255, 852, 1265, 907, 1195, 915)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -670,3 +673,6 @@ occluder = SubResource("OccluderPolygon2D_brxjv")
 
 [node name="LightOccluder2D3" type="LightOccluder2D" parent="LightOccluders"]
 occluder = SubResource("OccluderPolygon2D_8cn4e")
+
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="LightOccluders"]
+occluder = SubResource("OccluderPolygon2D_hgqbq")
