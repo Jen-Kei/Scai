@@ -4,6 +4,7 @@
 
 [node name="Flashlight" type="PointLight2D"]
 position = Vector2(41.875, 0)
+shadow_enabled = true
 texture = ExtResource("1_b5gve")
 offset = Vector2(10, 0)
 texture_scale = 0.5
