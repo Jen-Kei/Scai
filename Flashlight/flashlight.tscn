@@ -3,8 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bpgmbs4xc7nkg" path="res://Flashlight/prop_fade_start_50.png" id="1_b5gve"]
 
 [node name="Flashlight" type="PointLight2D"]
-position = Vector2(41.875, 0)
 shadow_enabled = true
 texture = ExtResource("1_b5gve")
-offset = Vector2(10, 0)
+offset = Vector2(59.875, 0)
 texture_scale = 0.5
