@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var itemBTN = preload("res://HUD/ItemButton.tscn")
 @onready var player = get_parent().get_node("Player")
 @onready var sellBTN = $Control/PanelContainer/sellBTN
+signal sellItems
 # Called when the node enters the scene tree for the first time.
 
 '''
@@ -41,6 +42,7 @@ func _create_action_list():
 		var item = i.get_child(1)
 		
 		var itemBTN = itemBTN.instantiate()
+		itemBTN.itemSlot = i.name
 		itemBTN.get_node("Button").text = item.item_name
 		itemBTN.get_node("pic").texture = load("res://Treasures/Assets/"+item.item_sprite)
 		itemBTN.get_node("RdescLabel").text = '[center]'+item.item_desc
@@ -65,8 +67,17 @@ func _create_action_list():
 func _on_sell_btn_button_down():
 	getSelectedValue()
 
+func _on_sell_btn_1_button_down():
+	sellItems.emit(getSelectedValue())
+
+
 
 func getSelectedValue():
+	var total = 0
+	var items = {}
 	for i in ActionList.get_children():
 		if i.pressedDown:
-			print(i.itemValue)
+			total += i.itemValue
+			items[i.itemSlot] = i.itemValue
+
+	return items

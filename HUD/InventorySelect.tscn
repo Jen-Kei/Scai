@@ -53,4 +53,13 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "Sell"
 
+[node name="sellBTN1" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1026.0
+offset_top = 584.0
+offset_right = 1127.0
+offset_bottom = 629.0
+text = "Sell"
+
 [connection signal="button_down" from="Control/PanelContainer/sellBTN" to="." method="_on_sell_btn_button_down"]
+[connection signal="button_down" from="Control/sellBTN1" to="." method="_on_sell_btn_1_button_down"]

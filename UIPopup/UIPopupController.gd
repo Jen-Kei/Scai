@@ -13,14 +13,13 @@ var emotions = ['HAPPY', 'SAD', 'ANGRY', 'NEUTRAL']
 
 func _ready():
 	%AIRequest.chat_response_recieved.connect(_on_chat_response_recieved)
-	initPopup('AI', 'User')
 
-func initPopup(ai_name, user_name): # Initialize the popup
+func initPopup(ai_name, user_name, preMessage): # Initialize the popup
 	aiName = ai_name
 	userName = user_name
 	%AI_Name.text = '[center]'+str(aiName)
 	%User_Name.text = '[center]'+str(userName)
-	%AIRequest.chatToPT("Hello Sir")
+	%AIRequest.chatToPT(preMessage+"\nHello Sir")
 
 
 func _on_user_text_box_text_submitted(new_text:String): # Press enter
