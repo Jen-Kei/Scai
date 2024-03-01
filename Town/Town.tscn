@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://blvkieuxxgv8r"]
+
+[ext_resource type="PackedScene" uid="uid://d8aw26qy6rh0" path="res://Player/player.tscn" id="1_t2mai"]
+[ext_resource type="PackedScene" uid="uid://f2r5xlkxr0gf" path="res://TownMap/TownMap.tscn" id="2_2xcot"]
+[ext_resource type="PackedScene" uid="uid://dhyldbmopr707" path="res://Camera/Camera.tscn" id="3_vjigf"]
+
+[node name="Town" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_t2mai")]
+position = Vector2(186, 330)
+
+[node name="TownMap" parent="." instance=ExtResource("2_2xcot")]
+
+[node name="Camera2D" parent="." instance=ExtResource("3_vjigf")]
