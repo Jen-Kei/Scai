@@ -1,10 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://rybo4cveuxqj"]
 
 [ext_resource type="Script" path="res://OldMan/OldMan.gd" id="1_clret"]
-[ext_resource type="Texture2D" uid="uid://b4caw1rhre0ip" path="res://OldMan/Assets/Male3.png" id="2_cs34s"]
+[ext_resource type="Texture2D" uid="uid://ci3nfhu4u7ggf" path="res://NPCs/Assets/Characters.png" id="2_opu8p"]
 [ext_resource type="PackedScene" uid="uid://ca3ax5hy1pmbl" path="res://ePickup/e_key.tscn" id="3_0rls3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lww36"]
+radius = 6.0
 
 [sub_resource type="Animation" id="Animation_x0068"]
 length = 0.001
@@ -18,7 +19,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [72]
+"values": [60]
 }
 
 [sub_resource type="Animation" id="Animation_o0gqh"]
@@ -32,10 +33,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [72, 73, 74, 75]
+"values": [60]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w5w5n"]
@@ -48,14 +49,14 @@ _data = {
 script = ExtResource("1_clret")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 10)
+position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_lww36")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_cs34s")
-hframes = 8
-vframes = 12
-frame = 72
+texture = ExtResource("2_opu8p")
+hframes = 10
+vframes = 20
+frame = 60
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
