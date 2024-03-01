@@ -11,6 +11,8 @@ var result = []
 var triggers = ['DEAL', 'GUARDS']
 var emotions = ['HAPPY', 'SAD', 'ANGRY', 'NEUTRAL']
 
+var canType = false
+
 func _ready():
 	%AIRequest.chat_response_recieved.connect(_on_chat_response_recieved)
 
@@ -21,11 +23,16 @@ func initPopup(ai_name, user_name, preMessage): # Initialize the popup
 	%User_Name.text = '[center]'+str(userName)
 	%AIRequest.chatToPT(preMessage+"\nHello Sir")
 
-
-func _on_user_text_box_text_submitted(new_text:String): # Press enter
-	%AI_TextBox.text += '\n'+userName+': ' + %User_TextBox.text + '\n'
+func _on_submit_btn_button_down(): # Press enter
+	print(canType)
+	if !canType:
+		return
+	var new_text = %User_TextBox.text
+	new_text = new_text.strip_edges(true,true)
+	%AI_TextBox.text += '\n'+userName+': ' + new_text + '\n'
 	%User_TextBox.text = ''
 	%AIRequest.chatToPT(new_text)
+	canType = false
 
 func _on_chat_response_recieved(response:String): # Chat response recieved
 	%AI_TextBox.text += aiName+': '
@@ -45,15 +52,9 @@ func slowPrint(text): # Slowly print the text like chatgpt
 		i += 1
 		await get_tree().create_timer(typingSpeed).timeout
 	
-	if result.size() == 0: return
+	canType = true
+	
 
-	if result[0] == 'DEAL':
-		print("The deal is done at price: ", currentPrice)
-	
-	if result[0] == 'GUARDS':
-		print("The guards are on their way")
-	
-	
 func get_text_between_braces(input_string: String):
 		var trigger
 		var emotion
@@ -95,7 +96,8 @@ func get_text_between_braces(input_string: String):
 				emotion = 'SAD'
 				%AI_Pic.texture = load('res://UIPopup/Assets/Neutral.jpg')
 
-		print("The AI is feeling: ", emotion, "\nThe AI has triggered: ", trigger, "\nThe current price is: ", currentPrice)
-
-func _on_end_btn_button_down():
-	self.queue_free()
+		print(
+			"The AI is feeling: ", emotion,
+			 "\nThe AI has triggered: ", trigger, 
+			 "\nThe current price is: ", currentPrice
+			 )
