@@ -1,16 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgksrxus0nha7"]
+[gd_scene load_steps=8 format=3 uid="uid://dgksrxus0nha7"]
 
 [ext_resource type="PackedScene" uid="uid://d8aw26qy6rh0" path="res://Player/player.tscn" id="1_qky6c"]
 [ext_resource type="PackedScene" uid="uid://ckmtmjtg226um" path="res://ForestMap/ForestMap.tscn" id="4_ccmx0"]
 [ext_resource type="PackedScene" uid="uid://rybo4cveuxqj" path="res://OldMan/OldMan.tscn" id="5_biw3o"]
+[ext_resource type="PackedScene" uid="uid://dp3bh8gmmp2bh" path="res://Enemies/Catboom/CatBoom.tscn" id="6_yvwkj"]
 [ext_resource type="PackedScene" uid="uid://dhyldbmopr707" path="res://Camera/Camera.tscn" id="14_k6y2r"]
 [ext_resource type="PackedScene" uid="uid://b4b6kdfqcgmfs" path="res://Treasures/Treasures.tscn" id="16_8biye"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_bb5ek"]
+vertices = PackedVector2Array(1050, 449, 475, 471, 449, 189, 1069, 158)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(439, 180, 466, 482, 1060, 459, 1080, 148)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Forest" type="Node2D"]
 y_sort_enabled = true
 
+[node name="Cat" parent="." instance=ExtResource("6_yvwkj")]
+position = Vector2(761, 264)
+
 [node name="Player" parent="." instance=ExtResource("1_qky6c")]
-position = Vector2(658, 316)
+position = Vector2(658, 317)
 
 [node name="Camera2D" parent="." instance=ExtResource("14_k6y2r")]
 
@@ -19,10 +29,22 @@ position = Vector2(658, 316)
 [node name="Treasure" parent="Treasures" instance=ExtResource("16_8biye")]
 position = Vector2(737, 306)
 
+[node name="Treasure2" parent="Treasures" instance=ExtResource("16_8biye")]
+position = Vector2(627, 415)
+
+[node name="Treasure3" parent="Treasures" instance=ExtResource("16_8biye")]
+position = Vector2(589, 248)
+
+[node name="Treasure4" parent="Treasures" instance=ExtResource("16_8biye")]
+position = Vector2(518, 344)
+
 [node name="ForestMap" parent="." instance=ExtResource("4_ccmx0")]
 
 [node name="OldMan" parent="." instance=ExtResource("5_biw3o")]
 position = Vector2(808, 354)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_bb5ek")
 
 [editable path="Player"]
 [editable path="Player/StaminaBar"]
