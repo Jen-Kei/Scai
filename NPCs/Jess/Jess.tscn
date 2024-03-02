@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bws21qlbi7qnu"]
+[gd_scene load_steps=7 format=3 uid="uid://bws21qlbi7qnu"]
 
 [ext_resource type="Texture2D" uid="uid://ci3nfhu4u7ggf" path="res://NPCs/Assets/Characters.png" id="1_k18jj"]
+[ext_resource type="Script" path="res://NPCs/Jess/Jess.gd" id="1_whfce"]
 [ext_resource type="PackedScene" uid="uid://ca3ax5hy1pmbl" path="res://ePickup/e_key.tscn" id="2_1rb41"]
 
 [sub_resource type="Animation" id="Animation_c2r2c"]
-resource_name = "Idle"
+resource_name = "idle"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -20,7 +21,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vyubt"]
 _data = {
-"Idle": SubResource("Animation_c2r2c")
+"idle": SubResource("Animation_c2r2c")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1lfit"]
@@ -28,6 +29,7 @@ radius = 5.0
 
 [node name="Jess" type="CharacterBody2D"]
 z_index = 5
+script = ExtResource("1_whfce")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_k18jj")
@@ -42,7 +44,7 @@ libraries = {
 
 [node name="eKey" parent="." instance=ExtResource("2_1rb41")]
 position = Vector2(6, 7)
-scale = Vector2(0.01, 0.01)
+rotation = 0.349066
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)

@@ -41,6 +41,7 @@ _data = {
 }
 
 [node name="eKey" type="Sprite2D"]
+rotation = 0.349066
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("1_klule")
 hframes = 8
