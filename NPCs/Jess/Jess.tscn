@@ -44,7 +44,6 @@ libraries = {
 
 [node name="eKey" parent="." instance=ExtResource("2_1rb41")]
 position = Vector2(6, 7)
-rotation = 0.349066
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
