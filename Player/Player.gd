@@ -117,3 +117,6 @@ func door_open():
 			if Input.is_action_pressed("interact"):
 				print("hide")
 '''
+
+func player():
+	pass
