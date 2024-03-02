@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var itemBTN = preload("res://HUD/ItemButton.tscn")
 @onready var player = get_parent().get_node("Player")
 @onready var sellBTN = $Control/PanelContainer/sellBTN
+#@onready var uiPopup = preload("res://UIPopup/UIPopup.tscn")
 signal sellItems
 # Called when the node enters the scene tree for the first time.
 
@@ -26,6 +27,9 @@ func _ready():
 	sellBTN.visible = false
 	_create_action_list()
 
+	# connect to UIPopupController for inventory signals
+	#uiPopup.get_child(1).dealEnded.connect(_on_dealEnded())
+
 func _process(delta):
 	if Input.is_action_just_pressed("inventory"):
 		player.inventoryOpen = false
@@ -35,11 +39,12 @@ func _create_action_list():
 	for item in ActionList.get_children():
 		item.queue_free()
 
+	# iterate through the slots and see if it only has 1 child (it's empty, only has the texture rect)
 	for i in player.get_node("Inventory").get_node("Slots").get_children():
 		if i.get_children().size() == 1:
 			print("Empty")
 			continue
-		var item = i.get_child(1)
+		var item = i.get_child(1) # instance of the treasure
 		
 		var itemBTN = itemBTN.instantiate()
 		itemBTN.itemSlot = i.name
@@ -81,3 +86,7 @@ func getSelectedValue():
 			items[i.itemSlot] = i.itemValue
 
 	return items
+
+
+#func _on_dealEnded():
+	#pass

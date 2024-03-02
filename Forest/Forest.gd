@@ -5,11 +5,9 @@ extends Node2D
 func _ready():
 	Globals.currentScene = "Forest"
 	if Globals.gameFirstLoadIn == true:
-		$Player.positionX = Globals.playerStartPosX
-		$Player.positionY = Globals.playerStartPosY
+		$Player.position = Globals.playerStartPos
 	else:
-		$Player.positionX = Globals.playerExitDungeontPosX
-		$Player.positionY = Globals.playerExitDungeontPosY
+		$Player.position = Globals.playerExitDungeontPos
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

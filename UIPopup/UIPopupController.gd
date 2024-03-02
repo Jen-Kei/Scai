@@ -12,9 +12,14 @@ var triggers = ['DEAL', 'GUARDS']
 var emotions = ['HAPPY', 'SAD', 'ANGRY', 'NEUTRAL']
 
 var canType = false
+signal dealEnded
 
 func _ready():
 	%AIRequest.chat_response_recieved.connect(_on_chat_response_recieved)
+
+func change_proompt(proompt):
+	%AIRequest.sysProompt = proompt
+	%AIRequest.current_conversation = [{"role": "system", "content": proompt}]
 
 func initPopup(ai_name, user_name, preMessage): # Initialize the popup
 	aiName = ai_name
@@ -98,6 +103,10 @@ func get_text_between_braces(input_string: String):
 
 		print(
 			"The AI is feeling: ", emotion,
-			 "\nThe AI has triggered: ", trigger, 
+			 "\nThe AI has triggered: ", trigger, # emit signal for DEAL
 			 "\nThe current price is: ", currentPrice
 			 )
+
+
+		#if trigger.lower == "deal":
+		#	dealEnded.emit()

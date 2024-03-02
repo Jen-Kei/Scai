@@ -59,3 +59,4 @@ func _on_request_completed(result, response_code, headers, body):
 	current_conversation.append({"role": "system", "content": chat_response})
 	chat_response_recieved.emit(chat_response)
 
+

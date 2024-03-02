@@ -4,10 +4,8 @@ extends Node
 var currentScene
 var transitionScene = false
 
-var playerExitDungeonPosX = 1078
-var playerExitDungeonPosY = 105
-var playerStartPosX = 62
-var playerStartPosY = 387
+var playerExitDungeonPos = Vector2(1078 ,105)
+var playerStartPos = Vector2(62, 387)
 
 var gameFirstLoadIn = true
 

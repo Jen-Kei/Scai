@@ -1,12 +1,10 @@
-extends CharacterBody2D
+extends HTTPRequest
 
-@onready var AI = preload("res://UIPopup/UIPopup.tscn")
-@onready var anim = $AnimationPlayer
-@onready var player = get_tree().get_root().get_child(1).get_node("Player")
-@onready var ekey = $eKey
-@onready var inventoryPopup = preload("res://HUD/InventorySelect.tscn")
+signal chat_response_recieved(response: String)
 
-@onready var proompt = '''
+var api_key = FileAccess.open('AI/token', FileAccess.READ).get_as_text()
+
+var sysProompt = '''
 You are an NPC in a village. You are a sweet young woman, who is very kind, your hobby is cooking. 
 You like to buy goods for the average of the price ranges because you’re an avid collector but you buy food and cute things for high prices. However, you’re very sensitive and if someone speaks rudely or gives less than 5 words, you act standoffish and only buy for a low price. If they insult you, they get no money from you.
 
@@ -47,39 +45,32 @@ At the beginning of your response, include one of these emotions, with the brace
 
 '''
 
-var inventoryInstance
-var interacting = false
+var current_conversation = [{"role": "system", "content": sysProompt}]
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	anim.speed_scale = 0.5
-	anim.play("idle")
-	ekey.visible = false
+var headers = PackedStringArray(["Content-Type: application/json","Authorization: Bearer %s" % api_key])
+
+func chatToPT(prompt):
+	current_conversation.append({"role": "user", "content": prompt})
+	var jsonPayload2 := {
+	"model": "gpt-3.5-turbo",
+	"messages": current_conversation,
+	"temperature": 0.7
+	}
+	
+	self.request_completed.connect(self._on_request_completed)
+	var _httpReq = self.request("https://api.openai.com/v1/chat/completions", headers, HTTPClient.METHOD_POST, JSON.stringify(jsonPayload2))
+
+func _on_request_completed(result, response_code, headers, body):
+	if response_code != 200: 
+		print("Error: " + str(response_code))
+		return
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if player.position.distance_to(self.position) < 50:
-		ekey.visible = true
-		if Input.is_action_just_pressed("interact") and !interacting:
-			interacting = true
-			inventoryInstance = inventoryPopup.instantiate()
-			get_parent().add_child(inventoryInstance)
-			inventoryInstance.sellItems.connect(soldItems)
-			#get_tree().get_root().add_child(AI.instantiate())
-	else:
-		ekey.visible = false
+	var json = JSON.new()
+	json.parse(body.get_string_from_utf8())
+	var response = json.get_data()
+	# Will print the user agent string used by the HTTPRequest node (as recognized by httpbin.org).
+	var chat_response = response["choices"][0]["message"]["content"]
+	current_conversation.append({"role": "system", "content": chat_response})
+	chat_response_recieved.emit(chat_response)
 
-func soldItems(x):
-	var totalSold = 0
-	print("Selling: ", x)
-	for i in x.values():
-		totalSold += i
-	print("Total Sold: ", totalSold)
-
-	var aiInstance = AI.instantiate()
-	get_tree().get_root().add_child(aiInstance)
-	aiInstance.get_child(0).change_proompt(proompt)
-	aiInstance.get_child(0).initPopup("Jess", "Player", "Item is usually worth: "+str(totalSold)+"\n Hello little lady!")
-	inventoryInstance.queue_free()
-	player.process_mode = PROCESS_MODE_DISABLED

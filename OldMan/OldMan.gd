@@ -8,6 +8,10 @@ extends CharacterBody2D
 var inventoryInstance
 var interacting = false
 
+# SIGNALS FOR DEAL TRIGGER
+signal dealEnded
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	anim.speed_scale = 0.5
@@ -30,7 +34,7 @@ func _process(delta):
 
 func soldItems(x):
 	var totalSold = 0
-	print("Selling: ", x)
+	print("Selling: ", x) # where x is the dictionary that 
 	for i in x.values():
 		totalSold += i
 	print("Total Sold: ", totalSold)
