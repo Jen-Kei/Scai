@@ -47,9 +47,10 @@ func soldItems(x):
 	aiInstance.get_child(0).dealEnded.connect(_on_dealEnded)
 
 	aiInstance.get_child(0).initPopup("Old Man", "Player", "Item is usually worth: "+str(totalSold)+"\n Hello sir!")
+
+	# FREE THE INVENTORY OF SOLD ITEMS
 	inventoryInstance.queue_free()
 	player.process_mode = PROCESS_MODE_DISABLED
-
 	slotsSelected = x
 
 func _on_dealEnded():
