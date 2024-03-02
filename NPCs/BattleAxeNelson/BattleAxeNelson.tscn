@@ -45,4 +45,5 @@ libraries = {
 }
 
 [node name="eKey" parent="." instance=ExtResource("1_2srft")]
-position = Vector2(8, 5)
+position = Vector2(6, 6)
+rotation = 0.349066
