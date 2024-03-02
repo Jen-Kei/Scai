@@ -9,14 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://b4b6kdfqcgmfs" path="res://Treasures/Treasures.tscn" id="16_8biye"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqw70"]
-size = Vector2(59, 28)
+size = Vector2(59, 12)
 
 [node name="Forest" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_qlpdm")
 
 [node name="Player" parent="." instance=ExtResource("1_qky6c")]
-position = Vector2(1011, 191)
+position = Vector2(62, 387)
 
 [node name="Flashlight" parent="Player/Marker2D/lights" index="0"]
 position = Vector2(-7, 1)
@@ -47,7 +47,7 @@ position = Vector2(1, 0)
 script = ExtResource("7_pplko")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DungeonTransitionPoint"]
-position = Vector2(1079.5, 100)
+position = Vector2(1079.5, 92)
 shape = SubResource("RectangleShape2D_iqw70")
 
 [connection signal="body_entered" from="DungeonTransitionPoint" to="." method="_on_dungeon_transition_point_body_entered"]

@@ -1,13 +1,15 @@
 extends Node
 
 # VARIABLES
-var currentScene = "Forest"
+var currentScene
 var transitionScene = false
 
-var playerExitDungeonPosX = 0
-var playerExistDungeonPosY =0
-var playerStartPosX = 0
-var playerStartPosY = 0
+var playerExitDungeonPosX = 1078
+var playerExitDungeonPosY = 105
+var playerStartPosX = 62
+var playerStartPosY = 387
+
+var gameFirstLoadIn = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,6 +26,9 @@ func finish_change_scenes():
 		transitionScene = false
 
 	if currentScene == "Forest":
-		currentScene = "Dungeon"
-	else:
+		currentScene = "DungeonZero"
+
+	if currentScene == "DungeonZero":
 		currentScene = "Forest"
+	else:
+		currentScene = "Boo womp"

@@ -65,11 +65,6 @@ func reInit():
 
 	staminaBar.staminaPerSecond = %StatBank.stamina_gain
 
-"""
-	FUNCTIONS
-	player_movement() - moving the character
-	player_speed() - change the speed of the character if walking or running
-"""
 
 # Move the character and update animation
 func player_movement():

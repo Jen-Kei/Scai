@@ -1,7 +1,7 @@
 extends Node2D
 
 var Treasure = preload("res://Treasures/Treasures.tscn")
-@onready var Map = get_tree().root.get_child(0).get_node("ForestMap").get_node("Forest")
+@onready var Map = get_tree().root.get_child(1).get_node("ForestMap").get_node("Forest")
 
 # INITIALISE VARIABLES
 var pos = Vector2(0, 0)

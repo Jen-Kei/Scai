@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Globals.gd" id="6_2p7ne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6sqg5"]
-size = Vector2(31, 30)
+size = Vector2(31, 17)
 
 [node name="DungeonZero" type="Node2D"]
 script = ExtResource("1_tk5vk")
@@ -35,7 +35,7 @@ script = ExtResource("5_eftj2")
 script = ExtResource("6_2p7ne")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DungeonZeroMainExit"]
-position = Vector2(463.5, 15)
+position = Vector2(463.5, 8.5)
 shape = SubResource("RectangleShape2D_6sqg5")
 
 [connection signal="body_entered" from="DungeonZeroMainExit" to="." method="_on_dungeon_zero_main_exit_body_entered"]

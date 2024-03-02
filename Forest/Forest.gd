@@ -4,6 +4,12 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Globals.currentScene = "Forest"
+	if Globals.gameFirstLoadIn == true:
+		$Player.positionX = Globals.playerStartPosX
+		$Player.positionY = Globals.playerStartPosY
+	else:
+		$Player.positionX = Globals.playerExitDungeontPosX
+		$Player.positionY = Globals.playerExitDungeontPosY
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
