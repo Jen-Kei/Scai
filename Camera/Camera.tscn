@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dhyldbmopr707"]
 
-[ext_resource type="Script" path="res://Forest/Camera2D.gd" id="1_4c3ay"]
+[ext_resource type="Script" path="res://Camera/Camera2D.gd" id="1_4c3ay"]
 
 [node name="Camera2D" type="Camera2D"]
 position = Vector2(628, 368)
