@@ -1,17 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqfjynd1qyohv"]
+[gd_scene load_steps=8 format=3 uid="uid://bqfjynd1qyohv"]
 
 [ext_resource type="PackedScene" uid="uid://d8aw26qy6rh0" path="res://Player/player.tscn" id="1_a1u0x"]
+[ext_resource type="Script" path="res://DungeonZero/DungeonZero.gd" id="1_tk5vk"]
 [ext_resource type="PackedScene" uid="uid://b25pg6ksv2127" path="res://DungeonMapZero/DungeonMapZero.tscn" id="2_3p4oo"]
 [ext_resource type="PackedScene" uid="uid://dhyldbmopr707" path="res://Camera/Camera.tscn" id="3_qogt8"]
 [ext_resource type="Script" path="res://Bulb/BulbGen.gd" id="5_eftj2"]
+[ext_resource type="Script" path="res://Globals.gd" id="6_2p7ne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6sqg5"]
-size = Vector2(31, 20)
+size = Vector2(31, 30)
 
 [node name="DungeonZero" type="Node2D"]
+script = ExtResource("1_tk5vk")
 
 [node name="Player" parent="." instance=ExtResource("1_a1u0x")]
-position = Vector2(465, 22)
+position = Vector2(464, 38)
 
 [node name="DungeonMapZero" parent="." instance=ExtResource("2_3p4oo")]
 
@@ -29,8 +32,11 @@ color = Color(0.184314, 0.184314, 0.184314, 1)
 script = ExtResource("5_eftj2")
 
 [node name="DungeonZeroMainExit" type="Area2D" parent="."]
-monitoring = false
+script = ExtResource("6_2p7ne")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DungeonZeroMainExit"]
-position = Vector2(463.5, 10)
+position = Vector2(463.5, 15)
 shape = SubResource("RectangleShape2D_6sqg5")
+
+[connection signal="body_entered" from="DungeonZeroMainExit" to="." method="_on_dungeon_zero_main_exit_body_entered"]
+[connection signal="body_exited" from="DungeonZeroMainExit" to="." method="_on_dungeon_zero_main_exit_body_exited"]
