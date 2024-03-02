@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqfjynd1qyohv"]
+[gd_scene load_steps=5 format=3 uid="uid://bqfjynd1qyohv"]
 
 [ext_resource type="PackedScene" uid="uid://d8aw26qy6rh0" path="res://Player/player.tscn" id="1_a1u0x"]
 [ext_resource type="PackedScene" uid="uid://b25pg6ksv2127" path="res://DungeonMapZero/DungeonMapZero.tscn" id="2_3p4oo"]
 [ext_resource type="PackedScene" uid="uid://dhyldbmopr707" path="res://Camera/Camera.tscn" id="3_qogt8"]
-[ext_resource type="Script" path="res://DungeonZero/AllTreasures.gd" id="4_lyon3"]
 [ext_resource type="Script" path="res://Bulb/BulbGen.gd" id="5_eftj2"]
 
 [node name="DungeonZero" type="Node2D"]
@@ -16,9 +15,6 @@ position = Vector2(462, 38)
 [node name="Camera2D" parent="." instance=ExtResource("3_qogt8")]
 position = Vector2(6, -6)
 limit_bottom = 720
-
-[node name="AllTreasures" type="Node2D" parent="."]
-script = ExtResource("4_lyon3")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.184314, 0.184314, 0.184314, 1)
