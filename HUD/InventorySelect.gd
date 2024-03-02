@@ -4,7 +4,7 @@ extends CanvasLayer
 @onready var itemBTN = preload("res://HUD/ItemButton.tscn")
 @onready var player = get_parent().get_node("Player")
 @onready var sellBTN = $Control/PanelContainer/sellBTN
-#@onready var uiPopup = preload("res://UIPopup/UIPopup.tscn")
+
 signal sellItems
 # Called when the node enters the scene tree for the first time.
 
@@ -27,8 +27,7 @@ func _ready():
 	sellBTN.visible = false
 	_create_action_list()
 
-	# connect to UIPopupController for inventory signals
-	#uiPopup.get_child(1).dealEnded.connect(_on_dealEnded())
+	
 
 func _process(delta):
 	if Input.is_action_just_pressed("inventory"):
@@ -88,5 +87,5 @@ func getSelectedValue():
 	return items
 
 
-#func _on_dealEnded():
-	#pass
+func _on_dealEnded():
+	pass

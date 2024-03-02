@@ -6,10 +6,11 @@ extends CharacterBody2D
 @onready var ekey = $eKey
 @onready var inventoryPopup = preload("res://HUD/InventorySelect.tscn")
 var inventoryInstance
+var aiInstance
 var interacting = false
 
-# SIGNALS FOR DEAL TRIGGER
-signal dealEnded
+# var for slots and inventory
+var slotsSelected
 
 
 # Called when the node enters the scene tree for the first time.
@@ -34,13 +35,29 @@ func _process(delta):
 
 func soldItems(x):
 	var totalSold = 0
-	print("Selling: ", x) # where x is the dictionary that 
+	print("Selling: ", x) # where x is the dictionary that  
 	for i in x.values():
 		totalSold += i
 	print("Total Sold: ", totalSold)
 
-	var aiInstance = AI.instantiate()
+	aiInstance = AI.instantiate()
 	get_tree().get_root().add_child(aiInstance)
+
+	# CONNECT SIGNAL FOR DEAL ENDING
+	aiInstance.get_child(0).dealEnded.connect(_on_dealEnded)
+
 	aiInstance.get_child(0).initPopup("Old Man", "Player", "Item is usually worth: "+str(totalSold)+"\n Hello sir!")
 	inventoryInstance.queue_free()
 	player.process_mode = PROCESS_MODE_DISABLED
+
+	slotsSelected = x
+
+func _on_dealEnded():
+	print("xxxxxxx deal ended !!")
+	for i in slotsSelected:
+		print(i)
+		player.get_node("Inventory").get_node("Slots").get_node(i).get_child(1).queue_free()
+	aiInstance.queue_free()
+	player.process_mode = PROCESS_MODE_ALWAYS
+
+	

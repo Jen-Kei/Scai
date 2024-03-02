@@ -23,7 +23,6 @@ position = Vector2(6, -6)
 limit_bottom = 720
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.184314, 0.184314, 0.184314, 1)
 
 [node name="Treasures" type="Node2D" parent="."]

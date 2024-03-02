@@ -66,4 +66,3 @@ libraries = {
 [node name="eKey" parent="." instance=ExtResource("3_0rls3")]
 position = Vector2(6, 7)
 rotation = 0.456686
-scale = Vector2(0.01, 0.01)

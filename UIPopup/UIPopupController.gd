@@ -12,6 +12,7 @@ var triggers = ['DEAL', 'GUARDS']
 var emotions = ['HAPPY', 'SAD', 'ANGRY', 'NEUTRAL']
 
 var canType = false
+
 signal dealEnded
 
 func _ready():
@@ -108,5 +109,5 @@ func get_text_between_braces(input_string: String):
 			 )
 
 
-		#if trigger.lower == "deal":
-		#	dealEnded.emit()
+		if trigger == "DEAL":
+			dealEnded.emit()

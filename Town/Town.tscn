@@ -32,6 +32,8 @@ position = Vector2(305, 197)
 position = Vector2(98, 313)
 
 [node name="Treasures" type="Node2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(1.00449, 1.03527)
 
 [editable path="Player"]
 [editable path="Player/StaminaBar"]
