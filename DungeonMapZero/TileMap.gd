@@ -9,8 +9,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	door_open()
+	pass
 
+'''
 func door_open():
 	# Check if the player is near a door
 	# For every door, check if the player is near it, if so, hide the door
@@ -21,3 +22,5 @@ func door_open():
 				# disable door collision
 			else:
 				erase_cell(8, doorCell)
+
+'''
