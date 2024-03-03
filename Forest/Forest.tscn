@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgksrxus0nha7"]
+[gd_scene load_steps=8 format=3 uid="uid://dgksrxus0nha7"]
 
 [ext_resource type="Script" path="res://Forest/Forest.gd" id="1_qlpdm"]
 [ext_resource type="PackedScene" uid="uid://ckmtmjtg226um" path="res://ForestMap/ForestMap.tscn" id="4_ccmx0"]
@@ -8,6 +8,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqw70"]
 size = Vector2(59, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7dcbg"]
+radius = 25.0799
 
 [node name="Forest" type="Node2D"]
 y_sort_enabled = true
@@ -40,4 +43,11 @@ script = ExtResource("7_pplko")
 position = Vector2(1079.5, 92)
 shape = SubResource("RectangleShape2D_iqw70")
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(7, 548)
+shape = SubResource("CircleShape2D_7dcbg")
+
 [connection signal="body_entered" from="DungeonTransitionPoint" to="." method="_on_dungeon_transition_point_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
