@@ -2,7 +2,7 @@ extends Camera2D
 
 
 # Called when the node enters the scene tree for the first time.
-@onready var player = get_tree().get_root().get_child(1).get_node("Player")
+@onready var player = get_tree().root.get_node("PlayerX")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

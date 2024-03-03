@@ -1,13 +1,14 @@
 extends Node2D
 
+@onready var player = get_tree().root.get_node("PlayerX")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Globals.currentScene = "Forest"
 	if Globals.gameFirstLoadIn == true:
-		$Player.position = Globals.playerStartPos
+		player.position = Globals.playerStartPos
 	else:
-		$Player.position = Globals.playerExitDungeontPos
+		player.position = Globals.playerExitDungeontPos
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

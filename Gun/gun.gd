@@ -15,7 +15,7 @@ var _particle = preload("res://Gun/Bullet/bullet.tscn")
 var gun_scn = load("res://Gun/gun.tscn")
 
 @onready var anim = $pickUpObj/pickupPanel/AnimationPlayer
-@onready var player = get_tree().root.get_child(0).get_node("Player")
+@onready var player = get_tree().root.get_node("PlayerX")
 @onready var gunSlot = player.get_node("Marker2D").get_node("gunSlot")
 
 var closeToGun = false

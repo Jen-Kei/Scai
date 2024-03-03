@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var AI = preload("res://UIPopup/UIPopup.tscn")
 @onready var anim = $AnimationPlayer
-@onready var player = get_tree().get_root().get_child(1).get_node("Player")
+@onready var player = get_tree().root.get_node("PlayerX")
 @onready var ekey = $eKey
 @onready var inventoryPopup = preload("res://HUD/InventorySelect.tscn")
 var inventoryInstance

@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgksrxus0nha7"]
+[gd_scene load_steps=8 format=3 uid="uid://dgksrxus0nha7"]
 
-[ext_resource type="PackedScene" uid="uid://d8aw26qy6rh0" path="res://Player/player.tscn" id="1_qky6c"]
 [ext_resource type="Script" path="res://Forest/Forest.gd" id="1_qlpdm"]
 [ext_resource type="PackedScene" uid="uid://ckmtmjtg226um" path="res://ForestMap/ForestMap.tscn" id="4_ccmx0"]
 [ext_resource type="PackedScene" uid="uid://dp3bh8gmmp2bh" path="res://Enemies/Catboom/CatBoom.tscn" id="6_yvwkj"]
@@ -14,12 +13,6 @@ size = Vector2(59, 12)
 [node name="Forest" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_qlpdm")
-
-[node name="Player" parent="." instance=ExtResource("1_qky6c")]
-position = Vector2(62, 387)
-
-[node name="Flashlight" parent="Player/Marker2D/lights" index="0"]
-position = Vector2(-7, 1)
 
 [node name="Cat" parent="." instance=ExtResource("6_yvwkj")]
 position = Vector2(761, 264)
@@ -38,7 +31,7 @@ position = Vector2(627, 415)
 position = Vector2(589, 248)
 
 [node name="Treasure4" parent="Treasures" instance=ExtResource("16_8biye")]
-position = Vector2(518, 344)
+position = Vector2(183, 384)
 
 [node name="ForestMap" parent="." instance=ExtResource("4_ccmx0")]
 
@@ -52,8 +45,3 @@ shape = SubResource("RectangleShape2D_iqw70")
 
 [connection signal="body_entered" from="DungeonTransitionPoint" to="." method="_on_dungeon_transition_point_body_entered"]
 [connection signal="body_exited" from="DungeonTransitionPoint" to="." method="_on_dungeon_transition_point_body_exited"]
-
-[editable path="Player"]
-[editable path="Player/HealthBar"]
-[editable path="Player/Control/MoneyCounter"]
-[editable path="Player/Control/StaminaBar"]

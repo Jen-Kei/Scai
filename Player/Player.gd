@@ -63,7 +63,7 @@ func reInit():
 	health_capacity = %StatBank.health_capacity
 	health_gain = %StatBank.health_gain
 
-	staminaBar.staminaPerSecond = %StatBank.stamina_gain
+	#staminaBar.staminaPerSecond = %StatBank.stamina_gain
 
 
 # Move the character and update animation

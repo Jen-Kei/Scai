@@ -1,7 +1,8 @@
 extends CanvasLayer
 
 @onready var Slots = [$Slots/Slot1, $Slots/Slot2, $Slots/Slot3, $Slots/Slot4, $Slots/Slot5]
-@onready var player = get_tree().root.get_child(1).get_node("Player")
+@onready var player = get_tree().root.get_node("PlayerX")
+@onready var treasures = get_tree().root.get_child(2).get_node("Treasures")
 var currentlySelected: int
 @onready var statBank = %StatBank
 # Called when the node enters the scene tree for the first time.
@@ -50,10 +51,10 @@ func dropItem():
 	var item = droppedItem.duplicate() # Duplicate the item
 
 	item.global_position = player.global_position # Set the position of the item to the player's position
-	get_tree().root.get_child(1).get_node("Treasures").add_child(item) # Add the item to the treasures node
+	treasures.add_child(item) # Add the item to the treasures node
 
-	var objPos = get_tree().root.get_child(1).get_node("Treasures").get_children().size() # Get the position of the item in the treasures node
-	var obj = get_tree().root.get_child(1).get_node("Treasures").get_child(objPos-1) # Get the item from the treasures node
+	var objPos = treasures.get_children().size() # Get the position of the item in the treasures node
+	var obj = treasures.get_child(objPos-1) # Get the item from the treasures node
 
 	obj.initTreasure(droppedItem._itemDetails) # Initialize the item with the details of the dropped item
 	obj.pickedUp = false # Set the pickedUp variable to false
