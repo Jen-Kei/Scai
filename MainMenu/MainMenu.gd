@@ -8,3 +8,6 @@ func _on_play_button_button_down():
 	player.name = "PlayerX"
 	get_tree().root.add_child(player)
 	get_tree().change_scene_to_file(forestScene)
+
+func _on_quit_button_button_down():
+	get_tree().quit()
