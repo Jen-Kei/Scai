@@ -12,6 +12,7 @@ var remappingBtn = null
 var input_actions = {
 	"interact": "Pick Up",
 	"drop": "Drop Item",
+	"flashlight": "Flashlight",
 	"one": "Slot 1",
 	"two": "Slot 2",
 	"three": "Slot 3",
