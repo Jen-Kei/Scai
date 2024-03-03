@@ -1,32 +1,30 @@
 extends Node2D
 
 @onready var player = get_tree().root.get_node("PlayerX")
-
+@onready var nextScene = preload("res://DungeonZero/DungeonZero.tscn").instantiate()
+@onready var colliders = get_node("ForestMap").get_node("Collisions")
+@onready var collider_two = get_node("ForestMap").get_node("Forest")
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Globals.currentScene = "Forest"
-	if Globals.gameFirstLoadIn == true:
-		player.position = Globals.playerStartPos
-	else:
-		player.position = Globals.playerExitDungeontPos
+	player.get_node("Inventory").xInit()
+	player.position = Globals.playerStartPos
+	get_tree().root.add_child(nextScene)
+	nextScene.transform.origin = Vector2(10000,10000)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	change_scene()
 
 
 func _on_dungeon_transition_point_body_entered(body:Node2D):
-	if body.has_method("player"):
-		Globals.transitionScene = true
+	if body.name == "PlayerX":
+		player.position = Vector2(464,38)
+		swapScenes(self, nextScene)
 
+func swapScenes(scene1, scene2):
+	scene1.transform.origin = Vector2(10000,10000)
+	scene2.transform.origin = Vector2(0,0)
+	Globals.currentScene = scene2.name
+	player.get_node("Inventory").xInit()
 
-func _on_dungeon_transition_point_body_exited(body:Node2D):
-	if body.has_method("player"):
-		Globals.transitionScene = false
+#func _on_dungeon_transition_point_body_exited(body:Node2D):
+#	if body.has_method("player"):
+#		Globals.transitionScene = false
 
-func change_scene():
-	if Globals.transitionScene == true:
-		if Globals.currentScene == "Forest":
-			get_tree().change_scene_to_file("res://DungeonZero/DungeonZero.tscn")
-			Globals.finish_change_scenes()

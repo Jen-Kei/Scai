@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var map = get_parent().get_child(1).get_child(0)
+@onready var map = get_parent().get_child(0).get_child(0)
 @onready var bulb = preload("res://Bulb/Bulb.tscn")
 
 

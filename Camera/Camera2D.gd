@@ -7,3 +7,4 @@ extends Camera2D
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	transform.origin = player.transform.origin 
+	#offset = Vector2(-player.position)

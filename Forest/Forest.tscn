@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgksrxus0nha7"]
+[gd_scene load_steps=7 format=3 uid="uid://dgksrxus0nha7"]
 
 [ext_resource type="Script" path="res://Forest/Forest.gd" id="1_qlpdm"]
 [ext_resource type="PackedScene" uid="uid://ckmtmjtg226um" path="res://ForestMap/ForestMap.tscn" id="4_ccmx0"]
 [ext_resource type="PackedScene" uid="uid://dp3bh8gmmp2bh" path="res://Enemies/Catboom/CatBoom.tscn" id="6_yvwkj"]
 [ext_resource type="Script" path="res://Globals.gd" id="7_pplko"]
-[ext_resource type="PackedScene" uid="uid://dhyldbmopr707" path="res://Camera/Camera.tscn" id="14_k6y2r"]
 [ext_resource type="PackedScene" uid="uid://b4b6kdfqcgmfs" path="res://Treasures/Treasures.tscn" id="16_8biye"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqw70"]
@@ -16,8 +15,6 @@ script = ExtResource("1_qlpdm")
 
 [node name="Cat" parent="." instance=ExtResource("6_yvwkj")]
 position = Vector2(761, 264)
-
-[node name="Camera2D" parent="." instance=ExtResource("14_k6y2r")]
 
 [node name="Treasures" type="Node2D" parent="."]
 
@@ -44,4 +41,3 @@ position = Vector2(1079.5, 92)
 shape = SubResource("RectangleShape2D_iqw70")
 
 [connection signal="body_entered" from="DungeonTransitionPoint" to="." method="_on_dungeon_transition_point_body_entered"]
-[connection signal="body_exited" from="DungeonTransitionPoint" to="." method="_on_dungeon_transition_point_body_exited"]

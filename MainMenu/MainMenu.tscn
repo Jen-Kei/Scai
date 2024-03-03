@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bswtdy5lr8seq"]
+[gd_scene load_steps=5 format=3 uid="uid://bswtdy5lr8seq"]
 
 [ext_resource type="Theme" uid="uid://bq5xapy267tbu" path="res://Theme/DefaultTheme.tres" id="1_xdo7s"]
-[ext_resource type="Texture2D" path="res://ScaiLogoOutline.png" id="2_f7viu"]
+[ext_resource type="Script" path="res://MainMenu/MainMenu.gd" id="2_55ck4"]
+[ext_resource type="Texture2D" uid="uid://cacl1t5ufs0ot" path="res://MainMenu/Assets/ScaiLogoOutline.png" id="2_f7viu"]
 [ext_resource type="Texture2D" uid="uid://4exvpb2kjjdt" path="res://MainMenu/Assets/ForestBg.png" id="2_vi0mv"]
 
 [node name="MainMenu" type="Control"]
@@ -12,6 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_xdo7s")
+script = ExtResource("2_55ck4")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
@@ -69,3 +71,5 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 40
 text = "Quit
 "
+
+[connection signal="button_down" from="MainMenuButtons/PlayButton" to="." method="_on_play_button_button_down"]

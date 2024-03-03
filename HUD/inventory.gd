@@ -2,14 +2,16 @@ extends CanvasLayer
 
 @onready var Slots = [$Slots/Slot1, $Slots/Slot2, $Slots/Slot3, $Slots/Slot4, $Slots/Slot5]
 @onready var player = get_tree().root.get_node("PlayerX")
-@onready var treasures = get_tree().root.get_child(2).get_node("Treasures")
 var currentlySelected: int
+var treasures
 @onready var statBank = %StatBank
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-
+func xInit():
+	print(Globals.currentScene)
+	treasures = get_tree().root.get_node(str(Globals.currentScene)).get_node("Treasures")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	inventoryControl()

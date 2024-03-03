@@ -28,6 +28,7 @@ signal health_increase
 @onready var animPlayer = $AnimationPlayer
 @onready var animState = animTree.get("parameters/playback")
 @onready var inventoryPopup = preload("res://HUD/InventorySelect.tscn")
+@onready var camera = preload("res://Camera/Camera.tscn").instantiate()
 
 var inventoryOpen = false
 
@@ -38,6 +39,8 @@ var inventoryOpen = false
 func _ready():
 	for i in $Marker2D/lights.get_children():
 		i.visible = false
+	
+	get_tree().root.add_child(camera)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -1,5 +1,6 @@
-[gd_scene load_steps=54 format=3 uid="uid://ckmtmjtg226um"]
+[gd_scene load_steps=55 format=3 uid="uid://ckmtmjtg226um"]
 
+[ext_resource type="Script" path="res://ForestMap/ForestMap.gd" id="1_bwau7"]
 [ext_resource type="Texture2D" uid="uid://b48e34g5xdwx7" path="res://Forest/Assets/TX Tileset Grass.png" id="1_eg0ot"]
 [ext_resource type="Texture2D" uid="uid://ccihjdrn0m6uj" path="res://Forest/Assets/TX Tileset Stone Ground.png" id="2_n08uj"]
 [ext_resource type="Texture2D" uid="uid://w13hoo4jcwcl" path="res://Forest/Assets/Hills.png" id="3_7iist"]
@@ -5695,6 +5696,7 @@ size = Vector2(17, 740)
 
 [node name="ForestMap" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_bwau7")
 
 [node name="Forest" type="TileMap" parent="."]
 y_sort_enabled = true

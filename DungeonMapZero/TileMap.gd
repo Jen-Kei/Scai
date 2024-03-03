@@ -1,6 +1,6 @@
 extends TileMap
 
-@onready var player = get_tree().root.get_child(0).get_node("Player")
+#@onready var player = get_tree().root.get_node("Player")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
