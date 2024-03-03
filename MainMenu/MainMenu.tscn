@@ -54,6 +54,7 @@ theme_override_constants/separation = 40
 [node name="PlayButton" type="Button" parent="MainMenuButtons"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
 theme_override_font_sizes/font_size = 40
 text = "Play
 "
@@ -61,6 +62,7 @@ text = "Play
 [node name="KeybindsButton" type="Button" parent="MainMenuButtons"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
 theme_override_font_sizes/font_size = 40
 text = "Keybinds
 "
@@ -68,9 +70,11 @@ text = "Keybinds
 [node name="QuitButton" type="Button" parent="MainMenuButtons"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
 theme_override_font_sizes/font_size = 40
 text = "Quit
 "
 
 [connection signal="button_down" from="MainMenuButtons/PlayButton" to="." method="_on_play_button_button_down"]
+[connection signal="button_down" from="MainMenuButtons/KeybindsButton" to="." method="_on_keybinds_button_button_down"]
 [connection signal="button_down" from="MainMenuButtons/QuitButton" to="." method="_on_quit_button_button_down"]

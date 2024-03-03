@@ -72,3 +72,7 @@ func _update_action_list(button, event):
 
 func _on_reset_button_pressed():
 	_create_action_list()
+
+
+func _on_done_button_down():
+	get_parent().queue_free()
