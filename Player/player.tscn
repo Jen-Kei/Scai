@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://d8aw26qy6rh0"]
+[gd_scene load_steps=54 format=3 uid="uid://d8aw26qy6rh0"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_bldul"]
 [ext_resource type="Script" path="res://Player/Marker2D.gd" id="2_r3d3w"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Player/StatBank.gd" id="4_c4t1w"]
 [ext_resource type="Texture2D" uid="uid://qirdp1283kj1" path="res://AnimatedPlayer/Assets/idle_walk_sprites.png" id="5_j8fnr"]
 [ext_resource type="PackedScene" uid="uid://cwvsi4dd3abs0" path="res://HUD/inventory.tscn" id="5_of4by"]
+[ext_resource type="PackedScene" uid="uid://wnrursq06u7a" path="res://HealthBar/health_bar.tscn" id="7_aylkk"]
 [ext_resource type="Texture2D" uid="uid://bltj24q35ub8j" path="res://Flashlight/2d_lights_and_shadows_neutral_point_light.webp" id="8_erv3m"]
 [ext_resource type="PackedScene" uid="uid://jfc1gsu6psuq" path="res://MoneyCounter/MoneyCounter.tscn" id="9_i0rxf"]
 
@@ -470,14 +471,21 @@ unique_name_in_owner = true
 position = Vector2(-1, 0)
 script = ExtResource("4_c4t1w")
 
+[node name="HealthBar" parent="." instance=ExtResource("7_aylkk")]
+visible = false
+
+[node name="TextureProgressBar" parent="HealthBar" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../..")
+
 [node name="StaminaBar" parent="." instance=ExtResource("3_dpee4")]
 unique_name_in_owner = true
 
 [node name="TextureProgressBar" parent="StaminaBar" index="0" node_paths=PackedStringArray("player")]
 player = NodePath("../..")
 
-[node name="CanvasLayer" parent="." instance=ExtResource("9_i0rxf")]
+[node name="MoneyCounter" parent="." instance=ExtResource("9_i0rxf")]
 
 [node name="Inventory" parent="." instance=ExtResource("5_of4by")]
 
+[editable path="HealthBar"]
 [editable path="StaminaBar"]

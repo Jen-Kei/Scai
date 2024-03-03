@@ -54,5 +54,6 @@ shape = SubResource("RectangleShape2D_iqw70")
 [connection signal="body_exited" from="DungeonTransitionPoint" to="." method="_on_dungeon_transition_point_body_exited"]
 
 [editable path="Player"]
+[editable path="Player/HealthBar"]
 [editable path="Player/StaminaBar"]
 [editable path="Player/MoneyCounter"]

@@ -8,7 +8,7 @@ extends Node2D
 @onready var stamina_capacity = 500
 @onready var stamina_gain = 5
 
-@onready var health_capacity = 100
+@onready var health_capacity = 500
 @onready var health_gain = 5
 @onready var health = 100
 

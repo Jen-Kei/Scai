@@ -2,28 +2,22 @@
 
 [ext_resource type="Texture2D" uid="uid://dww4ct57i8kpb" path="res://StaminaBar/Assets/healthbarUnder.png" id="1_shrkh"]
 [ext_resource type="Texture2D" uid="uid://cf1kmu3gn8ecy" path="res://StaminaBar/Assets/healthbarProgress.png" id="2_m4qn7"]
-[ext_resource type="Script" path="res://StaminaBar/StaminaBar.gd" id="3_726pg"]
+[ext_resource type="Script" path="res://HealthBar/HealthBar.gd" id="3_7nj1g"]
 
-[node name="HealthBar" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HealthBar" type="CanvasLayer"]
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.125
-anchor_top = 0.154
-anchor_right = 0.125
-anchor_bottom = 0.154
-offset_top = 0.207993
-offset_right = 64.0
-offset_bottom = 10.208
+anchor_left = 0.126
+anchor_top = 0.087
+anchor_right = 0.227
+anchor_bottom = 0.115
+offset_left = -0.279999
+offset_top = 0.359997
+offset_right = -65.56
+offset_bottom = -9.8
 scale = Vector2(2, 2)
 max_value = 500.0
 texture_under = ExtResource("1_shrkh")
 texture_progress = ExtResource("2_m4qn7")
-script = ExtResource("3_726pg")
+script = ExtResource("3_7nj1g")

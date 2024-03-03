@@ -11,11 +11,11 @@ func _ready():
 
 # Update health value
 func _on_player_health_decrease():
-	player.health -= 5
-	player.health = clamp(player.health, 0, 500)
+	player.health -= 10
+	player.health = clamp(player.health, 0, player.health_capacity)
 	value = player.health
 
 func _on_player_health_increase():
-	player.health += 1
-	player.health = clamp(player.health, 0, 500)
+	player.health += player.health_gain
+	player.health = clamp(player.health, 0, player.health_capacity)
 	value = player.health
