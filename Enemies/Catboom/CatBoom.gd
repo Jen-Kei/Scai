@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var anim = $AnimationPlayer
-@onready var player = get_parent().get_node("Player")
+@onready var player = get_tree().root.get_node("PlayerX")
 @onready var selfSprite = $Sprite2D
 @onready var timer = $Timer
 @onready var _particle = preload("res://Enemies/Catboom/Assets/death.tscn")
