@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://d8aw26qy6rh0"]
+[gd_scene load_steps=53 format=3 uid="uid://d8aw26qy6rh0"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_bldul"]
 [ext_resource type="Script" path="res://Player/Marker2D.gd" id="2_r3d3w"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://qirdp1283kj1" path="res://AnimatedPlayer/Assets/idle_walk_sprites.png" id="5_j8fnr"]
 [ext_resource type="PackedScene" uid="uid://cwvsi4dd3abs0" path="res://HUD/inventory.tscn" id="5_of4by"]
 [ext_resource type="Texture2D" uid="uid://bltj24q35ub8j" path="res://Flashlight/2d_lights_and_shadows_neutral_point_light.webp" id="8_erv3m"]
+[ext_resource type="PackedScene" uid="uid://jfc1gsu6psuq" path="res://MoneyCounter/MoneyCounter.tscn" id="9_i0rxf"]
 
 [sub_resource type="Animation" id="Animation_atts6"]
 length = 0.001
@@ -431,7 +432,7 @@ position = Vector2(19, 0)
 [node name="lights" type="Node2D" parent="Marker2D"]
 
 [node name="Flashlight" parent="Marker2D/lights" instance=ExtResource("3_jx1x2")]
-position = Vector2(-8, 2)
+position = Vector2(-3.8147e-06, 4.76837e-07)
 scale = Vector2(0.990625, 0.579235)
 
 [node name="PointLight2D" type="PointLight2D" parent="Marker2D/lights"]
@@ -474,6 +475,8 @@ unique_name_in_owner = true
 
 [node name="TextureProgressBar" parent="StaminaBar" index="0" node_paths=PackedStringArray("player")]
 player = NodePath("../..")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("9_i0rxf")]
 
 [node name="Inventory" parent="." instance=ExtResource("5_of4by")]
 

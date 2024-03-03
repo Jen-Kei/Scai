@@ -109,5 +109,8 @@ func get_text_between_braces(input_string: String):
 			 )
 
 
+		# Deal ended
 		if trigger == "DEAL":
 			dealEnded.emit()
+			Globals.moneyAmount += int(currentPrice)
+
