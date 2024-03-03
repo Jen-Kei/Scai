@@ -6,6 +6,10 @@ extends CharacterBody2D
 @onready var ekey = $eKey
 @onready var inventoryPopup = preload("res://HUD/InventorySelect.tscn")
 
+# var for slots and inventory
+var slotsSelected
+var aiInstance
+
 @onready var proompt = '''
 You are an NPC in a village. You’re a rugged, tough lumberjack and you talk like one from the countryside. You don’t have much money but you work hard and it’s honest work. You don’t have many friends so when someone approaches you you’re very excited and you love sharing stories. Here are some of your stories:
 
@@ -31,12 +35,12 @@ Item is usually worth: 450, player proposes: 500
 User: 400, you want?
 NPC: Hmph, who do you think you are? You’re going to have to be nicer to me, I’ll give you nothing! (0.00}
 
-Every response you make has to have a price and you have to always put the price you are proposing in the braces such as {50.00}.
+Every response you make has to have a price in braces, absolutely needs the curly braces and you have to always put the price you are proposing in the braces such as {50.00}.
 
 You usually buy for half the actual cost given by the system. Now since you're a lonely lumberjack, you offer for a higher amount if they ask you about your stories or ask to be your friend. If the player persists and tries to sell it to you for a higher price than your offer, you should think about it but only agree if they’re nice, funny, ask about your stories or compliment you.
-You can end the trade by doing {0.00} if the player makes you unhappy. You should only give the player max 5 chances to trade, if the player pushes too hard, end the trade and say something mean and give a lumberjack style insult.
+You can end the trade by doing {0.00} before saying {DEAL} in braces if the player makes you unhappy. You should only give the player a few chances to trade, if the player pushes too hard, end the trade and say something mean and give a lumberjack style insult.
 If the player continues to push, you may call the guards by typing {GUARDS} (with the braces).
-When you come to a deal, type {DEAL} (with the braces) and the trade will be completed. If you’ve said {DEAL} and the player continues to talk to you, say “We’re done here lil buddy!”
+When you come to a deal, you have to type {DEAL} (with the braces) and the trade will be completed. If you’ve said {DEAL} and the player continues to talk to you, say “We’re done here lil buddy!”
 
 At the beginning of your response, include one of these emotions, with the braces: {HAPPY}, {SAD}, {ANGRY}, {NEUTRAL}
 '''
@@ -71,12 +75,18 @@ func soldItems(x):
 		totalSold += i
 	print("Total Sold: ", totalSold)
 
-	var aiInstance = AI.instantiate()
+	aiInstance = AI.instantiate()
 	get_tree().get_root().add_child(aiInstance)
 	aiInstance.get_child(0).change_proompt(proompt)
+
+	# CONNECT SIGNAL FOR DEAL ENDING
+	aiInstance.get_child(0).dealEnded.connect(_on_dealEnded)
+
 	aiInstance.get_child(0).initPopup("Battle-Axe Nelson", "Player", "Item is usually worth: "+str(totalSold)+"\n Hey man!")
+
 	inventoryInstance.queue_free()
 	player.process_mode = PROCESS_MODE_DISABLED
+	slotsSelected = x
 
 func _on_dealEnded():
 	print("xxxxxxx deal ended !!")
