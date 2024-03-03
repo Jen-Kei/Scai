@@ -55,5 +55,5 @@ shape = SubResource("RectangleShape2D_iqw70")
 
 [editable path="Player"]
 [editable path="Player/HealthBar"]
-[editable path="Player/StaminaBar"]
-[editable path="Player/MoneyCounter"]
+[editable path="Player/Control/MoneyCounter"]
+[editable path="Player/Control/StaminaBar"]

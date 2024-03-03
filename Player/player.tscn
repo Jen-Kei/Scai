@@ -416,7 +416,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-122.083, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_klk6q"]
-radius = 3.0
+radius = 4.12311
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
@@ -463,7 +463,7 @@ parameters/Idle/blend_position = Vector2(-0.00166667, 0.0132158)
 parameters/Walk/blend_position = Vector2(-0.00166667, 0.00440526)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7)
+position = Vector2(-1, 8)
 shape = SubResource("CircleShape2D_klk6q")
 
 [node name="StatBank" type="Node2D" parent="."]
@@ -477,15 +477,49 @@ visible = false
 [node name="TextureProgressBar" parent="HealthBar" index="0" node_paths=PackedStringArray("player")]
 player = NodePath("../..")
 
-[node name="StaminaBar" parent="." instance=ExtResource("3_dpee4")]
-unique_name_in_owner = true
-
-[node name="TextureProgressBar" parent="StaminaBar" index="0" node_paths=PackedStringArray("player")]
-player = NodePath("../..")
-
-[node name="MoneyCounter" parent="." instance=ExtResource("9_i0rxf")]
-
 [node name="Inventory" parent="." instance=ExtResource("5_of4by")]
 
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 146.0
+offset_top = 67.0
+offset_right = 420.0
+offset_bottom = 104.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MoneyCounter" parent="Control" instance=ExtResource("9_i0rxf")]
+
+[node name="MoneyCounter" parent="Control/MoneyCounter" index="0"]
+anchors_preset = 0
+offset_left = 209.0
+offset_top = 55.0
+offset_right = 289.0
+offset_bottom = 95.0
+
+[node name="CanvasLayer" parent="Control/MoneyCounter" index="1"]
+anchors_preset = -1
+
+[node name="AnimatedSprite2D" parent="Control/MoneyCounter/CanvasLayer" index="0"]
+position = Vector2(181, 69)
+
+[node name="StaminaBar" parent="Control" instance=ExtResource("3_dpee4")]
+unique_name_in_owner = true
+
+[node name="TextureProgressBar" parent="Control/StaminaBar" index="0" node_paths=PackedStringArray("player")]
+anchors_preset = 0
+offset_left = 161.0
+offset_top = 101.0
+offset_right = 225.0
+offset_bottom = 111.0
+player = NodePath("../../..")
+
+[node name="Label" parent="Control/StaminaBar" index="1"]
+anchor_left = -0.001
+anchor_right = -0.001
+offset_left = 182.28
+offset_right = 246.28
+
 [editable path="HealthBar"]
-[editable path="StaminaBar"]
+[editable path="Control/MoneyCounter"]
+[editable path="Control/StaminaBar"]
