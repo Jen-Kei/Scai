@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgksrxus0nha7"]
+[gd_scene load_steps=6 format=3 uid="uid://dgksrxus0nha7"]
 
 [ext_resource type="Script" path="res://Forest/Forest.gd" id="1_qlpdm"]
 [ext_resource type="PackedScene" uid="uid://ckmtmjtg226um" path="res://ForestMap/ForestMap.tscn" id="4_ccmx0"]
 [ext_resource type="Script" path="res://Globals.gd" id="7_pplko"]
-[ext_resource type="PackedScene" uid="uid://b4b6kdfqcgmfs" path="res://Treasures/Treasures.tscn" id="16_8biye"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqw70"]
 size = Vector2(59, 12)
@@ -14,20 +13,6 @@ radius = 25.0799
 [node name="Forest" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_qlpdm")
-
-[node name="Treasures" type="Node2D" parent="."]
-
-[node name="Treasure" parent="Treasures" instance=ExtResource("16_8biye")]
-position = Vector2(1123, 164)
-
-[node name="Treasure2" parent="Treasures" instance=ExtResource("16_8biye")]
-position = Vector2(627, 415)
-
-[node name="Treasure3" parent="Treasures" instance=ExtResource("16_8biye")]
-position = Vector2(589, 248)
-
-[node name="Treasure4" parent="Treasures" instance=ExtResource("16_8biye")]
-position = Vector2(183, 384)
 
 [node name="ForestMap" parent="." instance=ExtResource("4_ccmx0")]
 
