@@ -10,6 +10,8 @@ func _process(delta):
 	if Input.is_anything_pressed() and !destroyedSplash:
 		destroyedSplash = true
 		splash.queue_free()
+		$AnimationPlayer.play("slideUp")
+		$Timer.start()
 		
 
 func _on_play_button_button_down():
@@ -23,3 +25,6 @@ func _on_quit_button_button_down():
 
 func _on_keybinds_button_button_down():
 	add_child(keybinds.instantiate())
+
+func _on_timer_timeout():
+	$AnimationPlayer.play("bounce")

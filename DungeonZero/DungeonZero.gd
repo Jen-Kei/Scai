@@ -8,7 +8,6 @@ var Treasure = preload("res://Treasures/Treasures.tscn")
 # FUNCTIONS FOR SCENE TRANSITIONS
 func _ready():
 	player.get_node("Inventory").xInit()
-	spawn_cats(50)
 	spawn_treasures_dungeon(30)
 	
 func _on_dungeon_zero_main_exit_body_entered(body:Node2D):
@@ -22,7 +21,7 @@ func spawn_cats(maxCats):
 	var randCell
 	var instance
 	var catsAdded = 0
-	var tilemap = get_node("DungeonMapZero").get_node("TileMap")
+	var tilemap = get_node("DungeonMapZero").get_child(0).get_node("TileMap")
 
 	for i in range(0, maxCats):
 
@@ -40,7 +39,7 @@ func spawn_cats(maxCats):
 
 				instance = CatBoom.instantiate()
 				instance.position = randCell
-				add_child(instance)
+				get_node("Cats").add_child(instance)
 
 				catsAdded += 1
 				print("added cats: ", catsAdded)
@@ -51,7 +50,7 @@ func spawn_treasures_dungeon(maxTreasures):
 	var randCell
 	var instance
 	var treasuresAdded = 0
-	var tilemap = get_node("DungeonMapZero").get_node("TileMap")
+	var tilemap = get_node("DungeonMapZero").get_child(0).get_node("TileMap")
 
 	for i in range(0, maxTreasures):
 

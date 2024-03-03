@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqfjynd1qyohv"]
+[gd_scene load_steps=6 format=3 uid="uid://bqfjynd1qyohv"]
 
 [ext_resource type="Script" path="res://DungeonZero/DungeonZero.gd" id="1_tk5vk"]
 [ext_resource type="PackedScene" uid="uid://b25pg6ksv2127" path="res://DungeonMapZero/DungeonMapZero.tscn" id="2_3p4oo"]
@@ -7,12 +7,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6sqg5"]
 size = Vector2(31, 17)
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_xl3a7"]
-vertices = PackedVector2Array(1320, 787, -21, 772, -20, -8, 1320, -13)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-30, -18, -32, 782, 1330, 798, 1330, -24)])
-source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="DungeonZero" type="Node2D"]
 script = ExtResource("1_tk5vk")
@@ -34,7 +28,8 @@ script = ExtResource("6_2p7ne")
 position = Vector2(463.5, 8.5)
 shape = SubResource("RectangleShape2D_6sqg5")
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_xl3a7")
+[node name="Cats" type="Node2D" parent="."]
+
+[node name="NAV" type="Node2D" parent="."]
 
 [connection signal="body_entered" from="DungeonZeroMainExit" to="." method="_on_dungeon_zero_main_exit_body_entered"]

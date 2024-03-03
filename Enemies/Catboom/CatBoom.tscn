@@ -164,10 +164,12 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ommv"]
-radius = 3.16228
+radius = 2.0
 
 [node name="Cat" type="CharacterBody2D"]
+z_index = 5
 motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_nbokt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -210,10 +212,12 @@ target_position = Vector2(48, 0)
 [node name="Navigation" type="Node2D" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation"]
-debug_enabled = true
+path_postprocessing = 1
+avoidance_enabled = true
 
 [node name="reCalcTimer" type="Timer" parent="Navigation"]
 wait_time = 0.1
+autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Navigation/reCalcTimer" to="." method="_on_re_calc_timer_timeout"]
