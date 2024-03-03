@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://bswtdy5lr8seq"]
+
+[ext_resource type="Theme" uid="uid://bq5xapy267tbu" path="res://Theme/DefaultTheme.tres" id="1_xdo7s"]
+[ext_resource type="Texture2D" path="res://ScaiLogoOutline.png" id="2_f7viu"]
+[ext_resource type="Texture2D" uid="uid://4exvpb2kjjdt" path="res://MainMenu/Assets/ForestBg.png" id="2_vi0mv"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xdo7s")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_vi0mv")
+
+[node name="ScaiLogo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -560.0
+offset_top = -152.0
+offset_right = 649.0
+offset_bottom = 520.0
+grow_horizontal = 2
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_f7viu")
+
+[node name="MainMenuButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 256.0
+offset_top = -148.0
+offset_right = 561.0
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="PlayButton" type="Button" parent="MainMenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+text = "Play
+"
+
+[node name="KeybindsButton" type="Button" parent="MainMenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+text = "Keybinds
+"
+
+[node name="QuitButton" type="Button" parent="MainMenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+text = "Quit
+"
