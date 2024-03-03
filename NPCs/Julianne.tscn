@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg5obmc2wp5xf"]
+
+[ext_resource type="Texture2D" uid="uid://ci3nfhu4u7ggf" path="res://NPCs/Assets/Characters.png" id="1_gf62b"]
+[ext_resource type="PackedScene" uid="uid://ca3ax5hy1pmbl" path="res://ePickup/e_key.tscn" id="1_uj1jl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_68v52"]
+radius = 4.12311
+
+[node name="Julianne" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gf62b")
+hframes = 10
+vframes = 20
+frame = 190
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_68v52")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="eKey" parent="." instance=ExtResource("1_uj1jl")]
+position = Vector2(7, 6)
