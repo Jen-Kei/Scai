@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://MainMenu/MainMenu.gd" id="2_55ck4"]
 [ext_resource type="Texture2D" uid="uid://cacl1t5ufs0ot" path="res://MainMenu/Assets/ScaiLogoOutline.png" id="2_f7viu"]
 [ext_resource type="Texture2D" uid="uid://4exvpb2kjjdt" path="res://MainMenu/Assets/ForestBg.png" id="2_vi0mv"]
-[ext_resource type="PackedScene" path="res://MainMenu/splash.tscn" id="5_nrbs3"]
+[ext_resource type="PackedScene" uid="uid://cfjevuraxgb3g" path="res://MainMenu/splash.tscn" id="5_nrbs3"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
