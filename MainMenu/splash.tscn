@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfjevuraxgb3g"]
+
+[ext_resource type="VideoStream" path="res://MainMenu/splashScreen.ogv" id="1_hen3x"]
+
+[node name="Splash" type="CanvasLayer"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1088.0
+scale = Vector2(0.667, 0.667)
+stream = ExtResource("1_hen3x")
+autoplay = true

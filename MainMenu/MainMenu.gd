@@ -3,6 +3,14 @@ extends Control
 var forestScene = "res://Forest/Forest.tscn"
 var player = preload("res://Player/Player.tscn").instantiate()
 var keybinds = preload("res://escUI/changeBTNs.tscn")
+@onready var splash = $Splash
+var destroyedSplash = false
+
+func _process(delta):
+	if Input.is_anything_pressed() and !destroyedSplash:
+		destroyedSplash = true
+		splash.queue_free()
+		
 
 func _on_play_button_button_down():
 	print("Pressed Play")
