@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0sgfbfgsvs4s"]
+[gd_scene load_steps=9 format=3 uid="uid://c0sgfbfgsvs4s"]
 
 [ext_resource type="Script" path="res://Enemies/Catboom/Assets/death.gd" id="1_mw45j"]
 
@@ -20,23 +20,65 @@ curve = SubResource("Curve_5vjp3")
 lifetime_randomness = 0.5
 particle_flag_disable_z = true
 spread = 180.0
-initial_velocity_min = 500.0
-initial_velocity_max = 710.53
-gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1000.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 0, -1000)
+linear_accel_min = 100.0
+linear_accel_max = 100.0
 damping_max = 77.895
-scale_min = 20.0
-scale_max = 20.0
+scale_min = 5.0
+scale_max = 10.0
 scale_curve = SubResource("CurveTexture_gsk88")
 color_ramp = SubResource("GradientTexture1D_3yvvq")
 turbulence_enabled = true
 turbulence_noise_strength = 15.53
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4jwuj"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 1000.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 0, -1000)
+linear_accel_min = 100.0
+linear_accel_max = 100.0
+radial_accel_max = 1000.0
+damping_max = 77.895
+scale_min = 5.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_gsk88")
+color_ramp = SubResource("GradientTexture1D_3yvvq")
+turbulence_enabled = true
+turbulence_noise_strength = 15.53
+
+[sub_resource type="GDScript" id="GDScript_7o7e1"]
+script/source = "extends GPUParticles2D
+
+@onready var timeCreated = Time.get_ticks_msec()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if Time.get_ticks_msec() - timeCreated > 10000:
+		queue_free()
+"
+
 [node name="GPUParticles2D" type="GPUParticles2D"]
 self_modulate = Color(0.431373, 0, 0, 1)
+z_index = 10
 scale = Vector2(0.1, 0.1)
 emitting = false
-amount = 100
+amount = 10000
 process_material = SubResource("ParticleProcessMaterial_4jw17")
 one_shot = true
 explosiveness = 0.8
 script = ExtResource("1_mw45j")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+self_modulate = Color(0.760784, 0.8, 0, 1)
+scale = Vector2(0.05, 0.05)
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_4jwuj")
+one_shot = true
+explosiveness = 0.8
+script = SubResource("GDScript_7o7e1")
