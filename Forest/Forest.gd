@@ -27,9 +27,10 @@ func _on_dungeon_transition_point_body_entered(body:Node2D):
 		player.position = Vector2(464,38)
 		swapScenes(self, nextScene)
 
-		if nextScene.get_node("Cats") != null:
-			for i in nextScene.get_node("Cats").get_children():
-				i.queue_free()
+		for i in nextScene.get_node("Cats").get_children():
+			i.queue_free()
+		
+		nextScene.spawn_cats(10)
 		
 		
 

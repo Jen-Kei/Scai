@@ -57,8 +57,9 @@ func _on_timer_timeout():
 	particle.position = global_position
 	particle.rotation = global_rotation
 	particle.emitting = true
-	get_tree().current_scene.add_child(particle)
+	get_tree().root.get_node(str(Globals.currentScene)).add_child(particle)
 	self.queue_free()
 
 func _on_re_calc_timer_timeout():
 	nav.target_position = player.global_position
+	print("cat recalculating path to player")
