@@ -7,5 +7,6 @@
 script = ExtResource("1_18fb0")
 
 [node name="pickUpObj" parent="." instance=ExtResource("2_etlaa")]
+scale = Vector2(0.3, 0.3)
 
 [node name="gunShot" type="AudioStreamPlayer2D" parent="."]

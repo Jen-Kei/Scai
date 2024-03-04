@@ -23,7 +23,8 @@ scale = Vector2(0.0808237, 0.0788499)
 shape = SubResource("RectangleShape2D_cpvb5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.0271303, 0.0271303)
+z_index = 5
+scale = Vector2(0.01, 0.01)
 texture = ExtResource("1_oecmq")
 
 [node name="Timer" type="Timer" parent="."]

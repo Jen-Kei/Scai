@@ -30,5 +30,7 @@ shape = SubResource("RectangleShape2D_iqw70")
 position = Vector2(7, 548)
 shape = SubResource("CircleShape2D_7dcbg")
 
+[node name="Treasures" type="Node2D" parent="."]
+
 [connection signal="body_entered" from="DungeonTransitionPoint" to="." method="_on_dungeon_transition_point_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

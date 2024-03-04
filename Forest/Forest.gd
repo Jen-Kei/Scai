@@ -18,7 +18,7 @@ func _ready():
 	town.transform.origin = Vector2(10000,10000)
 
 	# spawn treasures
-	add_treasures_to_grass(10)
+	#add_treasures_to_grass(10)
 
 
 
@@ -30,7 +30,7 @@ func _on_dungeon_transition_point_body_entered(body:Node2D):
 		for i in nextScene.get_node("Cats").get_children():
 			i.queue_free()
 		
-		nextScene.spawn_cats(10)
+		nextScene.spawn_cats(2)
 		
 		
 
@@ -59,7 +59,7 @@ func add_treasures_to_grass(maxTreasures):
 	var randCell
 	var instance
 	var treasuresAdded = 0
-	var tilemap = get_node("ForestMap").get_node("Forest")
+	var tilemap = get_node("ForestMap").get_node("Forest").get_node("Treasures")
 
 	print("ready to spawn")
 	while treasuresAdded < maxTreasures:
