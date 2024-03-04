@@ -4,7 +4,7 @@
 [Project Scope](#Project-Scope)
 [Organisation](#Organisation)
 [Gameplay](#Gameplay)
-[Mechanics](#Beta Mechanics)
+[Mechanics](#Mechanics)
 [Game Elements](#Game-Elements)
 
 ## Background Info
