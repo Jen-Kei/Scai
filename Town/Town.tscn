@@ -48,7 +48,7 @@ scale = Vector2(1.00449, 1.03527)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 z_index = 5
 z_as_relative = false
-position = Vector2(871, 689)
+position = Vector2(1281, 569)
 shape = SubResource("CircleShape2D_dqxb5")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

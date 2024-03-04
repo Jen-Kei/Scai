@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Kei&Jei"
-run/main_scene="res://Dungeon/Dungeon.tscn"
+config/name="Scai"
+run/main_scene="res://MainMenu/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
