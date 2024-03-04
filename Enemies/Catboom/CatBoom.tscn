@@ -166,7 +166,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ommv"]
 radius = 2.0
 
-[node name="Cat" type="CharacterBody2D"]
+[node name="Cat" type="CharacterBody2D" groups=["cat"]]
 z_index = 5
 motion_mode = 1
 wall_min_slide_angle = 0.0
