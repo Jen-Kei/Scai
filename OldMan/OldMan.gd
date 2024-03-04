@@ -46,7 +46,7 @@ func soldItems(x):
 	# CONNECT SIGNAL FOR DEAL ENDING
 	aiInstance.get_child(0).dealEnded.connect(_on_dealEnded)
 
-	aiInstance.get_child(0).initPopup("Old Man", "Player", "Item is usually worth: "+str(totalSold)+"\n Hello sir!")
+	aiInstance.get_child(0).initPopup("Old Man Jenkins", "Player", "Item is usually worth: "+str(totalSold)+"\n Hello sir!")
 
 	# FREE THE INVENTORY OF SOLD ITEMS
 	inventoryInstance.queue_free()
