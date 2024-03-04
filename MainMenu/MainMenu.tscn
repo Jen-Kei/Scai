@@ -98,8 +98,8 @@ script = ExtResource("2_55ck4")
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color(0.494118, 0.341176, 0.247059, 1)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1309.0
+offset_bottom = 769.0
 texture = ExtResource("2_vi0mv")
 
 [node name="ScaiLogo" type="TextureRect" parent="."]
