@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var ActionList = $Control/PanelContainer/VBoxContainer/ScrollContainer/ActionList
+@onready var ActionList = $Control/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList
 @onready var itemBTN = preload("res://HUD/ItemButton.tscn")
 @onready var player = get_tree().root.get_node("PlayerX")
 @onready var sellBTN = $Control/PanelContainer/sellBTN
