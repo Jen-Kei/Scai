@@ -1,10 +1,10 @@
 extends Sprite2D
 
 @export var bullet_speed = 1900.0
-@export var bps = 5
+@export var bps = 40
 @export var bullet_damage = 30
-@export var total_ammo = 100
-@export var CLIP_SIZE = 15
+@export var total_ammo = 100000
+@export var CLIP_SIZE = 1000000
 @export var current_ammo = CLIP_SIZE
 
 var time_until_fire = 0
@@ -50,11 +50,13 @@ func _process(delta):
 		return
 	
 	if(Input.is_key_pressed(KEY_Q)):
-		dropWeapon()
+		pass
+		#dropWeapon()
 	elif(Input.is_key_pressed(KEY_R)):
 		reload()
 	
-	if Input.is_action_just_pressed("click"):
+	#if Input.is_action_just_pressed("click"):
+	if Input.is_action_pressed("click"):
 		fire(player.get_node("Marker2D").get_node("gunSlot").global_position)
 	
 	
