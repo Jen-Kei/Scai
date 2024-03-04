@@ -14,11 +14,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -8.5
-offset_top = -51.0
-offset_right = 8.5
+offset_left = -8.0
+offset_top = -48.0
+offset_right = 9.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.7, 0.7)
 
 [node name="Slot1" type="Panel" parent="Slots"]
 layout_mode = 2
