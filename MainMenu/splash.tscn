@@ -7,6 +7,6 @@
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 offset_right = 1920.0
 offset_bottom = 1088.0
-scale = Vector2(0.667, 0.667)
+scale = Vector2(0.73, 0.73)
 stream = ExtResource("1_hen3x")
 autoplay = true
