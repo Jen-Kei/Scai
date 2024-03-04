@@ -2,7 +2,7 @@ extends HTTPRequest
 
 signal chat_response_recieved(response: String)
 
-var api_key = FileAccess.open('AI/token', FileAccess.READ).get_as_text()
+var api_key = FileAccess.open('res://AI/token', FileAccess.READ).get_as_text()
 
 var sysProompt = '''
 You are an NPC in a village. You are an old fashioned man, who is very scammy. 

@@ -30,7 +30,7 @@ func _on_dungeon_transition_point_body_entered(body:Node2D):
 		for i in nextScene.get_node("Cats").get_children():
 			i.queue_free()
 		
-		nextScene.spawn_cats(2)
+		nextScene.spawn_cats(8)
 		
 		
 

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://chwepjbuko7es" path="res://HomeMap/Assets/Water.png" id="5_l462o"]
 [ext_resource type="PackedScene" uid="uid://d8aw26qy6rh0" path="res://Player/Player.tscn" id="5_xy7si"]
 
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w4vo5"]
 texture = ExtResource("3_mimgw")
 0:0/0 = 0

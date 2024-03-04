@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bkix4o4mi588n" path="res://HomeMap/Assets/Hills.png" id="2_pnky5"]
 [ext_resource type="Texture2D" uid="uid://chwepjbuko7es" path="res://HomeMap/Assets/Water.png" id="3_y7rg3"]
 [ext_resource type="Texture2D" uid="uid://ciihx3wg5axe7" path="res://HomeMap/Assets/Basic_Grass_Biom_things.png" id="4_iriry"]
-[ext_resource type="PackedScene" uid="uid://d8aw26qy6rh0" path="res://Player/player.tscn" id="5_cdha2"]
+[ext_resource type="PackedScene" uid="uid://d8aw26qy6rh0" path="res://Player/Player.tscn" id="5_cdha2"]
 [ext_resource type="PackedScene" uid="uid://b4b6kdfqcgmfs" path="res://Treasures/Treasures.tscn" id="6_djwfw"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w4vo5"]
 texture = ExtResource("1_vyn7r")

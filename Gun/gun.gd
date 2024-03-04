@@ -11,7 +11,7 @@ var time_until_fire = 0
 var fire_rate = 1.0/bps
 
 var bullet_scn = preload("res://Gun/Bullet/Bullet.tscn")
-var _particle = preload("res://Gun/Bullet/bullet.tscn")
+#var _particle = preload("res://Gun/Bullet/Bullet.tscn")
 var gun_scn = load("res://Gun/gun.tscn")
 
 @onready var anim = $pickUpObj/pickupPanel/AnimationPlayer

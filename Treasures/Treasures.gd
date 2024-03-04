@@ -1,6 +1,6 @@
 extends Node
 
-@onready var jFile = "./Treasures/Treasures.json"
+@onready var jFile = "res://Treasures/Treasures.json"
 @onready var player = get_tree().root.get_node("PlayerX")
 
 var COMMON_RARITY = 60
