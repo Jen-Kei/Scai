@@ -416,8 +416,8 @@ states/Walk/position = Vector2(627, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_p6fj1"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_3ufug"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_m51m7")]
 graph_offset = Vector2(-122.083, 0)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_klk6q"]
-radius = 4.12311
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olg7l"]
+size = Vector2(3, 16.5)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
@@ -467,8 +467,8 @@ parameters/Idle/blend_position = Vector2(-0.00166667, 0.0132158)
 parameters/Walk/blend_position = Vector2(-0.00166667, 0.00440526)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 8)
-shape = SubResource("CircleShape2D_klk6q")
+position = Vector2(-0.5, 2.25)
+shape = SubResource("RectangleShape2D_olg7l")
 
 [node name="StatBank" type="Node2D" parent="."]
 unique_name_in_owner = true
