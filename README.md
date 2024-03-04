@@ -108,7 +108,7 @@ Objects/
 |                                                 | Spend leftover money from meeting quotas<br>on van upgrades and decoration                                                                     |
 
 
-# Beta Mechanics
+# Mechanics
 ---
 ## AI NPC's & Bartering System
 We are using the OpenAI API to call GPT3.5 Turbo in order to connect it to our game. We chose this model as it has a large context window, which allows us to pass the AI more information.
