@@ -123,8 +123,7 @@ When a deal is triggered, the selected items are removed from the players invent
 
 
 ## Stat Bank And Effective Treasures
-![[Pasted image 20240304064934.png]]
-![[Pasted image 20240304065026.png]]
+[Diagram](https://imgur.com/a/7r03hpi)
 We wanted to have a very large number of items, and creating a new object for each item is time consuming, so we made a json file with all the item information, and a base node that inherits from the json file. The json file has 3 sections, which are the rarities, the code is implemented in godot to make that work. 
 
 We decided to consolidate all player-affecting stats within a designated node "StatBank." This node serves as the central repository for all relevant stats, accessible by various game elements. For instance, when the player needs to retrieve their speed, they interact directly with this node.
