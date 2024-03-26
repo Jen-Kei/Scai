@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpl6ulsji7l4p"]
-
-[ext_resource type="Texture2D" uid="uid://bltj24q35ub8j" path="res://Bulb/2d_lights_and_shadows_neutral_point_light.webp" id="1_kpccl"]
-
-[node name="Bulb" type="PointLight2D"]
-scale = Vector2(0.2, 0.2)
-color = Color(1, 0.619608, 0, 1)
-texture = ExtResource("1_kpccl")
