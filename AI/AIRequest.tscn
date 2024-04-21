@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3eeoi32s1nty"]
-
-[ext_resource type="Script" path="res://AI/AIRequest.gd" id="1_flndo"]
-
-[node name="AIRequest" type="HTTPRequest"]
-script = ExtResource("1_flndo")
-
-[connection signal="request_completed" from="." to="." method="_on_request_completed"]
