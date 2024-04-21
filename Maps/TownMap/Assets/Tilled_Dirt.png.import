@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qirdp1283kj1"
-path="res://.godot/imported/idle_walk_sprites.png-ad148fd65844f4a2389be01dfd7730f9.ctex"
+uid="uid://bc5xurxpw74tl"
+path="res://.godot/imported/Tilled_Dirt.png-ddadf45028dd443b8af1c7bf4eea500a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Assets/idle_walk_sprites.png"
-dest_files=["res://.godot/imported/idle_walk_sprites.png-ad148fd65844f4a2389be01dfd7730f9.ctex"]
+source_file="res://Maps/TownMap/Assets/Tilled_Dirt.png"
+dest_files=["res://.godot/imported/Tilled_Dirt.png-ddadf45028dd443b8af1c7bf4eea500a.ctex"]
 
 [params]
 

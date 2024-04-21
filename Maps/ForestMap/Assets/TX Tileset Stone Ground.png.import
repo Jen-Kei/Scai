@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qirdp1283kj1"
-path="res://.godot/imported/idle_walk_sprites.png-ad148fd65844f4a2389be01dfd7730f9.ctex"
+uid="uid://wuw8tkcq6ag8"
+path="res://.godot/imported/TX Tileset Stone Ground.png-8f16ed427e5680f5cb65e64d00628659.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Assets/idle_walk_sprites.png"
-dest_files=["res://.godot/imported/idle_walk_sprites.png-ad148fd65844f4a2389be01dfd7730f9.ctex"]
+source_file="res://Maps/ForestMap/Assets/TX Tileset Stone Ground.png"
+dest_files=["res://.godot/imported/TX Tileset Stone Ground.png-8f16ed427e5680f5cb65e64d00628659.ctex"]
 
 [params]
 

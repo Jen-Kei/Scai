@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c277vhm82ge32"]
+
+[ext_resource type="PackedScene" uid="uid://cmgt14qguj2qu" path="res://Player/Player.tscn" id="1_dem7n"]
+[ext_resource type="PackedScene" uid="uid://f2r5xlkxr0gf" path="res://Maps/TownMap/TownMap.tscn" id="1_p0qd7"]
+
+[node name="Town" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_dem7n")]
+z_index = 5
+
+[node name="TownMap" parent="." instance=ExtResource("1_p0qd7")]

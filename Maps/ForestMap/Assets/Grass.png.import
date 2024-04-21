@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qirdp1283kj1"
-path="res://.godot/imported/idle_walk_sprites.png-ad148fd65844f4a2389be01dfd7730f9.ctex"
+uid="uid://c1snqmq4cwb7g"
+path="res://.godot/imported/Grass.png-ad13952936c847013a67c4fc8157baa2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Assets/idle_walk_sprites.png"
-dest_files=["res://.godot/imported/idle_walk_sprites.png-ad148fd65844f4a2389be01dfd7730f9.ctex"]
+source_file="res://Maps/ForestMap/Assets/Grass.png"
+dest_files=["res://.godot/imported/Grass.png-ad13952936c847013a67c4fc8157baa2.ctex"]
 
 [params]
 

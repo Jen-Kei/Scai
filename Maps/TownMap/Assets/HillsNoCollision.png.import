@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qirdp1283kj1"
-path="res://.godot/imported/idle_walk_sprites.png-ad148fd65844f4a2389be01dfd7730f9.ctex"
+uid="uid://doq2yykmny5sl"
+path="res://.godot/imported/HillsNoCollision.png-ed1ede6c6b7c4ec79149781ab7d1db06.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Assets/idle_walk_sprites.png"
-dest_files=["res://.godot/imported/idle_walk_sprites.png-ad148fd65844f4a2389be01dfd7730f9.ctex"]
+source_file="res://Maps/TownMap/Assets/HillsNoCollision.png"
+dest_files=["res://.godot/imported/HillsNoCollision.png-ed1ede6c6b7c4ec79149781ab7d1db06.ctex"]
 
 [params]
 

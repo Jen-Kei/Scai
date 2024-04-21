@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qirdp1283kj1"
-path="res://.godot/imported/idle_walk_sprites.png-ad148fd65844f4a2389be01dfd7730f9.ctex"
+uid="uid://c5uknmtxn0lrm"
+path="res://.godot/imported/Forest Cliff.png-04ab7df2dc33dca7a92ebc558e448072.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Assets/idle_walk_sprites.png"
-dest_files=["res://.godot/imported/idle_walk_sprites.png-ad148fd65844f4a2389be01dfd7730f9.ctex"]
+source_file="res://Maps/ForestMap/Assets/Forest Cliff.png"
+dest_files=["res://.godot/imported/Forest Cliff.png-04ab7df2dc33dca7a92ebc558e448072.ctex"]
 
 [params]
 
