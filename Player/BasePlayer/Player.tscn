@@ -1,7 +1,10 @@
-[gd_scene load_steps=46 format=3 uid="uid://cmgt14qguj2qu"]
+[gd_scene load_steps=49 format=3 uid="uid://cmgt14qguj2qu"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_1aubv"]
-[ext_resource type="Texture2D" uid="uid://qirdp1283kj1" path="res://Player/Assets/idle_walk_sprites.png" id="1_6gn6y"]
+[ext_resource type="Texture2D" uid="uid://qirdp1283kj1" path="res://Player/BasePlayer/Assets/idle_walk_sprites.png" id="1_6gn6y"]
+[ext_resource type="PackedScene" uid="uid://hn6ishxcqfys" path="res://Player/PlayerAddOns/StaminaBar/StaminaBar.tscn" id="3_a5aew"]
+[ext_resource type="PackedScene" uid="uid://jfc1gsu6psuq" path="res://Player/PlayerAddOns/MoneyCounter/MoneyCounter.tscn" id="4_84t7e"]
+[ext_resource type="PackedScene" uid="uid://3sdgo0pt8sr6" path="res://Player/PlayerAddOns/HealthBar/HealthBar.tscn" id="5_akcda"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tkp0e"]
 size = Vector2(13, 17)
@@ -441,3 +444,9 @@ parameters/Walk/blend_position = Vector2(-0.00166667, 0.00440526)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="StaminaBar" parent="." instance=ExtResource("3_a5aew")]
+
+[node name="HealthBar" parent="." instance=ExtResource("5_akcda")]
+
+[node name="MoneyCounter" parent="." instance=ExtResource("4_84t7e")]
