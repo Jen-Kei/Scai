@@ -440,4 +440,4 @@ parameters/Idle/blend_position = Vector2(-0.00166667, 0.0132158)
 parameters/Walk/blend_position = Vector2(-0.00166667, 0.00440526)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
+zoom = Vector2(3, 3)
