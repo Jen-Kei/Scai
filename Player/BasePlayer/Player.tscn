@@ -414,6 +414,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-122.083, 0)
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 20
 script = ExtResource("1_1aubv")
 metadata/_edit_group_ = true
 

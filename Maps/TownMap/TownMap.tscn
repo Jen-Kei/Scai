@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://f2r5xlkxr0gf"]
+[gd_scene load_steps=36 format=3 uid="uid://f2r5xlkxr0gf"]
 
 [ext_resource type="Texture2D" uid="uid://x5y6yky8oy4s" path="res://Maps/TownMap/Assets/Water.png" id="1_bjk68"]
 [ext_resource type="Texture2D" uid="uid://cyy383bw0khjw" path="res://Maps/TownMap/Assets/Hills.png" id="2_sy7yy"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://doq2yykmny5sl" path="res://Maps/TownMap/Assets/HillsNoCollision.png" id="8_jovrr"]
 [ext_resource type="Texture2D" uid="uid://c5fn01rjk5d86" path="res://Maps/TownMap/Assets/Trees.png" id="9_ehvpw"]
 [ext_resource type="Texture2D" uid="uid://ehlgpqwp5chd" path="res://Maps/TownMap/Assets/Hills2.png" id="12_2gbqj"]
-
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_266ou"]
 texture = ExtResource("1_bjk68")
@@ -3995,6 +3994,12 @@ sources/14 = SubResource("TileSetAtlasSource_32w38")
 sources/5 = SubResource("TileSetAtlasSource_ynt7q")
 sources/15 = SubResource("TileSetAtlasSource_i3t7j")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75vll"]
+size = Vector2(32, 748)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxsjx"]
+size = Vector2(1325, 41)
+
 [node name="TownMap" type="Node2D"]
 y_sort_enabled = true
 
@@ -4054,3 +4059,25 @@ layer_14/y_sort_enabled = true
 layer_14/z_index = 5
 layer_14/navigation_enabled = false
 layer_14/tile_data = PackedInt32Array(1179656, 131081, 12, 1179654, 393225, 12, 1179653, 393225, 12, 1048581, 131081, 12, 1048582, 393225, 12, 1048583, 131081, 12, 1114120, 393225, 12, 1114118, 393225, 12, 1179655, 393225, 12, 1114117, 393225, 12, 1114119, 393225, 12, 1048584, 393225, 12, 917536, 393225, 12, 917540, 393225, 12, 786449, 393225, 12, 786448, 131081, 12, 851978, 589833, 11, 131085, 851977, 11, 262158, 851977, 11, 262155, 393225, 12, 327707, 131081, 12, 327708, 393225, 12, 852015, 131081, 12, 262210, 851977, 11, 720962, 589833, 11, 720964, 131081, 12, 1048644, 131081, 12, 983110, 1376265, 11, 720953, 1376265, 11, 655418, 131081, 12, 2031684, 393225, 12, 2097220, 393225, 12, 2097219, 393225, 12, 2097218, 393225, 12, 2031682, 393225, 12, 1966148, 131081, 12, 2031683, 131081, 12, 1966146, 393225, 12, 1966147, 393225, 12, 2097206, 851977, 11, 2228276, 393225, 12, 2162730, 131081, 12, 2097194, 131081, 12, 2162729, 131081, 12, 2097193, 131081, 12, 2097200, 131081, 12, 2162736, 131081, 12, 2162737, 131081, 12, 2097201, 131081, 12, 2031640, 131081, 12, 2490387, 589833, 11, 2162719, 393225, 12, 2555941, 393225, 12, 2555932, 131081, 12, 2555910, 1376265, 11, 1638407, 1376265, 11, 1572868, 851977, 11, 1441832, 851977, 11, 1507366, 1376265, 11)
+
+[node name="Collisions" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions"]
+z_index = 5
+position = Vector2(-13, 349)
+shape = SubResource("RectangleShape2D_75vll")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions"]
+z_index = 5
+position = Vector2(1292, 369)
+shape = SubResource("RectangleShape2D_75vll")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Collisions"]
+z_index = 5
+position = Vector2(634, -17)
+shape = SubResource("RectangleShape2D_uxsjx")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Collisions"]
+z_index = 5
+position = Vector2(639, 736)
+shape = SubResource("RectangleShape2D_uxsjx")

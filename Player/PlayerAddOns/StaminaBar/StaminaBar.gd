@@ -6,7 +6,7 @@ extends TextureProgressBar
 func _ready():
 	player.stamina_decrease.connect(_on_player_stamina_decrease)
 	player.stamina_increase.connect(_on_player_stamina_increase)
-	value = Globals.currentStamina
+	value = StatBank.currentStamina
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,11 +16,11 @@ func _process(delta):
 
 # Update stamina value
 func _on_player_stamina_decrease():
-	Globals.currentStamina -= 10
-	Globals.currentStamina = clamp(Globals.currentStamina, 0, 500)
-	value = Globals.currentStamina
+	StatBank.currentStamina -= 10
+	StatBank.currentStamina = clamp(StatBank.currentStamina, 0, 500)
+	value = StatBank.currentStamina
 
 func _on_player_stamina_increase():
-	Globals.currentStamina += Globals.staminaGain
-	Globals.currentStamina = clamp(Globals.currentStamina, 0, 500)
-	value = Globals.currentStamina
+	StatBank.currentStamina += StatBank.staminaGain
+	StatBank.currentStamina = clamp(StatBank.currentStamina, 0, 500)
+	value = StatBank.currentStamina
