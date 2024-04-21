@@ -1,7 +1,10 @@
-[gd_scene load_steps=46 format=3 uid="uid://cmgt14qguj2qu"]
+[gd_scene load_steps=49 format=3 uid="uid://cmgt14qguj2qu"]
 
 [ext_resource type="Script" path="res://Player/BasePlayer/Player.gd" id="1_1aubv"]
 [ext_resource type="Texture2D" uid="uid://qirdp1283kj1" path="res://Player/BasePlayer/Assets/idle_walk_sprites.png" id="1_6gn6y"]
+[ext_resource type="PackedScene" uid="uid://vheya5l2n7qe" path="res://Player/PlayerAddOns/Camera/Camera.tscn" id="3_hp2b2"]
+[ext_resource type="PackedScene" uid="uid://daaik5ljlw2pt" path="res://Player/PlayerAddOns/StaminaBar/StaminaBar.tscn" id="3_mgksr"]
+[ext_resource type="PackedScene" uid="uid://c1j28fs10u2ix" path="res://Player/PlayerAddOns/HealthBar/HealthBar.tscn" id="5_akcda"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tkp0e"]
 size = Vector2(13, 17)
@@ -424,7 +427,7 @@ hframes = 3
 vframes = 16
 frame = 1
 
-[node name="Anim" type="AnimationPlayer" parent="."]
+[node name="AnimPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_3qb2b")
 }
@@ -434,9 +437,15 @@ libraries = {
 "": SubResource("AnimationLibrary_3qb2b")
 }
 tree_root = SubResource("AnimationNodeStateMachine_4vqgx")
-anim_player = NodePath("../Anim")
+anim_player = NodePath("../AnimPlayer")
 parameters/Idle/blend_position = Vector2(-0.00166667, 0.0132158)
 parameters/Walk/blend_position = Vector2(-0.00166667, 0.00440526)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+[node name="Camera2D" parent="." instance=ExtResource("3_hp2b2")]
+
+[node name="StaminaBarController" parent="." instance=ExtResource("3_mgksr")]
+
+[node name="HealthBarController" parent="." instance=ExtResource("5_akcda")]
+
+[editable path="StaminaBarController"]
+[editable path="HealthBarController"]
