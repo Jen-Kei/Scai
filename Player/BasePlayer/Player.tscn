@@ -414,7 +414,8 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-122.083, 0)
 
 [node name="Player" type="CharacterBody2D"]
-z_index = 20
+z_index = 10
+collision_mask = 9
 script = ExtResource("1_1aubv")
 metadata/_edit_group_ = true
 
@@ -446,7 +447,13 @@ parameters/Walk/blend_position = Vector2(-0.00166667, 0.00440526)
 
 [node name="StaminaBarController" parent="." instance=ExtResource("3_mgksr")]
 
+[node name="StaminaBar" parent="StaminaBarController" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../..")
+
 [node name="HealthBarController" parent="." instance=ExtResource("5_akcda")]
+
+[node name="HealthBar" parent="HealthBarController" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../..")
 
 [editable path="StaminaBarController"]
 [editable path="HealthBarController"]

@@ -1,20 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://c277vhm82ge32"]
+[gd_scene load_steps=5 format=3 uid="uid://c277vhm82ge32"]
 
 [ext_resource type="PackedScene" uid="uid://cmgt14qguj2qu" path="res://Player/BasePlayer/Player.tscn" id="1_dem7n"]
 [ext_resource type="PackedScene" uid="uid://f2r5xlkxr0gf" path="res://Maps/TownMap/TownMap.tscn" id="1_p0qd7"]
+[ext_resource type="PackedScene" uid="uid://c337b20du2r7s" path="res://Scenes/SceneTrigger/SceneTrigger.tscn" id="3_h8ref"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pct25"]
+size = Vector2(35, 58)
 
 [node name="Town" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_dem7n")]
-z_index = 5
-position = Vector2(424, 370)
+visibility_layer = 9
+position = Vector2(1194, 541)
+collision_layer = 9
 
 [node name="StaminaBar" parent="Player/StaminaBarController" index="0"]
 offset_left = 201.0
 offset_right = 265.0
 
+[node name="HealthBar" parent="Player/HealthBarController" index="0"]
+player = Object(CharacterBody2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":9,"z_index":10,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(1194, 541),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"disable_mode":0,"collision_layer":9,"collision_mask":9,"collision_priority":1.0,"input_pickable":false,"motion_mode":0,"up_direction":Vector2(0, -1),"velocity":Vector2(0, 0),"slide_on_ceiling":true,"max_slides":4,"wall_min_slide_angle":0.261799,"floor_stop_on_slope":true,"floor_constant_speed":false,"floor_block_on_wall":true,"floor_max_angle":0.785398,"floor_snap_length":1.0,"platform_on_leave":0,"platform_floor_layers":4294967295,"platform_wall_layers":0,"safe_margin":0.08,"script":Resource("res://Player/BasePlayer/Player.gd"),"metadata/_edit_group_":true)
+
+
 [node name="TownMap" parent="." instance=ExtResource("1_p0qd7")]
+
+[node name="Area2D" parent="." instance=ExtResource("3_h8ref")]
+position = Vector2(1280, 568)
+connectedScene = "Forest"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 5
+position = Vector2(-7.5, 2)
+shape = SubResource("RectangleShape2D_pct25")
+
+[node name="EntranceMarkers" type="Node2D" parent="."]
 
 [editable path="Player"]
 [editable path="Player/StaminaBarController"]
 [editable path="Player/HealthBarController"]
+[editable path="Area2D"]

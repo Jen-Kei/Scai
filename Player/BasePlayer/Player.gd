@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 # Movement
 var input_movement = Vector2.ZERO
@@ -10,7 +10,7 @@ signal health_decrease
 signal health_increase
 
 # References to other nodes
-@onready var animPlayer = get_tree().root.get_child(1).get_child(0).get_node("AnimPlayer")
+@onready var animPlayer = get_tree().root.get_child(2).get_child(0).get_node("AnimPlayer")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -45,7 +45,7 @@ func player_movement(delta):
 # Change the player's speed and update the stamina meter 
 func player_speed():
 	if Input.is_action_pressed("ui_run") && StatBank.currentStamina > 10:
-		#print("running")
+		print("running")
 		if StatBank.currentStamina > 30:
 			StatBank.currentSpeed = StatBank.runSpeed
 			animPlayer.speed_scale = 1.5

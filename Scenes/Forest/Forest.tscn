@@ -1,12 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvsknc1a1lw25"]
+[gd_scene load_steps=6 format=3 uid="uid://dvsknc1a1lw25"]
 
+[ext_resource type="Script" path="res://Scenes/BaseScene.gd" id="1_1p0v8"]
 [ext_resource type="PackedScene" uid="uid://cmgt14qguj2qu" path="res://Player/BasePlayer/Player.tscn" id="1_28eow"]
 [ext_resource type="PackedScene" uid="uid://ckmtmjtg226um" path="res://Maps/ForestMap/ForestMap.tscn" id="1_nhot0"]
+[ext_resource type="PackedScene" uid="uid://c337b20du2r7s" path="res://Scenes/SceneTrigger/SceneTrigger.tscn" id="4_851cp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qfcch"]
+radius = 29.0689
 
 [node name="Forest" type="Node2D"]
+script = ExtResource("1_1p0v8")
 
 [node name="Player" parent="." instance=ExtResource("1_28eow")]
-y_sort_enabled = true
-position = Vector2(22, 580)
 
 [node name="ForestMap" parent="." instance=ExtResource("1_nhot0")]
+
+[node name="SceneTrigger" parent="." instance=ExtResource("4_851cp")]
+connectedScene = "Town"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
+z_index = 15
+position = Vector2(-12, 599)
+shape = SubResource("CircleShape2D_qfcch")
+
+[node name="EntranceMarkers" type="Node2D" parent="."]
+
+[node name="TownForest" type="Marker2D" parent="EntranceMarkers"]
+position = Vector2(23, 591)

@@ -1,12 +1,11 @@
 extends TextureProgressBar
 
-@onready var player = get_tree().root.get_child(1).get_child(0)
+@export var player: Player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player.health_decrease.connect(_on_player_health_decrease)
 	player.health_increase.connect(_on_player_health_increase)
-	value = StatBank.currentHealth
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

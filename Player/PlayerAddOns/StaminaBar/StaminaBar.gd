@@ -1,6 +1,6 @@
 extends TextureProgressBar
 
-@onready var player = get_tree().root.get_child(1).get_child(0)
+@export var player: Player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
