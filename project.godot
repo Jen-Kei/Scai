@@ -16,8 +16,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-StatBank="*res://StatBank.gd"
 ScenesManager="*res://Scenes/ScenesManager.gd"
+Globals="*res://Globals.gd"
 
 [display]
 

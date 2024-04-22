@@ -34,7 +34,7 @@ func player_movement(delta):
 
 		animState.travel("Walk")
 
-		velocity = input_movement * StatBank.currentSpeed
+		velocity = input_movement * Globals.currentSpeed
 	
 	if input_movement == Vector2.ZERO:
 		animState.travel("Idle")
@@ -44,13 +44,13 @@ func player_movement(delta):
 
 # Change the player's speed and update the stamina meter 
 func player_speed():
-	if Input.is_action_pressed("ui_run") && StatBank.currentStamina > 10:
+	if Input.is_action_pressed("ui_run") && Globals.currentStamina > 10:
 		print("running")
-		if StatBank.currentStamina > 30:
-			StatBank.currentSpeed = StatBank.runSpeed
+		if Globals.currentStamina > 30:
+			Globals.currentSpeed = Globals.runSpeed
 			animPlayer.speed_scale = 1.5
 		stamina_decrease.emit()
 	else:
-		StatBank.currentSpeed = StatBank.normalSpeed
+		Globals.currentSpeed = Globals.normalSpeed
 		animPlayer.speed_scale = 1
 		stamina_increase.emit()

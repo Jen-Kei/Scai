@@ -15,11 +15,11 @@ func _process(delta):
 
 # Update stamina value
 func _on_player_health_decrease():
-	StatBank.currentHealth -= 10
-	StatBank.currentHealth = clamp(StatBank.currentHealth, 0, 500)
-	value = StatBank.currentHealth
+	Globals.currentHealth -= 10
+	Globals.currentHealth = clamp(Globals.currentHealth, 0, 500)
+	value = Globals.currentHealth
 
 func _on_player_health_increase():
-	StatBank.currentHealth += StatBank.healthGain
-	StatBank.currentHealth = clamp(StatBank.currentHealth, 0, 500)
-	value = StatBank.currentHealth
+	Globals.currentHealth += Globals.healthGain
+	Globals.currentHealth = clamp(Globals.currentHealth, 0, 500)
+	value = Globals.currentHealth

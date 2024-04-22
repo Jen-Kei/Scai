@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cwvsi4dd3abs0"]
 
 [ext_resource type="Script" path="res://Player/PlayerAddOns/HUD/Slot.gd" id="1_aetlx"]
-[ext_resource type="Script" path="res://Player/PlayerAddOns/HUD/inventory.gd" id="1_ognep"]
+[ext_resource type="Script" path="res://Player/PlayerAddOns/HUD/Inventory.gd" id="1_ognep"]
 [ext_resource type="Theme" uid="uid://cpaayrrexd66b" path="res://Theme/DefaultTheme.tres" id="3_aj04v"]
 
 [node name="Inventory" type="CanvasLayer"]
