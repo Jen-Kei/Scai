@@ -18,5 +18,7 @@ func _ready():
 
 func position_player() -> void:
     for entrance in entranceMarkers.get_children():
-        if entrance is Marker2D and entrance.name == "TownForest":
+        if entrance is Marker2D and entrance.name == "FromTownToForest":
+            player.global_position = entrance.global_position
+        if entrance is Marker2D and entrance.name == "FromForestToTown":
             player.global_position = entrance.global_position

@@ -25,5 +25,5 @@ shape = SubResource("CircleShape2D_qfcch")
 
 [node name="EntranceMarkers" type="Node2D" parent="."]
 
-[node name="TownForest" type="Marker2D" parent="EntranceMarkers"]
+[node name="FromTownToForest" type="Marker2D" parent="EntranceMarkers"]
 position = Vector2(23, 591)
