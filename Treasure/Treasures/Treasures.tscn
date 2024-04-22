@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4b6kdfqcgmfs"]
+
+[ext_resource type="Script" path="res://Treasure/Treasures/Treasures.gd" id="1_nb8qg"]
+[ext_resource type="PackedScene" uid="uid://c28qeso7ruaod" path="res://Treasure/ePickup/ePickup.tscn" id="3_7k4x2"]
+
+[node name="Treasure" type="Node2D"]
+z_index = 6
+z_as_relative = false
+script = ExtResource("1_nb8qg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+
+[node name="pickUpObj" parent="." instance=ExtResource("3_7k4x2")]
+z_index = 1
+scale = Vector2(0.3, 0.3)
