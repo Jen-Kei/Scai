@@ -17,7 +17,9 @@ position = Vector2(1000, 490)
 
 [node name="StaminaBar" parent="Player/StaminaBarController" index="0"]
 offset_left = 201.0
+offset_top = 221.0
 offset_right = 265.0
+offset_bottom = 231.0
 
 [node name="TownMap" parent="." instance=ExtResource("1_p0qd7")]
 
