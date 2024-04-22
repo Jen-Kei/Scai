@@ -447,13 +447,7 @@ parameters/Walk/blend_position = Vector2(-0.00166667, 0.00440526)
 
 [node name="StaminaBarController" parent="." instance=ExtResource("3_mgksr")]
 
-[node name="StaminaBar" parent="StaminaBarController" index="0" node_paths=PackedStringArray("player")]
-player = NodePath("../..")
-
 [node name="HealthBarController" parent="." instance=ExtResource("5_akcda")]
-
-[node name="HealthBar" parent="HealthBarController" index="0" node_paths=PackedStringArray("player")]
-player = NodePath("../..")
 
 [editable path="StaminaBarController"]
 [editable path="HealthBarController"]

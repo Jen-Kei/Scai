@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://f2r5xlkxr0gf" path="res://Maps/TownMap/TownMap.tscn" id="1_p0qd7"]
 [ext_resource type="PackedScene" uid="uid://c337b20du2r7s" path="res://Scenes/SceneTrigger/SceneTrigger.tscn" id="3_h8ref"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pct25"]
-size = Vector2(35, 58)
+[sub_resource type="CircleShape2D" id="CircleShape2D_jtdy3"]
+radius = 19.6023
 
 [node name="Town" type="Node2D"]
 
@@ -25,14 +25,13 @@ player = Object(CharacterBody2D,"_import_path":NodePath(""),"unique_name_in_owne
 [node name="TownMap" parent="." instance=ExtResource("1_p0qd7")]
 
 [node name="Area2D" parent="." instance=ExtResource("3_h8ref")]
-position = Vector2(1280, 568)
+position = Vector2(1273, 567)
 connectedScene = "Forest"
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 z_index = 5
-position = Vector2(-7.5, 2)
-shape = SubResource("RectangleShape2D_pct25")
+shape = SubResource("CircleShape2D_jtdy3")
 
 [node name="EntranceMarkers" type="Node2D" parent="."]
 
