@@ -46,7 +46,7 @@ func _process(delta):
 	if player.position.distance_to(self.position) < perimeter: # If the player is close to the gun
 		$pickUpObj.visible = true # Show the pickup object
 		closeToItem = true
-		if Input.is_action_just_pressed("interact"):
+		if Input.is_action_just_pressed("ui_interact"):
 			print("Pressed E")
 			for i in (player.get_node("Inventory").get_node("Slots").get_children()): # Loop through the player's inventory
 				if i.get_children().size() == 1: # If the inventory slot is empty

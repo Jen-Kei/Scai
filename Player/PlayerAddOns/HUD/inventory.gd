@@ -36,7 +36,7 @@ func inventoryControl():
 	elif Input.is_action_just_pressed('five'):
 		print('Pressed 5')
 		selectSlot(4)
-	elif Input.is_action_just_pressed('drop'):
+	elif Input.is_action_just_pressed('ui_drop'):
 		if Slots[currentlySelected].get_children().size() == 1:
 			print("Nothing to drop")
 			return

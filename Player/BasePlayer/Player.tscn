@@ -1,9 +1,11 @@
-[gd_scene load_steps=49 format=3 uid="uid://cmgt14qguj2qu"]
+[gd_scene load_steps=51 format=3 uid="uid://cmgt14qguj2qu"]
 
 [ext_resource type="Script" path="res://Player/BasePlayer/Player.gd" id="1_1aubv"]
 [ext_resource type="Texture2D" uid="uid://qirdp1283kj1" path="res://Player/BasePlayer/Assets/idle_walk_sprites.png" id="1_6gn6y"]
 [ext_resource type="PackedScene" uid="uid://vheya5l2n7qe" path="res://Player/PlayerAddOns/Camera/Camera.tscn" id="3_hp2b2"]
 [ext_resource type="PackedScene" uid="uid://daaik5ljlw2pt" path="res://Player/PlayerAddOns/StaminaBar/StaminaBar.tscn" id="3_mgksr"]
+[ext_resource type="PackedScene" uid="uid://cwvsi4dd3abs0" path="res://Player/PlayerAddOns/HUD/Inventory.tscn" id="4_tmqwn"]
+[ext_resource type="Script" path="res://Player/BasePlayer/StatBank.gd" id="4_u8da3"]
 [ext_resource type="PackedScene" uid="uid://c1j28fs10u2ix" path="res://Player/PlayerAddOns/HealthBar/HealthBar.tscn" id="5_akcda"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tkp0e"]
@@ -446,9 +448,15 @@ parameters/Walk/blend_position = Vector2(-0.00166667, 0.00440526)
 
 [node name="Camera2D" parent="." instance=ExtResource("3_hp2b2")]
 
+[node name="StatBank" type="Node2D" parent="."]
+script = ExtResource("4_u8da3")
+
+[node name="Inventory" parent="." instance=ExtResource("4_tmqwn")]
+
 [node name="StaminaBarController" parent="." instance=ExtResource("3_mgksr")]
 
 [node name="HealthBarController" parent="." instance=ExtResource("5_akcda")]
 
+[editable path="Inventory"]
 [editable path="StaminaBarController"]
 [editable path="HealthBarController"]
