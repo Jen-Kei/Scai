@@ -17,8 +17,11 @@ func _ready():
     position_player()
 
 func position_player() -> void:
+    var lastScene = ScenesManager.lastSceneName
+    if lastScene.is_empty():
+        lastScene = "Any"
+        print("was empty") 
+
     for entrance in entranceMarkers.get_children():
-        if entrance is Marker2D and entrance.name == "FromTownToForest":
-            player.global_position = entrance.global_position
-        if entrance is Marker2D and entrance.name == "FromForestToTown":
+        if entrance is Marker2D and entrance.name == "Forest" or entrance.name == "Any":
             player.global_position = entrance.global_position

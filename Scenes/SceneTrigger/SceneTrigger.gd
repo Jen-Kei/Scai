@@ -6,6 +6,7 @@ var sceneFolder = "res://Scenes/"
 
 func _on_body_entered(body):
 	# only call if the player enters
+	print("entered")
 	if body is CharacterBody2D:
 		ScenesManager.change_scene(get_owner(), connectedScene)
 	print("Scene changed")

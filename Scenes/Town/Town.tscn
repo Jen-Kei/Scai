@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c277vhm82ge32"]
+[gd_scene load_steps=6 format=3 uid="uid://c277vhm82ge32"]
 
 [ext_resource type="PackedScene" uid="uid://cmgt14qguj2qu" path="res://Player/BasePlayer/Player.tscn" id="1_dem7n"]
+[ext_resource type="Script" path="res://Scenes/BaseScene.gd" id="1_g7k8t"]
 [ext_resource type="PackedScene" uid="uid://f2r5xlkxr0gf" path="res://Maps/TownMap/TownMap.tscn" id="1_p0qd7"]
 [ext_resource type="PackedScene" uid="uid://c337b20du2r7s" path="res://Scenes/SceneTrigger/SceneTrigger.tscn" id="3_h8ref"]
 
@@ -8,11 +9,11 @@
 radius = 19.6023
 
 [node name="Town" type="Node2D"]
+script = ExtResource("1_g7k8t")
 
 [node name="Player" parent="." instance=ExtResource("1_dem7n")]
 visibility_layer = 9
-position = Vector2(1194, 541)
-collision_layer = 9
+position = Vector2(1000, 490)
 
 [node name="StaminaBar" parent="Player/StaminaBarController" index="0"]
 offset_left = 201.0
@@ -27,12 +28,12 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 z_index = 5
-position = Vector2(11, 2)
+position = Vector2(16, 2)
 shape = SubResource("CircleShape2D_jtdy3")
 
 [node name="EntranceMarkers" type="Node2D" parent="."]
 
-[node name="FromForestToTown" type="Marker2D" parent="EntranceMarkers"]
+[node name="Forest" type="Marker2D" parent="EntranceMarkers"]
 position = Vector2(1261, 569)
 
 [editable path="Player"]

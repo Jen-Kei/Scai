@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c337b20du2r7s" path="res://Scenes/SceneTrigger/SceneTrigger.tscn" id="4_851cp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qfcch"]
-radius = 29.0689
+radius = 24.0
 
 [node name="Forest" type="Node2D"]
 script = ExtResource("1_1p0v8")
@@ -20,10 +20,11 @@ connectedScene = "Town"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
 z_index = 15
-position = Vector2(-12, 599)
+position = Vector2(-15, 598)
 shape = SubResource("CircleShape2D_qfcch")
 
 [node name="EntranceMarkers" type="Node2D" parent="."]
+position = Vector2(-18, 7)
 
-[node name="FromTownToForest" type="Marker2D" parent="EntranceMarkers"]
-position = Vector2(23, 591)
+[node name="Forest" type="Marker2D" parent="EntranceMarkers"]
+position = Vector2(35, 591)
