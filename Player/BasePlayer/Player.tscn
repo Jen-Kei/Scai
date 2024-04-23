@@ -449,6 +449,7 @@ parameters/Walk/blend_position = Vector2(-0.00166667, 0.00440526)
 [node name="Camera2D" parent="." instance=ExtResource("3_hp2b2")]
 
 [node name="StatBank" type="Node2D" parent="."]
+unique_name_in_owner = true
 script = ExtResource("4_u8da3")
 
 [node name="Inventory" parent="." instance=ExtResource("4_tmqwn")]

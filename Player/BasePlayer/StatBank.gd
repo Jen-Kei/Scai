@@ -1,61 +1,47 @@
 extends Node2D
 
-@onready var weightMultiplier = 1.5
-@onready var speed = 100.0
-@onready var normal_speed = 100.0
-@onready var extra_speed = 200.0
-@onready var stamina = 500
-@onready var stamina_capacity = 500
-@onready var stamina_gain = 5
+#@onready var weightMultiplier = 1.5
+#@onready var speed = 100.0
+#@onready var normal_speed = 100.0
+#@onready var extra_speed = 200.0
+#@onready var stamina = 500
+#@onready var stamina_capacity = 500
+#@onready var stamina_gain = 5
 
-@onready var health_capacity = 500
-@onready var health_gain = 5
-@onready var health = 100
+#@onready var health_capacity = 500
+#@onready var health_gain = 5
+#@onready var health = 100
 
-@onready var weight = 1
-@onready var weight_capacity = 100
+#@onready var weight = 1
+#@onready var weight_capacity = 100
 
-@onready var fire_rate = 30
+#@onready var fire_rate = 30
 
 var weightItems = []
 
 
 func appendStats(details, add):
 	if add:
-		weight += details["Weight"] * weightMultiplier
-		print("Added weight: ", weight)
+		# Append the stats
+		Globals.normalSpeed = Globals.normalSpeed * details["Speed"]
+		#Globals.extraSpeed = Globals.extraSpeed * details["ExtraSpeed"]
 
-		var new_speed = 100 - weight
-		speed = new_speed
-		normal_speed = new_speed
-		extra_speed = new_speed
+		Globals.maxStamina = Globals.maxStamina * details["MaxStamina"]
+		Globals.staminaGain = Globals.staminaGain * details["StaminaGain"]
 
-		stamina_capacity = stamina_capacity * details["StaminaCapacity"]
-		stamina_gain = stamina_gain * details["StaminaGain"]
+		Globals.maxHealth = Globals.maxHealth * details["MaxHealth"]
+		Globals.healthGain = Globals.healthGain * details["HealthGain"]
 
-		health_capacity = health_capacity * details["HealthCapacity"]
-		health_gain = health_gain * details["HealthGain"]
-
-		weight_capacity = weight_capacity * details["WeightCapacity"]
-
-		fire_rate = fire_rate * details["FireRate"]
+		Globals.fireRate = Globals.fireRate * details["FireRate"]
 	else:
-		weight -= details["Weight"] * weightMultiplier
-		print("Dropped weight: ", weight)
+		# Remove the stats
+		Globals.normalSpeed = Globals.normalSpeed / details["Speed"]
 
-		var new_speed = 100 - weight
-		speed = new_speed
-		normal_speed = new_speed
-		extra_speed = new_speed
+		Globals.maxStamina = Globals.maxStamina / details["MaxStamina"]
+		Globals.staminaGain = Globals.staminaGain / details["StaminaGain"]
 
-		stamina_capacity = stamina_capacity / details["StaminaCapacity"]
-		stamina_gain = stamina_gain / details["StaminaGain"]
+		Globals.maxHealth = Globals.maxHealth / details["MaxHealth"]
+		Globals.healthGain = Globals.healthGain / details["HealthGain"]
 
-		health_capacity = health_capacity / details["HealthCapacity"]
-		health_gain = health_gain / details["HealthGain"]
-
-		weight_capacity = weight_capacity / details["WeightCapacity"]
-
-		fire_rate = fire_rate / details["FireRate"]
+		Globals.fireRate = Globals.fireRate / details["FireRate"]
 	
-	get_parent().reInit()

@@ -4,8 +4,8 @@ extends CanvasLayer
 @onready var player = get_tree().root.get_child(2).get_child(0)
 
 var currentlySelected: int
-var treasures
 @onready var statBank = %StatBank
+@onready var treasures = get_tree().root.get_node(str(Globals.currentScene)).get_node("Treasures")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -38,6 +38,8 @@ shape = SubResource("CircleShape2D_jtdy3")
 [node name="Forest" type="Marker2D" parent="EntranceMarkers"]
 position = Vector2(1261, 569)
 
+[node name="Treasures" type="Node2D" parent="."]
+
 [editable path="Player"]
 [editable path="Player/Inventory"]
 [editable path="Player/StaminaBarController"]

@@ -13,6 +13,7 @@ func change_scene(from, toSceneName: String) -> void:
 	lastSceneName = from.name
 	player = from.get_node("Player")
 	player.remove_child(player)
+	Globals.currentScene = toSceneName
 
 	fullPath = sceneDirPath + toSceneName + "/" + toSceneName + ".tscn"
 	from.get_tree().call_deferred("change_scene_to_file", fullPath)
