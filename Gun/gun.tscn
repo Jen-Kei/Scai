@@ -10,3 +10,4 @@ script = ExtResource("1_18fb0")
 scale = Vector2(0.3, 0.3)
 
 [node name="gunShot" type="AudioStreamPlayer2D" parent="."]
+volume_db = 4.0

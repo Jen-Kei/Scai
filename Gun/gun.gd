@@ -1,13 +1,13 @@
 extends Sprite2D
 
-@export var bullet_speed = 1900.0
-@export var bps = 40
-@export var bullet_damage = 30
+@export var bullet_speed = 300.0
+@export var bps = Globals.fireRate
+@export var bullet_damage = 1
 @export var total_ammo = 100000
 @export var CLIP_SIZE = 1000000
 @export var current_ammo = CLIP_SIZE
 
-var time_until_fire = 0
+var time_until_fire = 3
 var fire_rate = 1.0/bps
 
 var bullet_scn = preload("res://Gun/Bullet/Bullet.tscn")

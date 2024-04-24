@@ -14,19 +14,19 @@ var day = 1
 var quota = 150
 
 # Player stats
-@onready var normalSpeed = 100.0
-@onready var runSpeed = 200.0
-@onready var currentSpeed = normalSpeed
+var normalSpeed = 100.0
+var runSpeed = 200.0
+var currentSpeed = normalSpeed
 
-@onready var maxHealth = 500.0
-@onready var currentHealth = maxHealth
-@onready var healthGain = 0.01
+var maxHealth = 500.0
+var currentHealth = maxHealth
+var healthGain = 0.01
 
-@onready var maxStamina = 500.0
-@onready var currentStamina = maxHealth
-@onready var staminaGain = 10.0
+var maxStamina = 500.0
+var currentStamina = maxHealth
+var staminaGain = 10.0
 
-@onready var fireRate = 10.0
+var fireRate = 3.0
 
 
 # Called when the node enters the scene tree for the first time.
