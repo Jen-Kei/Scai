@@ -12,8 +12,8 @@ var gameOverMessage = "You lost! Better luck next time."
 
 var moneyAmount = 50
 var day = 1
-var quota = 15
-var timeLimit = 0.1*60
+var quota = 100
+var timeLimit = 15*60
 var maxCats = 20
 
 # Player stats
