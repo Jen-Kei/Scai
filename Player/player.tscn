@@ -479,6 +479,7 @@ script = ExtResource("4_c4t1w")
 [node name="Inventory" parent="." instance=ExtResource("5_of4by")]
 
 [node name="MyTimer" parent="." instance=ExtResource("9_8pp83")]
+layer = 100
 
 [node name="clockLabel" parent="MyTimer/Timer" index="0"]
 anchors_preset = 1
@@ -489,6 +490,10 @@ offset_top = 104.0
 offset_right = 79.0
 offset_bottom = 301.0
 grow_horizontal = 0
+theme_override_colors/font_shadow_color = Color(1, 0.772549, 0.615686, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
 
 [node name="timeLabel" parent="MyTimer/Timer" index="1"]
 anchors_preset = 1
@@ -499,6 +504,10 @@ offset_top = 60.0
 offset_right = 9.0
 offset_bottom = 115.0
 grow_horizontal = 0
+theme_override_colors/font_shadow_color = Color(0.992157, 0.72549, 0.533333, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
 theme_override_font_sizes/normal_font_size = 30
 
 [node name="Control" type="Control" parent="."]
