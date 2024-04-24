@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://d8aw26qy6rh0"]
+[gd_scene load_steps=56 format=3 uid="uid://d8aw26qy6rh0"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_bldul"]
 [ext_resource type="Script" path="res://Player/Marker2D.gd" id="2_r3d3w"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cwvsi4dd3abs0" path="res://HUD/inventory.tscn" id="5_of4by"]
 [ext_resource type="PackedScene" uid="uid://wnrursq06u7a" path="res://HealthBar/health_bar.tscn" id="7_aylkk"]
 [ext_resource type="Texture2D" uid="uid://bltj24q35ub8j" path="res://Flashlight/2d_lights_and_shadows_neutral_point_light.webp" id="8_erv3m"]
+[ext_resource type="PackedScene" uid="uid://bos2n0mp30mur" path="res://MyTimer/MyTimer.tscn" id="9_8pp83"]
 [ext_resource type="PackedScene" uid="uid://jfc1gsu6psuq" path="res://MoneyCounter/MoneyCounter.tscn" id="9_i0rxf"]
 
 [sub_resource type="Animation" id="Animation_atts6"]
@@ -417,7 +418,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-122.083, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olg7l"]
-size = Vector2(3, 16.5)
+size = Vector2(3, 14)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
@@ -467,7 +468,7 @@ parameters/Idle/blend_position = Vector2(-0.00166667, 0.0132158)
 parameters/Walk/blend_position = Vector2(-0.00166667, 0.00440526)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 2.25)
+position = Vector2(-0.5, 2)
 shape = SubResource("RectangleShape2D_olg7l")
 
 [node name="StatBank" type="Node2D" parent="."]
@@ -475,13 +476,30 @@ unique_name_in_owner = true
 position = Vector2(-1, 0)
 script = ExtResource("4_c4t1w")
 
-[node name="HealthBar" parent="." instance=ExtResource("7_aylkk")]
-visible = false
-
-[node name="TextureProgressBar" parent="HealthBar" index="0" node_paths=PackedStringArray("player")]
-player = NodePath("../..")
-
 [node name="Inventory" parent="." instance=ExtResource("5_of4by")]
+
+[node name="MyTimer" parent="." instance=ExtResource("9_8pp83")]
+
+[node name="clockLabel" parent="MyTimer/Timer" index="0"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -353.0
+offset_top = 104.0
+offset_right = 79.0
+offset_bottom = 301.0
+grow_horizontal = 0
+
+[node name="timeLabel" parent="MyTimer/Timer" index="1"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -270.0
+offset_top = 60.0
+offset_right = 9.0
+offset_bottom = 115.0
+grow_horizontal = 0
+theme_override_font_sizes/normal_font_size = 30
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -495,7 +513,6 @@ metadata/_edit_use_anchors_ = true
 [node name="MoneyCounter" parent="Control" instance=ExtResource("9_i0rxf")]
 
 [node name="MoneyCounter" parent="Control/MoneyCounter" index="0"]
-anchors_preset = 0
 offset_left = 209.0
 offset_top = 55.0
 offset_right = 289.0
@@ -507,23 +524,10 @@ anchors_preset = -1
 [node name="AnimatedSprite2D" parent="Control/MoneyCounter/CanvasLayer" index="0"]
 position = Vector2(181, 69)
 
+[node name="HealthBar" parent="Control" instance=ExtResource("7_aylkk")]
+
 [node name="StaminaBar" parent="Control" instance=ExtResource("3_dpee4")]
 unique_name_in_owner = true
 
-[node name="TextureProgressBar" parent="Control/StaminaBar" index="0" node_paths=PackedStringArray("player")]
-anchors_preset = 0
-offset_left = 161.0
-offset_top = 101.0
-offset_right = 225.0
-offset_bottom = 111.0
-player = NodePath("../../..")
-
-[node name="Label" parent="Control/StaminaBar" index="1"]
-anchor_left = -0.001
-anchor_right = -0.001
-offset_left = 182.28
-offset_right = 246.28
-
-[editable path="HealthBar"]
+[editable path="MyTimer"]
 [editable path="Control/MoneyCounter"]
-[editable path="Control/StaminaBar"]

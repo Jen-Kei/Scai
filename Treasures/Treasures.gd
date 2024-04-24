@@ -94,12 +94,12 @@ func initTreasure(args = {}):
 	item_weight = _itemDetails["Weight"]
 	item_value = _itemDetails["Value"]
 
-	item_speed = _itemDetails["speed"]
+	item_speed = _itemDetails["Speed"]
 
-	item_stamina_capacity = _itemDetails["StaminaCapacity"]
+	item_stamina_capacity = _itemDetails["MaxStamina"]
 	item_stamina_gain = _itemDetails["StaminaGain"]
 
-	item_health_capacity = _itemDetails["HealthCapacity"]
+	item_health_capacity = _itemDetails["MaxHealth"]
 	item_health_gain = _itemDetails["HealthGain"]
 
 	item_weight_capacity = _itemDetails["WeightCapacity"]

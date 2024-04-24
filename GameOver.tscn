@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://xf785dkqjxr4"]
+
+[ext_resource type="Script" path="res://GameOver.gd" id="1_h52tu"]
+[ext_resource type="Theme" uid="uid://bq5xapy267tbu" path="res://Theme/DefaultTheme.tres" id="1_jjxwh"]
+
+[node name="GameOverScreen" type="CanvasLayer"]
+
+[node name="GameOver" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1281.0
+offset_bottom = 716.0
+theme = ExtResource("1_jjxwh")
+script = ExtResource("1_h52tu")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GameOver"]
+z_index = 2
+layout_mode = 2
+offset_left = 365.0
+offset_top = 232.0
+offset_right = 901.0
+offset_bottom = 336.0
+theme_override_font_sizes/normal_font_size = 100
+text = "Game Over"
+
+[node name="PanelContainer" type="PanelContainer" parent="GameOver"]
+layout_mode = 0
+offset_left = 211.0
+offset_top = 59.0
+offset_right = 1055.0
+offset_bottom = 659.0
+
+[node name="quitBTN" type="Button" parent="GameOver"]
+layout_mode = 0
+offset_left = 546.0
+offset_top = 387.0
+offset_right = 722.0
+offset_bottom = 500.0
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[connection signal="pressed" from="GameOver/quitBTN" to="GameOver" method="_on_quit_btn_pressed"]

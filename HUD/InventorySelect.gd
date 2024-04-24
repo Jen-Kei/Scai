@@ -89,3 +89,8 @@ func getSelectedValue():
 
 func _on_dealEnded():
 	pass
+
+
+func _on_back_btn_button_down():
+	player.inventoryOpen = false
+	self.queue_free()
