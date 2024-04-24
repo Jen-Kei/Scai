@@ -10,23 +10,24 @@ script = ExtResource("1_n2o23")
 
 [node name="clockLabel" type="RichTextLabel" parent="Timer"]
 unique_name_in_owner = true
-z_index = 60
+z_index = 10
 offset_left = 1.0
 offset_top = 63.0
 offset_right = 433.0
 offset_bottom = 260.0
 theme = ExtResource("2_ge3ym")
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(0.180392, 0.129412, 0.113725, 1)
 theme_override_font_sizes/normal_font_size = 90
 text = "0:00"
 
 [node name="timeLabel" type="RichTextLabel" parent="Timer"]
 unique_name_in_owner = true
+z_index = 10
 offset_left = 57.0
 offset_top = 3.0
 offset_right = 336.0
 offset_bottom = 55.0
 theme = ExtResource("2_ge3ym")
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(0.180392, 0.129412, 0.113725, 1)
 theme_override_font_sizes/normal_font_size = 40
 text = "Day: X"

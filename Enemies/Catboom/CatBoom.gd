@@ -58,7 +58,7 @@ func _on_timer_timeout():
 	particle.rotation = global_rotation
 	particle.emitting = true
 	player.health_decrease.emit()
-	print("decrease health")
+	print("cat go boom")
 	get_tree().root.get_node(str(Globals.currentScene)).add_child(particle)
 	self.queue_free()
 

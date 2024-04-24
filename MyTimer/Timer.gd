@@ -9,7 +9,7 @@ signal game_won
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	one_shot = true
-	wait_time = 5
+	wait_time = Globals.timeLimit
 	start()
 	%timeLabel.text = str("Day: ", Globals.day)
 

@@ -44,7 +44,11 @@ func _on_the_BTN_pressed():
 		get_tree().change_scene_to_file(forestScene)
 		player.position = Globals.playerStartPos
 		unpause()
-		timer.wait_time = 10
+
+		Globals.timeLimit  = Globals.timeLimit * 0.8
+		timer.wait_time = Globals.timeLimit 
+		Globals.maxCats = Globals.maxCats * 1.5
+		Globals.quota = Globals.quota * 1.2
 		timer.start()
 		
 
@@ -65,7 +69,8 @@ func _on_the_BTN_pressed():
 func _on_game_over():
 	self.show()
 	%GameOverMessageLabel.text = str(Globals.gameOverMessage)
-	pause()
+	if visible == true:
+		pause()
 
 
 func _on_game_won():
@@ -74,7 +79,8 @@ func _on_game_won():
 		%GameStatusLabel.text = "Quota met"
 		%theBTN.text = "Start Next Day"
 		%GameOverMessageLabel.text = "You're pretty good at this! On to day 2 :>"
-		pause()
+		if visible == true:
+			pause()
 	else:
 		%GameStatusLabel.text = "You Win!"
 		%theBTN.text = "Quit"

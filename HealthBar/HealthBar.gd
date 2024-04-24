@@ -18,7 +18,7 @@ func _process(delta):
 # Update health value
 func _on_player_health_decrease():
 	max_value = Globals.maxHealth
-	Globals.currentHealth -= 70
+	Globals.currentHealth -= 30
 	Globals.currentHealth = clamp(Globals.currentHealth, 0, max_value)
 	value = Globals.currentHealth
 	if value <= 0:

@@ -12,6 +12,7 @@ func _ready():
 	nextScene.visible = false
 	player.get_node("Inventory").xInit()
 	player.position = Globals.playerStartPos
+	print(player.position, Globals.playerStartPos)
 	get_tree().root.add_child(nextScene)
 	get_tree().root.add_child(town)
 	nextScene.transform.origin = Vector2(10000,10000)
@@ -19,7 +20,7 @@ func _ready():
 
 	# spawn treasures
 	add_treasures_to_grass(10)
-
+	#nextScene.spawn_cats(Globals.maxCats)
 
 
 func _on_dungeon_transition_point_body_entered(body:Node2D):
@@ -27,10 +28,8 @@ func _on_dungeon_transition_point_body_entered(body:Node2D):
 		player.position = Vector2(384,116)
 		swapScenes(self, nextScene)
 
-		for i in nextScene.get_node("Cats").get_children():
-			i.queue_free()
 		
-		nextScene.spawn_cats(8)
+		nextScene.spawn_cats(Globals.maxCats)
 		
 		
 
@@ -40,6 +39,12 @@ func _on_area_2d_body_entered(body):
 		swapScenes(self, town)
 
 func swapScenes(scene1, scene2):
+	# get rid of the cats and treasures
+	for i in get_node("Cats").get_children():
+		i.queue_free()
+	for i in get_node("Treasures").get_children():
+		i.queue_free()
+
 	scene1.transform.origin = Vector2(10000,10000)
 	scene2.transform.origin = Vector2(0,0)
 	scene1.visible = false
@@ -74,7 +79,7 @@ func add_treasures_to_grass(maxTreasures):
 
 			instance = Treasure.instantiate()
 			instance.position = randCell
-			add_child(instance)
+			get_node("Treasures").add_child(instance)
 
 			treasuresAdded += 1
 			print(treasuresAdded)

@@ -9,4 +9,6 @@ limit_left = 0
 limit_top = 0
 limit_right = 1295
 limit_bottom = 750
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 script = ExtResource("1_4c3ay")

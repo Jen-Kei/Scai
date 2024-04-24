@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://blvkieuxxgv8r"]
+[gd_scene load_steps=10 format=3 uid="uid://blvkieuxxgv8r"]
 
 [ext_resource type="Script" path="res://Town/Town.gd" id="1_drbu4"]
 [ext_resource type="PackedScene" uid="uid://f2r5xlkxr0gf" path="res://TownMap/TownMap.tscn" id="2_2xcot"]
 [ext_resource type="PackedScene" uid="uid://rybo4cveuxqj" path="res://OldMan/OldMan.tscn" id="4_j3a5p"]
-[ext_resource type="PackedScene" uid="uid://b4b6kdfqcgmfs" path="res://Treasures/Treasures.tscn" id="5_0illp"]
 [ext_resource type="PackedScene" uid="uid://dggl4p8sa42fe" path="res://NPCs/BattleAxeNelson/BattleAxeNelson.tscn" id="6_ngafv"]
 [ext_resource type="PackedScene" uid="uid://bws21qlbi7qnu" path="res://NPCs/Jess/Jess.tscn" id="7_8yj1x"]
 [ext_resource type="PackedScene" uid="uid://bg5obmc2wp5xf" path="res://NPCs/Julianne/Julianne.tscn" id="8_o3fdv"]
@@ -18,9 +17,6 @@ position = Vector2(-1, 1)
 script = ExtResource("1_drbu4")
 
 [node name="TownMap" parent="." instance=ExtResource("2_2xcot")]
-
-[node name="Treasure" parent="." instance=ExtResource("5_0illp")]
-position = Vector2(203, 372)
 
 [node name="OldMan" parent="." instance=ExtResource("4_j3a5p")]
 z_index = 5

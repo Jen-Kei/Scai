@@ -35,5 +35,8 @@ shape = SubResource("CircleShape2D_7dcbg")
 
 [node name="GameOverScreen" parent="." instance=ExtResource("4_2rbq2")]
 
+[node name="Cats" type="Node2D" parent="."]
+position = Vector2(563, 375)
+
 [connection signal="body_entered" from="DungeonTransitionPoint" to="." method="_on_dungeon_transition_point_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
