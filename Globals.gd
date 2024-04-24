@@ -8,10 +8,11 @@ var playerExitDungeonPos = Vector2(1078 ,105)
 var playerStartPos = Vector2(62, 387)
 
 var gameFirstLoadIn = true
+var gameOverMessage = "You lost! Better luck next time."
 
 var moneyAmount = 50
 var day = 1
-var quota = 150
+var quota = 20
 
 # Player stats
 var normalSpeed = 100.0

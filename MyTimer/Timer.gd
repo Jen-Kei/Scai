@@ -3,10 +3,13 @@ extends Timer
 var secs
 var mins
 
+signal game_over
+signal game_won
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	one_shot = true
-	wait_time = 600
+	wait_time = 5
 	start()
 	%timeLabel.text = str("Day: ", Globals.day)
 
@@ -28,6 +31,13 @@ func _process(delta):
 func on_timer_timeout():
 	stop()
 	%clockLabel.text = "!:!!"
+	if Globals.moneyAmount < Globals.quota:
+		Globals.gameOverMessage = "You failed to reach the quota in time."
+		game_over.emit()
+	else:
+		game_won.emit()
+		#wait_time = 10
+		#start()
 
 	
 	

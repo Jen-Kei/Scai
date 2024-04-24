@@ -22,6 +22,7 @@ func _on_player_health_decrease():
 	Globals.currentHealth = clamp(Globals.currentHealth, 0, max_value)
 	value = Globals.currentHealth
 	if value <= 0:
+		Globals.gameOverMessage = "Why so quiet? Cat got your tongue?"
 		game_over.emit()
 
 func _on_player_health_increase():
