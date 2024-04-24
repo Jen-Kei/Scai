@@ -440,7 +440,7 @@ position = Vector2(-19, 0)
 [node name="Flashlight" parent="Marker2D/lights" instance=ExtResource("3_jx1x2")]
 position = Vector2(47, 0)
 scale = Vector2(0.990625, 0.967213)
-energy = 10.1
+energy = 2.0
 texture_scale = 1.0
 
 [node name="PointLight2D" type="PointLight2D" parent="Marker2D/lights"]

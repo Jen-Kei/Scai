@@ -25,8 +25,8 @@ func change_proompt(proompt):
 func initPopup(ai_name, user_name, preMessage): # Initialize the popup
 	aiName = ai_name
 	userName = user_name
-	%AI_Name.text = '[center]'+str(aiName)
-	%User_Name.text = '[center]'+str(userName)
+	%AI_Name.text = str(aiName)
+	%User_Name.text = str(userName)
 	%AIRequest.chatToPT(preMessage+"\nHello!")
 
 func _on_submit_btn_button_down(): # Press enter

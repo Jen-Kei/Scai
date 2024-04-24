@@ -22,3 +22,7 @@ func _play_music(music: AudioStream, volume = 5.0):
 
 func play_background_music():
 	_play_music(backgroundMusic)
+
+
+func _on_finished():
+	_play_music(backgroundMusic)
