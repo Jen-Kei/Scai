@@ -11,17 +11,18 @@ signal health_increase
 @onready var staminaBar = $StaminaBar/TextureProgressBar
 
 # Initialise vars 
-@onready var speed = %StatBank.speed
-@onready var normal_speed = %StatBank.normal_speed
-@onready var extra_speed = %StatBank.extra_speed
-
-@onready var stamina = %StatBank.stamina
-@onready var current_direction = "none"
-@onready var running = false
-
-@onready var health = %StatBank.health
-@onready var health_capacity = %StatBank.health_capacity
-@onready var health_gain = %StatBank.health_gain
+	
+#@onready var speed = %StatBank.speed
+#@onready var normal_speed = %StatBank.normal_speed
+#@onready var extra_speed = %StatBank.extra_speed
+#
+#@onready var stamina = %StatBank.stamina
+#@onready var current_direction = "none"
+#@onready var running = false
+#
+#@onready var health = %StatBank.health
+#@onready var health_capacity = %StatBank.health_capacity
+#@onready var health_gain = %StatBank.health_gain
 
 @onready var input_movement = Vector2.ZERO
 @onready var animTree = $AnimationTree
@@ -51,21 +52,22 @@ func _process(delta):
 		for i in $Marker2D/lights.get_children():
 			i.visible = !i.visible
 
-func reInit():
-	# Initialise vars
-	speed = %StatBank.speed
-	print("Reinit speed: ", speed)
-	normal_speed = %StatBank.normal_speed
-	extra_speed = %StatBank.extra_speed
 
-	stamina = %StatBank.stamina
-	current_direction = "none"
-	running = false
-
-	health = %StatBank.health
-	health_capacity = %StatBank.health_capacity
-	health_gain = %StatBank.health_gain
-
+#func reInit():
+#	# Initialise vars
+#	speed = %StatBank.speed
+#	print("Reinit speed: ", speed)
+#	normal_speed = %StatBank.normal_speed
+#	extra_speed = %StatBank.extra_speed
+#
+#	stamina = %StatBank.stamina
+#	current_direction = "none"
+#	running = false
+##
+#	health = %StatBank.health
+#	health_capacity = %StatBank.health_capacity
+#	health_gain = %StatBank.health_gain
+#
 	#staminaBar.staminaPerSecond = %StatBank.stamina_gain
 
 
@@ -79,7 +81,7 @@ func player_movement():
 
 		animState.travel("Walk")
 
-		velocity = input_movement * speed 
+		velocity = input_movement * Globals.currentSpeed 
 	
 	if input_movement == Vector2.ZERO:
 		animState.travel("Idle")
@@ -96,15 +98,18 @@ func player_movement():
 
 # Change the player's speed and update the stamina meter 
 func player_speed():
-	if Input.is_action_pressed("ui_run") && stamina > 10:
-		if stamina > 30:
-			speed = extra_speed
+	if Input.is_action_pressed("ui_run") && Globals.currentStamina > 10:
+		print("running")
+		if Globals.currentStamina > 30:
+			Globals.currentSpeed = Globals.runSpeed
 			animPlayer.speed_scale = 1.5
 		stamina_decrease.emit()
 	else:
-		speed = normal_speed
+		Globals.currentSpeed = Globals.normalSpeed
 		animPlayer.speed_scale = 1
 		stamina_increase.emit()
+		health_increase.emit()
+
 
 '''
 func door_open():

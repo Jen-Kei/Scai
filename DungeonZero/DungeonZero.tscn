@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqfjynd1qyohv"]
+[gd_scene load_steps=7 format=3 uid="uid://bqfjynd1qyohv"]
 
 [ext_resource type="Script" path="res://DungeonZero/DungeonZero.gd" id="1_tk5vk"]
 [ext_resource type="PackedScene" uid="uid://b25pg6ksv2127" path="res://DungeonMapZero/DungeonMapZero.tscn" id="2_3p4oo"]
+[ext_resource type="PackedScene" uid="uid://xf785dkqjxr4" path="res://GameOver.tscn" id="5_1evrm"]
 [ext_resource type="Script" path="res://Bulb/BulbGen.gd" id="5_eftj2"]
 [ext_resource type="Script" path="res://Globals.gd" id="6_2p7ne"]
 
@@ -25,11 +26,13 @@ script = ExtResource("5_eftj2")
 script = ExtResource("6_2p7ne")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DungeonZeroMainExit"]
-position = Vector2(463.5, 8.5)
+position = Vector2(383, 136)
 shape = SubResource("RectangleShape2D_6sqg5")
 
 [node name="Cats" type="Node2D" parent="."]
 
 [node name="NAV" type="Node2D" parent="."]
+
+[node name="GameOverScreen" parent="." instance=ExtResource("5_1evrm")]
 
 [connection signal="body_entered" from="DungeonZeroMainExit" to="." method="_on_dungeon_zero_main_exit_body_entered"]

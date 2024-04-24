@@ -114,7 +114,6 @@ animations = [{
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="MoneyCounter" type="Label" parent="."]
-anchors_preset = -1
 offset_left = 196.0
 offset_top = 72.0
 offset_right = 276.0

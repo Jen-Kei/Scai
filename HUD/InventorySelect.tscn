@@ -89,6 +89,18 @@ theme_override_fonts/font = ExtResource("4_l6jeg")
 theme_override_font_sizes/font_size = 30
 text = "Sell"
 
+[node name="backBTN" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 141.25
+offset_top = 517.5
+offset_right = 242.25
+offset_bottom = 562.5
+theme = ExtResource("2_an4s1")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_l6jeg")
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 0
 offset_right = 40.0
@@ -96,6 +108,7 @@ offset_bottom = 40.0
 
 [connection signal="button_down" from="Control/PanelContainer/sellBTN" to="." method="_on_sell_btn_button_down"]
 [connection signal="button_down" from="Control/sellBTN1" to="." method="_on_sell_btn_1_button_down"]
+[connection signal="button_down" from="Control/backBTN" to="." method="_on_back_btn_button_down"]
 
 [editable path="Control/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/ItemButton"]
 [editable path="Control/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/ItemButton2"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bos2n0mp30mur"]
+
+[ext_resource type="Script" path="res://MyTimer/Timer.gd" id="1_n2o23"]
+[ext_resource type="Theme" uid="uid://bq5xapy267tbu" path="res://Theme/DefaultTheme.tres" id="2_ge3ym"]
+
+[node name="MyTimer" type="CanvasLayer"]
+
+[node name="Timer" type="Timer" parent="."]
+script = ExtResource("1_n2o23")
+
+[node name="clockLabel" type="RichTextLabel" parent="Timer"]
+unique_name_in_owner = true
+z_index = 60
+offset_left = 1.0
+offset_top = 63.0
+offset_right = 433.0
+offset_bottom = 260.0
+theme = ExtResource("2_ge3ym")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 90
+text = "0:00"
+
+[node name="timeLabel" type="RichTextLabel" parent="Timer"]
+unique_name_in_owner = true
+offset_left = 57.0
+offset_top = 3.0
+offset_right = 336.0
+offset_bottom = 55.0
+theme = ExtResource("2_ge3ym")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "Day: X"

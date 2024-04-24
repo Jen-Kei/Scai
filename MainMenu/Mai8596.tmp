@@ -1,0 +1,176 @@
+[gd_scene load_steps=10 format=3 uid="uid://bswtdy5lr8seq"]
+
+[ext_resource type="Theme" uid="uid://bq5xapy267tbu" path="res://Theme/DefaultTheme.tres" id="1_xdo7s"]
+[ext_resource type="Script" path="res://MainMenu/MainMenu.gd" id="2_55ck4"]
+[ext_resource type="Texture2D" uid="uid://cacl1t5ufs0ot" path="res://MainMenu/Assets/ScaiLogoOutline.png" id="2_f7viu"]
+[ext_resource type="Texture2D" uid="uid://4exvpb2kjjdt" path="res://MainMenu/Assets/ForestBg.png" id="2_vi0mv"]
+[ext_resource type="PackedScene" uid="uid://cfjevuraxgb3g" path="res://MainMenu/splash.tscn" id="5_nrbs3"]
+
+[sub_resource type="Animation" id="Animation_uho6m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScaiLogo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(80, 755)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScaiLogo:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1209, 672.002)]
+}
+
+[sub_resource type="Animation" id="Animation_20d1f"]
+resource_name = "bounce"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScaiLogo:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScaiLogo:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(80, 160), Vector2(80, 207), Vector2(80, 160)]
+}
+
+[sub_resource type="Animation" id="Animation_dh6dg"]
+resource_name = "slideUp"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScaiLogo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(80, 755), Vector2(80, 160)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xb5qm"]
+_data = {
+"RESET": SubResource("Animation_uho6m"),
+"bounce": SubResource("Animation_20d1f"),
+"slideUp": SubResource("Animation_dh6dg")
+}
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xdo7s")
+script = ExtResource("2_55ck4")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.494118, 0.341176, 0.247059, 1)
+layout_mode = 0
+offset_left = -66.0
+offset_top = -55.0
+offset_right = 1243.0
+offset_bottom = 714.0
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2_vi0mv")
+
+[node name="ScaiLogo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -560.0
+offset_top = 395.0
+offset_right = 649.0
+offset_bottom = 1067.0
+grow_horizontal = 2
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_f7viu")
+
+[node name="MainMenuButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 256.0
+offset_top = -148.0
+offset_right = 561.0
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="PlayButton" type="Button" parent="MainMenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_font_sizes/font_size = 40
+text = "Play
+"
+
+[node name="KeybindsButton" type="Button" parent="MainMenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_font_sizes/font_size = 40
+text = "Keybinds
+"
+
+[node name="QuitButton" type="Button" parent="MainMenuButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_font_sizes/font_size = 40
+text = "Quit
+"
+
+[node name="Splash" parent="." instance=ExtResource("5_nrbs3")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xb5qm")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="button_down" from="MainMenuButtons/PlayButton" to="." method="_on_play_button_button_down"]
+[connection signal="button_down" from="MainMenuButtons/KeybindsButton" to="." method="_on_keybinds_button_button_down"]
+[connection signal="button_down" from="MainMenuButtons/QuitButton" to="." method="_on_quit_button_button_down"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -114,3 +114,8 @@ func get_text_between_braces(input_string: String):
 			dealEnded.emit()
 			Globals.moneyAmount += int(currentPrice)
 
+
+
+
+func _on_back_btn_button_down():
+	dealEnded.emit()

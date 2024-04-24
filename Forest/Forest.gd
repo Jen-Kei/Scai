@@ -24,7 +24,7 @@ func _ready():
 
 func _on_dungeon_transition_point_body_entered(body:Node2D):
 	if body.name == "PlayerX":
-		player.position = Vector2(464,38)
+		player.position = Vector2(384,116)
 		swapScenes(self, nextScene)
 
 		for i in nextScene.get_node("Cats").get_children():
