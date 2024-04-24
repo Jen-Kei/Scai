@@ -38,6 +38,7 @@ var inventoryOpen = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	BackgroundMusicPlayer.play_background_music()
 	for i in $Marker2D/lights.get_children():
 		i.visible = false
 	

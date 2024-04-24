@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://di7imdbmlhcww"]
+[gd_scene load_steps=3 format=3 uid="uid://di7imdbmlhcww"]
+
+[ext_resource type="Script" path="res://BackgroundMusic/BackgroundMusicPlayer.gd" id="1_6njsf"]
+[ext_resource type="AudioStream" uid="uid://cg554bvp7p7ct" path="res://BackgroundMusic/Scai.wav" id="1_8jhul"]
 
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_8jhul")
+volume_db = 5.0
+autoplay = true
+script = ExtResource("1_6njsf")
