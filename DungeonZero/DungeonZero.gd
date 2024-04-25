@@ -8,13 +8,15 @@ var Treasure = preload("res://Treasures/Treasures.tscn")
 # FUNCTIONS FOR SCENE TRANSITIONS
 func _ready():
 	player.get_node("Inventory").xInit()
-	spawn_treasures_dungeon(12)
 	
 func _on_dungeon_zero_main_exit_body_entered(body:Node2D):
 	if body.name == "PlayerX":
 		player.position = Vector2(1080,140)
 
+	# on exit delete all the stuff so it's not visible in the other scenes
 		for item in self.get_node("Cats").get_children():
+			item.queue_free()
+		for item in self.get_node("Treasures").get_children():
 			item.queue_free()
 
 		forest.swapScenes(self, forest)
@@ -30,7 +32,6 @@ func spawn_cats(maxCats):
 
 	for i in range(0, maxCats):
 
-		print("ready to spawn")
 		while catsAdded < maxCats:
 			# For every cat, generate a random location 
 			randX = randf_range(0, 1280)
@@ -59,7 +60,6 @@ func spawn_treasures_dungeon(maxTreasures):
 
 	for i in range(0, maxTreasures):
 
-		print("ready to spawn")
 		while treasuresAdded < maxTreasures:
 			# For every cat, generate a random location 
 			randX = randf_range(0, 1280)

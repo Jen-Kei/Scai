@@ -45,9 +45,11 @@ func _on_the_BTN_pressed():
 		player.position = Globals.playerStartPos
 		unpause()
 
+		# new variables for the game
 		Globals.timeLimit  = Globals.timeLimit * 0.8
 		timer.wait_time = Globals.timeLimit 
 		Globals.maxCats = Globals.maxCats * 1.5
+		Globals.maxTreasures = Globals.maxTreasures - 1
 		Globals.quota = Globals.quota * 1.2
 		timer.start()
 		

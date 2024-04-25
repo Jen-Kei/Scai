@@ -19,7 +19,7 @@ func _ready():
 	town.transform.origin = Vector2(10000,10000)
 
 	# spawn treasures
-	add_treasures_to_grass(10)
+	#add_treasures_to_grass(10)
 	#nextScene.spawn_cats(Globals.maxCats)
 
 
@@ -30,6 +30,7 @@ func _on_dungeon_transition_point_body_entered(body:Node2D):
 
 		
 		nextScene.spawn_cats(Globals.maxCats)
+		nextScene.spawn_treasures_dungeon(Globals.maxTreasures)
 		
 		
 
@@ -39,11 +40,15 @@ func _on_area_2d_body_entered(body):
 		swapScenes(self, town)
 
 func swapScenes(scene1, scene2):
+
 	# get rid of the cats and treasures
 	for i in get_node("Cats").get_children():
 		i.queue_free()
-	for i in get_node("Treasures").get_children():
-		i.queue_free()
+		print("delete cat")
+	for j in get_node("Treasures").get_children():
+		j.queue_free()
+		print("delete treasure") 
+	
 
 	scene1.transform.origin = Vector2(10000,10000)
 	scene2.transform.origin = Vector2(0,0)

@@ -8,3 +8,5 @@ stream = ExtResource("1_8jhul")
 volume_db = 2.0
 autoplay = true
 script = ExtResource("1_6njsf")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

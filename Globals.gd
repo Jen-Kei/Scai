@@ -15,6 +15,7 @@ var day = 1
 var quota = 80
 var timeLimit = 5*60
 var maxCats = 20
+var maxTreasures = 8
 
 # Player stats
 var normalSpeed = 100.0
