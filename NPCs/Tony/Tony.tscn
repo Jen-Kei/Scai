@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dvs1yl7eu6rjp"]
 
-[ext_resource type="Script" path="res://NPCs/Julianne/Julianne.gd" id="1_wloxk"]
+[ext_resource type="Script" path="res://NPCs/Tony/Tony.gd" id="1_6gbcc"]
 [ext_resource type="Texture2D" uid="uid://ci3nfhu4u7ggf" path="res://NPCs/Assets/Characters.png" id="2_kf2ok"]
 [ext_resource type="PackedScene" uid="uid://ca3ax5hy1pmbl" path="res://ePickup/e_key.tscn" id="3_h0pcv"]
 
@@ -29,7 +29,7 @@ _data = {
 
 [node name="Tony" type="CharacterBody2D"]
 y_sort_enabled = true
-script = ExtResource("1_wloxk")
+script = ExtResource("1_6gbcc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 2
