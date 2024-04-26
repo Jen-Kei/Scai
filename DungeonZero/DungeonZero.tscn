@@ -15,7 +15,7 @@ script = ExtResource("1_tk5vk")
 [node name="DungeonMapZero" parent="." instance=ExtResource("2_3p4oo")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.184314, 0.184314, 0.184314, 1)
+color = Color(0.101961, 0.101961, 0.101961, 1)
 
 [node name="Treasures" type="Node2D" parent="."]
 
