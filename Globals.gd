@@ -14,7 +14,7 @@ var moneyAmount = 50
 var day = 1
 var quota = 80
 var timeLimit = 5*60
-var maxCats = 20
+var maxCats = 40
 var maxTreasures = 8
 
 # Player stats

@@ -33,6 +33,7 @@ NPC: Hmph, who do you think you are? You’re going to have to be nicer to me, I
 
 You should only give the player a few chances to trade, if the player pushes too hard, end the trade and say something mean with {DEAL} at the end. 
 
+
 When you come to a deal, type {DEAL} (with the braces) and the trade will be completed.
 If you've said {DEAL} and the player persists, say "{DEAL} I've had enough of you!"
 At the beginning of your response, include one of these emotions, with the braces: {HAPPY}, {SAD}, {ANGRY}, {NEUTRAL}
@@ -75,7 +76,7 @@ func soldItems(x):
 	# CONNECT SIGNAL FOR DEAL ENDING
 	aiInstance.get_child(0).dealEnded.connect(_on_dealEnded)
 
-	aiInstance.get_child(0).initPopup("Julianna", "Player", "Item is usually worth: "+str(totalSold)+"\n What's up kid, what're you up to?")
+	aiInstance.get_child(0).initPopup("Jessy", "Player", "Item is usually worth: "+str(totalSold)+"\n Hello little lady! what're you up to? I have some goods to sell you.")
 
 	inventoryInstance.queue_free()
 	player.process_mode = PROCESS_MODE_DISABLED
