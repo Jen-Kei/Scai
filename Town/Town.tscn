@@ -1,13 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://blvkieuxxgv8r"]
+[gd_scene load_steps=12 format=3 uid="uid://blvkieuxxgv8r"]
 
 [ext_resource type="Script" path="res://Town/Town.gd" id="1_drbu4"]
 [ext_resource type="PackedScene" uid="uid://f2r5xlkxr0gf" path="res://TownMap/TownMap.tscn" id="2_2xcot"]
 [ext_resource type="PackedScene" uid="uid://rybo4cveuxqj" path="res://OldMan/OldMan.tscn" id="4_j3a5p"]
 [ext_resource type="PackedScene" uid="uid://cuicaaxunmygh" path="res://NPCs/Jessy/Jessy.tscn" id="5_c6myx"]
 [ext_resource type="PackedScene" uid="uid://dggl4p8sa42fe" path="res://NPCs/BattleAxeNelson/BattleAxeNelson.tscn" id="6_ngafv"]
+[ext_resource type="PackedScene" uid="uid://dvs1yl7eu6rjp" path="res://NPCs/Tony/Tony.tscn" id="8_em8rq"]
 [ext_resource type="PackedScene" uid="uid://bg5obmc2wp5xf" path="res://NPCs/Julianne/Julianne.tscn" id="8_o3fdv"]
 [ext_resource type="PackedScene" uid="uid://bj3xhfqsdjbks" path="res://NPCs/Kiki/Kiki.tscn" id="9_pvo22"]
 [ext_resource type="PackedScene" uid="uid://xf785dkqjxr4" path="res://GameOver.tscn" id="9_u7d5y"]
+[ext_resource type="PackedScene" uid="uid://bobalw4a3pq48" path="res://NPCs/Jimball/Jimball.tscn" id="9_wb7m6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dqxb5"]
 radius = 20.2237
@@ -20,10 +22,10 @@ script = ExtResource("1_drbu4")
 
 [node name="OldMan" parent="." instance=ExtResource("4_j3a5p")]
 z_index = 5
-position = Vector2(264, 348)
+position = Vector2(143, 315)
 
 [node name="BattleAxeNelson" parent="." instance=ExtResource("6_ngafv")]
-position = Vector2(305, 197)
+position = Vector2(114, 142)
 
 [node name="Jessy" parent="." instance=ExtResource("5_c6myx")]
 position = Vector2(381, 62)
@@ -31,10 +33,16 @@ position = Vector2(381, 62)
 [node name="Julianne" parent="." instance=ExtResource("8_o3fdv")]
 z_index = 5
 z_as_relative = false
-position = Vector2(535, 314)
+position = Vector2(633, 310)
 
 [node name="Kiki" parent="." instance=ExtResource("9_pvo22")]
-position = Vector2(505, 391)
+position = Vector2(983, 95)
+
+[node name="Tony" parent="." instance=ExtResource("8_em8rq")]
+position = Vector2(65, 613)
+
+[node name="Jimball" parent="." instance=ExtResource("9_wb7m6")]
+position = Vector2(442, 330)
 
 [node name="Treasures" type="Node2D" parent="."]
 position = Vector2(1, 1)
@@ -49,6 +57,5 @@ position = Vector2(1281, 569)
 shape = SubResource("CircleShape2D_dqxb5")
 
 [node name="GameOverScreen" parent="." instance=ExtResource("9_u7d5y")]
-visible = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -8,6 +8,7 @@
 radius = 4.12311
 
 [node name="Julianne" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_dxyys")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

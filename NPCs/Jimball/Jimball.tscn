@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bobalw4a3pq48"]
+
+[ext_resource type="Script" path="res://NPCs/Jimball/Jimball.gd" id="1_a2bo7"]
+[ext_resource type="Texture2D" uid="uid://ci3nfhu4u7ggf" path="res://NPCs/Assets/Characters.png" id="2_2blhq"]
+[ext_resource type="PackedScene" uid="uid://ca3ax5hy1pmbl" path="res://ePickup/e_key.tscn" id="3_kbli5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_68v52"]
+radius = 4.12311
+
+[node name="Jimball" type="CharacterBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_a2bo7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 5
+texture = ExtResource("2_2blhq")
+hframes = 10
+vframes = 20
+frame = 180
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_68v52")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="eKey" parent="." instance=ExtResource("3_kbli5")]
+z_index = 5
+position = Vector2(7, 6)
